@@ -15,6 +15,7 @@ public class ClubFacade {
     @PersistenceContext
     private EntityManager em;
 
+    
     public Club findById(long id) {return em.find(Club.class,id);}
 
     public List<Club> findAll(){ return em.createNamedQuery("Club.findAll",Club.class).getResultList();}
