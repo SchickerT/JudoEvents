@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JudoEventsServer:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="JudoEventsServer.war">
+      <element id="artifact" artifact-name="JudoEventsServer:war exploded" />
+    </root>
+  </artifact>
+</component>

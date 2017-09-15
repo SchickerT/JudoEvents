@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Derby (Remote) - db@localhost">
+  <database-model serializer="dbm" rdbms="DERBY" format-version="2.6">
+    <schema id="1" name="APP">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="NULLID"/>
+    <schema id="3" name="SQLJ"/>
+    <schema id="4" name="SYS"/>
+    <schema id="5" name="SYSCAT"/>
+    <schema id="6" name="SYSCS_DIAG"/>
+    <schema id="7" name="SYSCS_UTIL"/>
+    <schema id="8" name="SYSFUN"/>
+    <schema id="9" name="SYSIBM"/>
+    <schema id="10" name="SYSPROC"/>
+    <schema id="11" name="SYSSTAT"/>
+    <table id="12" parent="1" name="PERSON"/>
+    <column id="13" parent="12" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="14" parent="12" name="FIRSTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="15" parent="12" name="LASTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <key id="16" parent="12" name="SQL170914133955530">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
