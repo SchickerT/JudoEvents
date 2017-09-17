@@ -18,7 +18,6 @@ import java.util.List;
         )
 })
 @XmlRootElement
-@Table(name = "W_EVENT")
 public class Event {
 
     @Id
@@ -40,18 +39,14 @@ public class Event {
     @Lob
     private byte[] picture;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Location location;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Club club;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Representative representative;
-
-    @OneToMany
-    private List<Participation> participations;
-
 
     public Event() {
     }
@@ -174,14 +169,6 @@ public class Event {
 
     public void setRepresentative(Representative representative) {
         this.representative = representative;
-    }
-
-    public List<Participation> getParticipations() {
-        return participations;
-    }
-
-    public void setParticipations(List<Participation> participations) {
-        this.participations = participations;
     }
 
     //endregion

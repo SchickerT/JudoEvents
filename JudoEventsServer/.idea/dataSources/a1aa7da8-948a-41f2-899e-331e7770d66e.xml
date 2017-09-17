@@ -14,23 +14,343 @@
     <schema id="9" name="SYSIBM"/>
     <schema id="10" name="SYSPROC"/>
     <schema id="11" name="SYSSTAT"/>
-    <table id="12" parent="1" name="PERSON"/>
-    <column id="13" parent="12" name="ID">
+    <table id="12" parent="1" name="CLUB"/>
+    <table id="13" parent="1" name="EVENT"/>
+    <table id="14" parent="1" name="LOCATION"/>
+    <table id="15" parent="1" name="PARTICIPATION"/>
+    <table id="16" parent="1" name="PERSON"/>
+    <table id="17" parent="1" name="REPRESENTATIVE"/>
+    <table id="18" parent="1" name="W_CLUB"/>
+    <table id="19" parent="1" name="W_LOCATION"/>
+    <table id="20" parent="1" name="W_REPRESENTATIVE"/>
+    <column id="21" parent="12" name="ID">
       <mandatory>1</mandatory>
       <data-type>BIGINT(19)|-5</data-type>
       <sequence-identity>1</sequence-identity>
       <default-expression>GENERATED_BY_DEFAULT</default-expression>
     </column>
-    <column id="14" parent="12" name="FIRSTNAME">
+    <column id="22" parent="12" name="DISCRIPTION">
       <data-type>VARCHAR(255)|12</data-type>
     </column>
-    <column id="15" parent="12" name="LASTNAME">
+    <column id="23" parent="12" name="EMAIL">
       <data-type>VARCHAR(255)|12</data-type>
     </column>
-    <key id="16" parent="12" name="SQL170914133955530">
+    <column id="24" parent="12" name="NAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="25" parent="12" name="PASSWORD">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="26" parent="12" name="PICTURE">
+      <data-type>BLOB(max)|2004</data-type>
+    </column>
+    <column id="27" parent="12" name="LOCATION_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="28" parent="12" name="REPRESENTATIVE_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="29" parent="12" name="SQL170917231156640">
       <name-surrogate>1</name-surrogate>
       <columns>ID</columns>
       <primary>1</primary>
     </key>
+    <foreign-key id="30" parent="12" name="FKKPSTN8IPREX1T01H23920X9V9">
+      <columns>LOCATION_ID</columns>
+      <ref-key>~.LOCATION.SQL170917231156651</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="31" parent="12" name="FKT6IG5X96UGF623M3OIJSPBN2R">
+      <columns>REPRESENTATIVE_ID</columns>
+      <ref-key>~.REPRESENTATIVE.SQL170917231156661</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="32" parent="13" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="33" parent="13" name="AGEANDWEIGHT">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="34" parent="13" name="DISCRIPTION">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="35" parent="13" name="ENDDATE">
+      <data-type>DATE(10)|91</data-type>
+    </column>
+    <column id="36" parent="13" name="ENTRYFEE">
+      <mandatory>1</mandatory>
+      <data-type>DOUBLE(52)|8</data-type>
+    </column>
+    <column id="37" parent="13" name="NAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="38" parent="13" name="PICTURE">
+      <data-type>BLOB(max)|2004</data-type>
+    </column>
+    <column id="39" parent="13" name="REWARDS">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="40" parent="13" name="STARTDATE">
+      <data-type>DATE(10)|91</data-type>
+    </column>
+    <column id="41" parent="13" name="TYPEOFEVENT">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="42" parent="13" name="CLUB_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="43" parent="13" name="LOCATION_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="44" parent="13" name="REPRESENTATIVE_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="45" parent="13" name="SQL170917231156650">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="46" parent="13" name="FK1RMJVCBFR427HK7AHK83LV6H1">
+      <columns>CLUB_ID</columns>
+      <ref-key>~.CLUB.SQL170917231156640</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="47" parent="13" name="FKGDRUO5QB3KCA4OHXO14CEDENE">
+      <columns>LOCATION_ID</columns>
+      <ref-key>~.LOCATION.SQL170917231156651</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="48" parent="13" name="FKQ401EXCPAMTYP3GGE7KD9WOSE">
+      <columns>REPRESENTATIVE_ID</columns>
+      <ref-key>~.REPRESENTATIVE.SQL170917231156661</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="49" parent="14" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="50" parent="14" name="CITY">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="51" parent="14" name="COUNTRY">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="52" parent="14" name="FEDERALSTATE">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="53" parent="14" name="STREET">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="54" parent="14" name="ZIPCODE">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <key id="55" parent="14" name="SQL170917231156651">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="56" parent="15" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="57" parent="15" name="NUMBEROFSTARTERS">
+      <mandatory>1</mandatory>
+      <data-type>INTEGER(10)|4</data-type>
+    </column>
+    <column id="58" parent="15" name="STARTERS">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="59" parent="15" name="CLUB_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="60" parent="15" name="EVENT_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="61" parent="15" name="SQL170917231156660">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="62" parent="15" name="FKGRW08WIGTGL7UESKUR4Y5MGF">
+      <columns>CLUB_ID</columns>
+      <ref-key>~.CLUB.SQL170917231156640</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="63" parent="15" name="FK4O377V9R8TSYL0S89WEMSGE80">
+      <columns>EVENT_ID</columns>
+      <ref-key>~.EVENT.SQL170917231156650</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="64" parent="16" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="65" parent="16" name="FIRSTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="66" parent="16" name="LASTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <key id="67" parent="16" name="SQL170917232524210">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="68" parent="17" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="69" parent="17" name="EMAIL">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="70" parent="17" name="FIRSTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="71" parent="17" name="LASTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="72" parent="17" name="PHONENUMBER">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="73" parent="17" name="PICTURE">
+      <data-type>BLOB(max)|2004</data-type>
+    </column>
+    <column id="74" parent="17" name="CLUB_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="75" parent="17" name="SQL170917231156661">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="76" parent="17" name="FKI7IUB464S8Q5BRJ5BY8S8R4MA">
+      <columns>CLUB_ID</columns>
+      <ref-key>~.CLUB.SQL170917231156640</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="77" parent="18" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="78" parent="18" name="DISCRIPTION">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="79" parent="18" name="EMAIL">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="80" parent="18" name="NAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="81" parent="18" name="PASSWORD">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="82" parent="18" name="PICTURE">
+      <data-type>BLOB(max)|2004</data-type>
+    </column>
+    <column id="83" parent="18" name="LOCATION_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <column id="84" parent="18" name="REPRESENTATIVE_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="85" parent="18" name="SQL170915163812630">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="86" parent="18" name="FK8JB6DLE1SK7PXR9JN4LW6JCDX">
+      <columns>LOCATION_ID</columns>
+      <ref-key>~.W_LOCATION.SQL170915163812650</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="87" parent="18" name="FKLT2DK7TQ7D3OQEHOE3TU7PG8N">
+      <columns>REPRESENTATIVE_ID</columns>
+      <ref-key>~.W_REPRESENTATIVE.SQL170915163812670</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
+    <column id="88" parent="19" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="89" parent="19" name="CITY">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="90" parent="19" name="COUNTRY">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="91" parent="19" name="FEDERALSTATE">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="92" parent="19" name="STREET">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="93" parent="19" name="ZIPCODE">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <key id="94" parent="19" name="SQL170915163812650">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="95" parent="20" name="ID">
+      <mandatory>1</mandatory>
+      <data-type>BIGINT(19)|-5</data-type>
+      <sequence-identity>1</sequence-identity>
+      <default-expression>GENERATED_BY_DEFAULT</default-expression>
+    </column>
+    <column id="96" parent="20" name="EMAIL">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="97" parent="20" name="FIRSTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="98" parent="20" name="LASTNAME">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="99" parent="20" name="PHONENUMBER">
+      <data-type>VARCHAR(255)|12</data-type>
+    </column>
+    <column id="100" parent="20" name="PICTURE">
+      <data-type>BLOB(max)|2004</data-type>
+    </column>
+    <column id="101" parent="20" name="CLUB_ID">
+      <data-type>BIGINT(19)|-5</data-type>
+    </column>
+    <key id="102" parent="20" name="SQL170915163812670">
+      <name-surrogate>1</name-surrogate>
+      <columns>ID</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="103" parent="20" name="FK5444EGMJUXO5435TY8BIJKN2J">
+      <columns>CLUB_ID</columns>
+      <ref-key>~.W_CLUB.SQL170915163812630</ref-key>
+      <cascade-update-rule>no_action</cascade-update-rule>
+      <cascade-delete-rule>no_action</cascade-delete-rule>
+    </foreign-key>
   </database-model>
 </dataSource>

@@ -16,7 +16,6 @@ import java.util.List;
         )
 })
 @XmlRootElement
-@Table(name = "W_LOCATION")
 public class Location implements Serializable {
 
     @Id
@@ -29,11 +28,6 @@ public class Location implements Serializable {
     private String federalState;
     private String country;
 
-    @OneToMany
-    private List<Club> clubs;
-
-    @OneToMany
-    private List<Event> events;
 
     public Location(String zipCode, String city, String street, String federalState, String country) {
         this.zipCode = zipCode;
@@ -96,21 +90,7 @@ public class Location implements Serializable {
         this.country = country;
     }
 
-    public List<Club> getClubs() {
-        return clubs;
-    }
 
-    public void setClubs(List<Club> clubs) {
-        this.clubs = clubs;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
 
     //endregion
 }

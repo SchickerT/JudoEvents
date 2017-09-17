@@ -16,7 +16,6 @@ import java.util.List;
         )
 })
 @XmlRootElement
-@Table(name = "W_CLUB")
 public class Club implements Serializable{
 
     @Id
@@ -33,13 +32,7 @@ public class Club implements Serializable{
     @OneToOne
     private Representative representative;
 
-    @OneToMany
-    private List<Event> events;
-
-    @OneToMany
-    private List<Participation> participations;
-
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Location location;
 
     public Club(String name, String discription, byte[] picture, Representative representative, Location location,String email,String password) {
@@ -98,28 +91,12 @@ public class Club implements Serializable{
         this.representative = representative;
     }
 
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
-
     public Location getLocation() {
         return location;
     }
 
     public void setLocation(Location location) {
         this.location = location;
-    }
-
-    public List<Participation> getParticipations() {
-        return participations;
-    }
-
-    public void setParticipations(List<Participation> participations) {
-        this.participations = participations;
     }
 
     public String getEmail() {

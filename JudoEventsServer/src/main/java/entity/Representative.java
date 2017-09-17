@@ -15,7 +15,6 @@ import java.util.List;
     )
 })
 @XmlRootElement
-@Table(name = "W_REPRESENTATIVE")
 public class Representative {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,9 +30,6 @@ public class Representative {
 
     @OneToOne
     private Club club;
-
-    @OneToMany
-    private List<Event> events;
 
     public Representative() {
 
@@ -103,14 +99,6 @@ public class Representative {
 
     public void setClub(Club club) {
         this.club = club;
-    }
-
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
     }
 
     //endregion

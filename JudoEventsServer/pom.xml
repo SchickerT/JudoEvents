@@ -22,8 +22,19 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jaxrs</artifactId>
+            <version>1.5.16</version>
+        </dependency>
     </dependencies>
 
+    <dependency>
+        <groupId>org.webjars</groupId>
+        <artifactId>swagger-ui</artifactId>
+        <version>3.0.10</version>
+    </dependency>
 
     <build>
         <finalName>JudoEventsServer</finalName>

@@ -14,7 +14,6 @@ import javax.xml.bind.annotation.XmlRootElement;
         )
 })
 @XmlRootElement
-@Table(name = "W_PARTICIPATION")
 public class Participation {
 
     @Id
@@ -25,10 +24,10 @@ public class Participation {
 
     private String starters;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Club club;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Event event;
 
     public Participation() {
