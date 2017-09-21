@@ -95,6 +95,7 @@ public class ParticipationResource {
     @PUT
     @Path("/{id:[0-9][0-9]*}")
     @Consumes("application/json")
+    @Produces("application/json")
     @ApiOperation("ändern eine Participation (die Id der zu ändernden Participation muss separat mitgegeben werden")
     public Response update(@PathParam("id") Long id, Participation entity) {
         if (entity == null) {

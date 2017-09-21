@@ -102,6 +102,7 @@ public class EventResource {
     @PUT
     @Path("/{id:[0-9][0-9]*}")
     @Consumes("application/json")
+    @Produces("application/json")
     @ApiOperation("ändern ein Event (die Id des zu ändernden Events muss separat mitgegeben werden")
     public Response update(@PathParam("id") Long id, Event entity) {
         if (entity == null) {

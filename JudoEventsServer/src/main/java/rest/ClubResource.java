@@ -53,7 +53,7 @@ public class ClubResource {
 
         club.setRepresentative(representative);
         club.setLocation(location);
-        
+
         em.persist(club);
 
         return Response.created(
@@ -103,6 +103,7 @@ public class ClubResource {
     @PUT
     @Path("/{id:[0-9][0-9]*}")
     @Consumes("application/json")
+    @Produces("application/json")
     @ApiOperation("ändern einen Club (die Id des zu ändernden Clubs muss separat mitgegeben werden")
     public Response update(@PathParam("id") Long id, Club entity) {
         if (entity == null) {

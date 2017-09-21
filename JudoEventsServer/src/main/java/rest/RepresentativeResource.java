@@ -90,6 +90,7 @@ public class RepresentativeResource {
     @PUT
     @Path("/{id:[0-9][0-9]*}")
     @Consumes("application/json")
+    @Produces("application/json")
     @ApiOperation("ändern einen Representative (die Id der zu ändernden Representative muss separat mitgegeben werden")
     public Response update(@PathParam("id") Long id, Representative entity) {
         if (entity == null) {
