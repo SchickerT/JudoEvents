@@ -48,11 +48,12 @@ public class ClubResource {
     @Consumes("application/json")
     @ApiOperation("erstellt einen Club; mit RepresentativeId und LocationId")
     public Response create(Club club){
-        Representative representative = null;
-        Location location = null;
+        Representative representative = club.getRepresentative();
+        Location location = club.getLocation();
 
         club.setRepresentative(representative);
         club.setLocation(location);
+        
         em.persist(club);
 
         return Response.created(

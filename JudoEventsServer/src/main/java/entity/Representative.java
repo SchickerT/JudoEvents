@@ -28,7 +28,7 @@ public class Representative {
     @Lob
     private byte[] picture;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Club club;
 
     public Representative() {

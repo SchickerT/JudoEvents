@@ -29,10 +29,10 @@ public class Club implements Serializable{
     @Lob
     private byte[] picture;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Representative representative;
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Location location;
 
     public Club(String name, String discription, byte[] picture, Representative representative, Location location,String email,String password) {
