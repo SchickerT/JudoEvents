@@ -22,7 +22,7 @@ public class RestConfig extends Application{
         beanConfig.setTitle("JudoEventsServer");
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("localhost:8080");
-        beanConfig.setBasePath("/judoEventsServer/rs");
+        beanConfig.setBasePath("/JudoEventsServer/rs");
         beanConfig.setResourcePackage("rest");
         beanConfig.setScan(true);
         beanConfig.setPrettyPrint(true);

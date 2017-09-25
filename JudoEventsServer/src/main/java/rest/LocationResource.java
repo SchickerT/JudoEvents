@@ -49,7 +49,7 @@ public class LocationResource {
     public Response deleteById(@PathParam("id") Long id) {
         Location entity = em.find(Location.class, id);
         if (entity == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         em.remove(entity);
         return Response.noContent().build();
@@ -65,7 +65,7 @@ public class LocationResource {
 
         if (location == null) {
             return Response
-                    .status(Response.Status.NOT_FOUND)
+                    .status(Response.Status.BAD_REQUEST)
                     .header("reason", "[Location] with id = " + id + " not found")
                     .build();
         }
@@ -95,7 +95,7 @@ public class LocationResource {
             return Response.status(Response.Status.CONFLICT).entity(entity).build();
         }
         if (em.find(Location.class, id) == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         try {
             entity = em.merge(entity);

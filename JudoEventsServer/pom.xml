@@ -13,6 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
     <dependencies>
@@ -23,18 +24,21 @@
             <scope>provided</scope>
         </dependency>
 
+
         <dependency>
             <groupId>io.swagger</groupId>
-            <artifactId>swagger-jaxrs</artifactId>
-            <version>1.5.16</version>
+            <artifactId>swagger-jersey2-jaxrs</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>swagger-ui</artifactId>
+            <version>3.0.10</version>
+            <scope>compiled </scope>
         </dependency>
     </dependencies>
 
-    <dependency>
-        <groupId>org.webjars</groupId>
-        <artifactId>swagger-ui</artifactId>
-        <version>3.0.10</version>
-    </dependency>
+
 
     <build>
         <finalName>JudoEventsServer</finalName>

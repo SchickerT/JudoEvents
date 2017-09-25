@@ -67,7 +67,7 @@ public class ClubResource {
     public Response deleteById(@PathParam("id") Long id) {
         Club entity = em.find(Club.class, id);
         if (entity == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         em.remove(entity);
         return Response.noContent().build();
@@ -76,14 +76,14 @@ public class ClubResource {
     @GET
     @Path("/{id:[0-9][0-9]*}")
     @Produces("application/json")
-    @ApiOperation("suchen einen Club anhand der id")
+    @ApiOperation("sucht einen Club anhand der id")
     public Response findById(@PathParam("id") Long id) {
 
         Club club = em.find(Club.class, id);
 
         if (club == null) {
             return Response
-                    .status(Response.Status.NOT_FOUND)
+                    .status(Response.Status.BAD_REQUEST)
                     .header("reason", "[Club] with id = " + id + " not found")
                     .build();
         }
@@ -95,7 +95,7 @@ public class ClubResource {
     @ApiOperation("suchen aller Clubs mit Startwert und max. Anzahl von zurückgegebenen Buchungen")
     public List<Club> findAll(
             @ApiParam("Startwert - dieser Parameter ist wahlweise") @QueryParam("start") Integer startPosition,
-            @ApiParam("Anzahl der zurückgegebenen Buchungen - dieser Parameter ist wahlweise") @QueryParam("max") Integer maxResult) {
+            @ApiParam("Anzahl der zurückgegebenen Clubs - dieser Parameter ist wahlweise") @QueryParam("max") Integer maxResult) {
 
         return clubFacade.findAll(startPosition, maxResult);
     }
@@ -116,7 +116,7 @@ public class ClubResource {
             return Response.status(Response.Status.CONFLICT).entity(entity).build();
         }
         if (em.find(Club.class, id) == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         try {
             entity = em.merge(entity);

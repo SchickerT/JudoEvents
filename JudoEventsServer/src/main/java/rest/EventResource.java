@@ -69,7 +69,7 @@ public class EventResource {
     public Response deleteById(@PathParam("id") Long id) {
         Event entity = em.find(Event.class, id);
         if (entity == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         em.remove(entity);
         return Response.noContent().build();
@@ -85,7 +85,7 @@ public class EventResource {
 
         if (club == null) {
             return Response
-                    .status(Response.Status.NOT_FOUND)
+                    .status(Response.Status.BAD_REQUEST)
                     .header("reason", "[Event] with id = " + id + " not found")
                     .build();
         }
@@ -115,7 +115,7 @@ public class EventResource {
             return Response.status(Response.Status.CONFLICT).entity(entity).build();
         }
         if (em.find(Event.class, id) == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.BAD_REQUEST).build();
         }
         try {
             entity = em.merge(entity);
