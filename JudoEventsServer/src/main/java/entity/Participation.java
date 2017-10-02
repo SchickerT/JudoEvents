@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,11 +26,17 @@ public class Participation {
 
     private String starters;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
+    @JsonIgnore
     private Club club;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    private long clubId;
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
+    @JsonIgnore
     private Event event;
+
+    private long eventId;
 
     public Participation() {
     }
@@ -38,6 +46,8 @@ public class Participation {
         this.starters = starters;
         this.club = club;
         this.event = event;
+        this.clubId = club.getId();
+        this.eventId = event.getId();
     }
 
     //region GETTER AND SETTER
@@ -80,6 +90,22 @@ public class Participation {
 
     public void setEvent(Event event) {
         this.event = event;
+    }
+
+    public long getClubId() {
+        return clubId;
+    }
+
+    public void setClubId(long clubId) {
+        this.clubId = clubId;
+    }
+
+    public long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(long eventId) {
+        this.eventId = eventId;
     }
 
     //endregion

@@ -25,22 +25,19 @@ public class Representative {
     private String email;
     private String phoneNumber;
 
-    @Lob
-    private byte[] picture;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Club club;
+    private String pictureUrl;
 
     public Representative() {
 
     }
 
-    public Representative(String firstName, String lastName, String email, String phoneNumber, Club club) {
+    public Representative(String firstName, String lastName, String email, String phoneNumber,String pictureUrl) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.club = club;
+        this.pictureUrl = pictureUrl;
     }
 
     //region GETTER AND SETTER
@@ -85,21 +82,14 @@ public class Representative {
         this.phoneNumber = phoneNumber;
     }
 
-    public byte[] getPicture() {
-        return picture;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setPictureUrl(String picture) {
+        this.pictureUrl = picture;
     }
 
-    public Club getClub() {
-        return club;
-    }
-
-    public void setClub(Club club) {
-        this.club = club;
-    }
 
     //endregion
 }

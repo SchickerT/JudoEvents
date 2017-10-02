@@ -1,5 +1,6 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import entity.enums.TypeOfEvent;
 
 import javax.persistence.*;
@@ -36,22 +37,24 @@ public class Event {
     private String rewards;
     private String ageAndWeight;
 
-    @Lob
-    private byte[] picture;
+    private String pictureUrl;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Location location;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
+    @JsonIgnore
     private Club club;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    private long clubId;
+
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Representative representative;
 
     public Event() {
     }
 
-    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, Location location, Club club, Representative representative) {
+    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.typeOfEvent = typeOfEvent;
@@ -63,6 +66,8 @@ public class Event {
         this.location = location;
         this.club = club;
         this.representative = representative;
+        this.pictureUrl = pictureUrl;
+        this.clubId = club.id;
     }
 
     //region GETTER AND SETTER
@@ -139,12 +144,12 @@ public class Event {
         this.ageAndWeight = ageAndWeight;
     }
 
-    public byte[] getPicture() {
-        return picture;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setPictureUrl(String picture) {
+        this.pictureUrl = picture;
     }
 
     public Location getLocation() {
@@ -170,6 +175,15 @@ public class Event {
     public void setRepresentative(Representative representative) {
         this.representative = representative;
     }
+
+    public long getClubId() {
+        return clubId;
+    }
+
+    public void setClubId(long clubId) {
+        this.clubId = clubId;
+    }
+
 
     //endregion
 }

@@ -38,12 +38,7 @@ public class RepresentativeResource {
     @POST
     @Consumes("application/json")
     @ApiOperation("erstellt einen Representative; mit der ClubId")
-    public Response create(Participation representative){
-        Club club = null;
-
-
-        representative.setClub(club);
-
+    public Response create(Representative representative){
         em.persist(representative);
 
         return Response.created(
