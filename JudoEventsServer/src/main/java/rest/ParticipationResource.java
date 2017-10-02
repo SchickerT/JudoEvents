@@ -43,8 +43,8 @@ public class ParticipationResource {
     @Consumes("application/json")
     @ApiOperation("erstellt eine Participation; mit RepresentativeId, LocationId und ClubId")
     public Response create(Participation participation){
-        Club club = null;
-        Event event = null;
+        Club club = clubFacade.findById(participation.getClubId());
+        Event event = eventFacade.findById(participation.getEventId());
 
         participation.setClub(club);
         participation.setEvent(event);

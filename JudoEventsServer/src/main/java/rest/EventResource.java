@@ -49,9 +49,14 @@ public class EventResource {
     @Consumes("application/json")
     @ApiOperation("erstellt eine Event; mit RepresentativeId, LocationId und ClubId")
     public Response create(Event event){
-        Representative representative = null;
-        Location location = null;
-        Club club = null;
+        Representative representative = event.getRepresentative();
+        Location location = event.getLocation();
+        Club club = clubFacade.findById(event.getClubId());
+
+        if(representative.getFirstName().isEmpty())
+            representative = club.getRepresentative();
+        if(location.getCity().isEmpty())
+            location=club.getLocation();
 
         event.setClub(club);
         event.setRepresentative(representative);
