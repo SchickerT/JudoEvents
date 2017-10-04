@@ -66,9 +66,9 @@ public class InitBean {
 
         eventFacade.create(new Event(LocalDate.of(2018, 5, 1),LocalDate.of(2018, 5, 3), TypeOfEvent.Turnament,"Grand Prix Prag","Grand Prix Prag",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative()));
 
-        eventFacade.create(new Event(LocalDate.of(2017, 5, 1),LocalDate.of(2017, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","W-48;W-52;W-57;W-63;W-70;W-78;W+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative()));
+        eventFacade.create(new Event(LocalDate.of(2017, 5, 1),LocalDate.of(2017, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","W-48;W-52;W-57;W-63;W-70;W-78;W+78;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative()));
 
-        eventFacade.create(new Event(LocalDate.of(2018, 5, 1),LocalDate.of(2018, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative()));
+        eventFacade.create(new Event(LocalDate.of(2018, 5, 1),LocalDate.of(2018, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","W-48;W-52;W-57;W-63;W-70;W-78;W+78;;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative()));
 
         eventFacade.create(new Event(LocalDate.of(2017, 2, 12),LocalDate.of(2017, 2, 13), TypeOfEvent.Turnament,"International Turnament Rohrbach","IT Rohrbach",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative()));
 
