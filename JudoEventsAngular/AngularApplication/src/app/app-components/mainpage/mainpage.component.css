@@ -17,15 +17,24 @@ style14 {
 h1{
 
 }
+tbody:hover{
+  cursor: pointer;
+}
+
 li{
   background-size:100% 100% ;
 }
+li:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
 
 .texts{
+  text-align: center;
   color:white;
   position: absolute;
   float: left;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-shadow:  1px  1px 1px black,
@@ -33,6 +42,7 @@ li{
   -1px  1px 1px black,
   -1px -1px 1px black;
 }
+
 
 
 

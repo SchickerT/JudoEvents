@@ -22,7 +22,7 @@
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.css",
         "../node_modules/lightslider/dist/css/lightslider.min.css",
-
+        "../node_modules/flag-icon-css/css/flag-icon.min.css",
         "styles.css"
       ],
       "scripts": [
