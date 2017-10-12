@@ -1,7 +1,8 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
+import 'lightslider';
 
 declare let $:any;
-declare let lightSlider:any;
+
 
 @Component({
   selector: 'app-mainpage',
@@ -19,16 +20,24 @@ export class MainpageComponent implements OnInit {
     this.slider = $(this.elemntRef.nativeElement).find('#light-slider');
 
     this.slider.lightSlider({
-      item:2,
-      loop:false,
-      slideMove:2,
+      item:1 ,
+      loop:true,
+      slideMove:1,
       easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-      speed:600,
+      speed:1500,
+      auto:true,
+      pause: 10000,
+      controls:false,
+      mode:"slide",
+      enableTouch:false,
+      enableDrag:false,
+      pager:false,
+
       responsive : [
         {
           breakpoint:800,
           settings: {
-            item:2,
+            item:1,
             slideMove:1,
             slideMargin:6,
           }
