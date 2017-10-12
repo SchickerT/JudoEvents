@@ -7,3 +7,10 @@ i{
   allign: right !important;
   text-align: right !important;
 }
+
+.navbar-brand{
+  opacity: 0.9;
+}
+.navbar-brand:hover{
+  opacity: 1.0;
+}

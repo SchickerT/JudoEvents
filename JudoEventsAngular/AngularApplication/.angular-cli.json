@@ -21,12 +21,16 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/lightslider/dist/css/lightslider.min.css",
+        "../node_modules/flag-icon-css/css/flag-icon.min.css",
         "styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/popper.js/dist/umd/popper.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/angular-fullpage.js/angular-fullpage.min.js",
+        "../node_modules/lightslider/dist/js/lightslider.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

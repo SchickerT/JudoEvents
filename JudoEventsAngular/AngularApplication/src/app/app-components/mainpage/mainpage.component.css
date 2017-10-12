@@ -1,0 +1,48 @@
+img{
+  height:100%;
+  width:100%;
+}
+
+
+
+style14 {
+  border: 1px;
+  height: 2px;
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #000000, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #000000, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #000000, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #000000, #f0f0f0);
+}
+
+h1{
+
+}
+tbody:hover{
+  cursor: pointer;
+}
+
+li{
+  background-size:100% 100% ;
+}
+li:hover{
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.texts{
+  text-align: center;
+  color:white;
+  position: absolute;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow:  1px  1px 1px black,
+  1px -1px 1px black,
+  -1px  1px 1px black,
+  -1px -1px 1px black;
+}
+
+
+
+
