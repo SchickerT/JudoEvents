@@ -1,0 +1,10 @@
+
+.footer {
+  background-color: black;
+  bottom: 0;
+  height:120px;
+  color:gray;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
