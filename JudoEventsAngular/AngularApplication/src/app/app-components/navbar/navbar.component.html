@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" style="background-color: black">
 
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" [routerLink]="['']">
     <img src="../../assets/judo-logo.png" width="150" height="30" alt="">
   </a>
 
@@ -11,19 +11,19 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Hauptseite</a>
+        <a class="nav-link" [routerLink]="['']">Hauptseite</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Turnier</a>
+        <a class="nav-link" [routerLink]="['/tournament']">Turnier</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Trainingslager</a>
+        <a class="nav-link" [routerLink]="['/trainingscamp']">Trainingslager</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Karte</a>
+        <a class="nav-link" [routerLink]="['/map']">Karte</a>
       </li>
       <li class="navbar-item">
-        <a class="nav-link" href="#">Erstellen</a>
+        <a class="nav-link" [routerLink]="['/create']">Erstellen</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
