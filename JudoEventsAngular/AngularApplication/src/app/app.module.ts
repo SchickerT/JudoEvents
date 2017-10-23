@@ -10,6 +10,8 @@ import { TournamentComponent } from './app-components/tournament/tournament.comp
 import { TrainingscampComponent } from './app-components/trainingscamp/trainingscamp.component';
 import { LandmapComponent } from './app-components/landmap/landmap.component';
 import { CreateComponent } from './app-components/create/create.component';
+import { NgDatepickerModule } from 'ng2-datepicker';
+import {MultiselectDropdownModule} from "angular-2-dropdown-multiselect";
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { CreateComponent } from './app-components/create/create.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-
+    NgDatepickerModule,
+    MultiselectDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

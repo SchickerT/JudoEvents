@@ -1,9 +1,31 @@
  <div class="backimg" [style.backgroundImage]="'url(../../assets/register-background.png)'">
    <div class="mx-5">
     <div class="cont">
-        <div class="searchblock d-block p-3">
-          <div class="innercontent">
+        <div class="searchblock d-block p-5">
+          <div class="innercontent ">
             <h1>Finde dein Turnier</h1>
+
+            <div class="row col-12 mx-3 my-4">
+              <div class="input-group input-group-lg col-12">
+                <input type="text" class="form-control" placeholder="Turnier mit Namen suchen..." aria-label="Search" aria-describedby="sizing-addon1">
+              </div>
+            </div>
+
+            <div class="row col-12 mx-3">
+              <h4 class="col-2 my-1">Datum von:</h4>
+              <div class="datepicker col-4">
+                <ng-datepicker [(ngModel)]="dateFrom"></ng-datepicker>
+              </div>
+
+              <h4 class="col-2 my-1">Datum bis:</h4>
+              <div class="datepicker col-4 ">
+                <ng-datepicker [(ngModel)]="dateTo" [options]="options"></ng-datepicker>
+              </div>
+            </div>
+
+
+
+
           </div>
         </div>
     </div>
