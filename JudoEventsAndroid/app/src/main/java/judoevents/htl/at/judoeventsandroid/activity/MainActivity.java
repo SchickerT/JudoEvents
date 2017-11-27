@@ -2,16 +2,21 @@ package judoevents.htl.at.judoeventsandroid.activity;
 
 import android.app.Activity;
 import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import judoevents.htl.at.judoeventsandroid.R;
+
 import judoevents.htl.at.judoeventsandroid.entity.Event;
 import judoevents.htl.at.judoeventsandroid.fragment.EventDetailFragment;
 import judoevents.htl.at.judoeventsandroid.fragment.HomeScreenFragment;
+import judoevents.htl.at.judoeventsandroid.fragment.SwipeFragment;
 
-public class MainActivity extends AppCompatActivity implements HomeScreenFragment.OnHomeScreenFragmentInteractionListener,EventDetailFragment.OnFragmentInteractionListener /*,EventDetailFragment.OnEventDetailFragmentInteractionListener*/ {
+public class MainActivity extends AppCompatActivity implements SwipeFragment.OnSwipeFragmentInteractionListener,HomeScreenFragment.OnHomeScreenFragmentInteractionListener,EventDetailFragment.OnFragmentInteractionListener /*,EventDetailFragment.OnEventDetailFragmentInteractionListener*/ {
 
 
     public static MainActivity mainActivity;
@@ -24,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         MainActivity.mainActivity = mainActivity;
     }
 
+    Event e;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +38,19 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         setMainActivity(this);
 
         FragmentManager fm = getSupportFragmentManager();
-        HomeScreenFragment hcf = (HomeScreenFragment) fm.findFragmentById(R.id.fragmentContainer);
-
-
+        SwipeFragment sf = (SwipeFragment) fm.findFragmentById(R.id.fragmentContainer);
+        if(sf == null)
+        {
+            sf = SwipeFragment.newInstance("Test","test");
+            fm.beginTransaction().add(R.id.fragmentContainer,sf).commit();
+        }
+        /*HomeScreenFragment hcf = (HomeScreenFragment) fm.findFragmentById(R.id.fragmentContainer);
         if(hcf == null){
 
             hcf = HomeScreenFragment.newInstance();
             fm.beginTransaction().add(R.id.fragmentContainer,hcf)
             .commit();
-        }
+        }*/
     }
 
     @Override
@@ -55,9 +66,15 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
     }
 
     @Override
-    public void onDetailFragmentInteraction() {
-        EventDetailFragment edf = EventDetailFragment.newInstance("Test1","Test2");
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer,edf).addToBackStack("Home").commit();
+    public void onDetailFragmentInteraction()
+    {
+        FragmentManager fm = getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.fragmentContainer,EventDetailFragment.newInstance("TT","tt")).commit();
+    }
+
+    @Override
+    public void onSwipeFragmentInteraction(Uri uri) {
+
     }
 
     /*@Override
@@ -66,4 +83,6 @@ public class MainActivity extends AppCompatActivity implements HomeScreenFragmen
         EventDetailFragment edf = EventDetailFragment.newInstance(e);
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer,edf).commit();
     }*/
+
+
 }

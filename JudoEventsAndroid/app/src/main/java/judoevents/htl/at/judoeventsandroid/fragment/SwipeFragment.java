@@ -4,42 +4,39 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-
 import judoevents.htl.at.judoeventsandroid.R;
-import judoevents.htl.at.judoeventsandroid.entity.Event;
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link EventDetailFragment.OnFragmentInteractionListener} interface
+ * {@link OnSwipeFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link EventDetailFragment#newInstance} factory method to
+ * Use the {@link SwipeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class EventDetailFragment extends Fragment {
+public class SwipeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    FragmentPagerAdapter adapterViewPager;
+    ViewPager vpPager;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private MapView mMapView;
 
-    private OnFragmentInteractionListener mListener;
-    private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
+    private OnSwipeFragmentInteractionListener mListener;
 
-    public EventDetailFragment() {
+    public SwipeFragment() {
         // Required empty public constructor
     }
 
@@ -49,11 +46,11 @@ public class EventDetailFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment EventDetailFragment.
+     * @return A new instance of fragment SwipeFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static EventDetailFragment newInstance(String param1, String param2) {
-        EventDetailFragment fragment = new EventDetailFragment();
+    public static SwipeFragment newInstance(String param1, String param2) {
+        SwipeFragment fragment = new SwipeFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -71,26 +68,28 @@ public class EventDetailFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v =  inflater.inflate(R.layout.fragment_event_detail, container, false);
+        View v =  inflater.inflate(R.layout.fragment_swipe, container, false);
 
+        vpPager = (ViewPager) v.findViewById(R.id.vpPager);
+        adapterViewPager = new MyPagerAdapter(getFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
         return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onDetailFragmentInteraction();
+            mListener.onSwipeFragmentInteraction(uri);
         }
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
+        if (context instanceof OnSwipeFragmentInteractionListener) {
+            mListener = (OnSwipeFragmentInteractionListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnSwipeFragmentInteractionListener");
@@ -103,7 +102,6 @@ public class EventDetailFragment extends Fragment {
         mListener = null;
     }
 
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -114,8 +112,42 @@ public class EventDetailFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface OnFragmentInteractionListener {
+    public interface OnSwipeFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onDetailFragmentInteraction();
+        void onSwipeFragmentInteraction(Uri uri);
+    }
+
+    public static class MyPagerAdapter extends FragmentPagerAdapter {
+        private static int NUM_ITEMS = 2;
+
+        public MyPagerAdapter(FragmentManager fragmentManager) {
+            super(fragmentManager);
+        }
+
+        // Returns total number of pages
+        @Override
+        public int getCount() {
+            return NUM_ITEMS;
+        }
+
+        // Returns the fragment to display for that page
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0: // Fragment # 0 - This will show FirstFragment
+                    return HomeScreenFragment.newInstance();
+                case 1:
+                    return EventDetailFragment.newInstance("Test321","Test123");
+                default:
+                    return null;
+            }
+        }
+
+        // Returns the page title for the top indicator
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return "Page " + position;
+        }
+
     }
 }

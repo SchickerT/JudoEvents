@@ -12,6 +12,5 @@ public class Club
     private String discription;
     private String email;
     private String password;
-
     private String pictureUrl;
 }
