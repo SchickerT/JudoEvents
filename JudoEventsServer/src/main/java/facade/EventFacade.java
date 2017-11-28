@@ -21,6 +21,10 @@ public class EventFacade {
 
     public List<Event> findAll(){ return em.createNamedQuery("Event.findAll",Event.class).getResultList();}
 
+    public List<Event> findAllTournaments(){
+        return em.createNamedQuery("Event.findAllTournaments",Event.class).getResultList();
+    }
+
     public Event update(Event event){ return this.em.merge(event);}
 
     public void delete(long id){

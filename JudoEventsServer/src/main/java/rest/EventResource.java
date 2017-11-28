@@ -104,6 +104,14 @@ public class EventResource {
         return eventFacade.findAll();
     }
 
+    @GET
+    @Path("/tournaments")
+    @Produces("application/json")
+    @ApiOperation("liefert alle Turniere zurück")
+    public List<Event> findAllTournaments(){
+        return eventFacade.findAllTournaments();
+    }
+
     @PUT
     @Path("/{id:[0-9][0-9]*}")
     @Consumes("application/json")

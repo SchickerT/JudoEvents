@@ -16,6 +16,10 @@ import java.util.List;
         @NamedQuery(
                 name="Event.findAll",
                 query = "SELECT e FROM Event e"
+        ),
+        @NamedQuery(
+           name="Event.findAllTournaments",
+           query = "select e from Event e where e.typeOfEvent='Turnament'"
         )
 })
 @XmlRootElement
@@ -36,6 +40,7 @@ public class Event {
     private double entryFee;
     private String rewards;
     private String ageAndWeight;
+    private String countryCode;
 
     private String pictureUrl;
 
@@ -54,7 +59,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative) {
+    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative,String countryCode) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.typeOfEvent = typeOfEvent;
@@ -68,6 +73,7 @@ public class Event {
         this.representative = representative;
         this.pictureUrl = pictureUrl;
         this.clubId = club.id;
+        this.countryCode = countryCode;
     }
 
     //region GETTER AND SETTER
@@ -184,6 +190,13 @@ public class Event {
         this.clubId = clubId;
     }
 
+    public String getCountryCode() {
+        return countryCode;
+    }
 
-    //endregion
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+//endregion
 }

@@ -1,0 +1,37 @@
+<div class="mx-5">
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Veranstalter</th>
+        <th>Von Datum</th>
+        <th>Bis Datum</th>
+        <th>Land</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tourn of tournaments | async" >
+
+        <td>
+          {{tourn.name}}
+        </td>
+        <td>
+          UJZ Mühlviertel
+        </td>
+        <td>
+          {{tourn.startDate | date: 'dd MMM yyyy'}}
+       </td>
+        <td>
+          {{tourn.endDate | date: 'dd MMM yyyy'}}
+        </td>
+        <td>
+          <span class="flag-icon" ngClass={{tourn.countryCode}}></span>  Austria
+        </td>
+        <td>
+          <button class="btn btn-primary"  type="button" >Details</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

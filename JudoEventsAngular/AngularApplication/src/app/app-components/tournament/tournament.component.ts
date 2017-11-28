@@ -10,6 +10,9 @@ import {IMultiSelectOption,IMultiSelectSettings,IMultiSelectTexts} from "angular
 })
 export class TournamentComponent implements OnInit {
 
+  isLoading: boolean = false;
+  searchLoaded: boolean =false;
+
   dateFrom: Date;
   dateTo: Date;
 
@@ -109,7 +112,8 @@ export class TournamentComponent implements OnInit {
     checkedStyle: 'fontawesome',
     buttonClasses: 'btn  btn-lg',
     dynamicTitleMaxItems: 1,
-    displayAllSelectedText: true
+    displayAllSelectedText: true,
+    selectionLimit:1
   };
   countryText: IMultiSelectTexts = {
     checkAll: 'Select all',
@@ -119,7 +123,7 @@ export class TournamentComponent implements OnInit {
     searchPlaceholder: 'Find country',
     searchEmptyResult: 'No country found...',
     searchNoRenderText: 'Type in search box to see results...',
-    defaultTitle: 'Choose your Countries...',
+    defaultTitle: 'Choose your Country...',
     allSelected: 'All Countries Selected',
   };
   countryOption: IMultiSelectOption[] = [
@@ -154,6 +158,14 @@ export class TournamentComponent implements OnInit {
   onChange(){
     console.log(this.optionsModelAge);
     console.log(this.optionsModelWeight);
+  }
+
+  public blafunc(){
+    this.isLoading=true;
+    setTimeout(()=>{
+      this.searchLoaded=true;
+      this.isLoading=false;
+    },5000)
   }
 
 }

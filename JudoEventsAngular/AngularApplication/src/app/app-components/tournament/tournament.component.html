@@ -1,49 +1,16 @@
- <div class="backimg" [style.backgroundImage]="'url(../../assets/register-background.png)'">
-   <div class="mx-5">
-    <div class="cont">
-        <div class="searchblock d-block p-5">
-          <div class="innercontent ">
-            <h1>Finde dein Turnier</h1>
+ <div *ngIf="searchLoaded" class="backimg" [style.backgroundImage]="'url(../../assets/register-background.png)'">
 
-            <div class="row col-12 mx-3 my-4">
-              <div class="input-group input-group-lg col-8">
-                <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1">
-              </div>
-              <div class="col-4">
-                <ss-multiselect-dropdown class="dropdowncasual" [options]="countryOption" [texts]="countryText" [settings]="countrySetting" [(ngModel)]="optionsModelCountry" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
-              </div>
-            </div>
+   <div style="position:relative;" *ngIf="!searchLoaded">
+    <app-searchcomponenttournament (searchRequested)="blafunc()"  [ngClass]="{'disabled-element': isLoading}"></app-searchcomponenttournament>
 
-            <div class="row col-12 mx-3">
-              <h4 class="col-2 my-1">Datum von:</h4>
-              <div class="datepicker col-4">
-                <ng-datepicker [(ngModel)]="dateFrom"></ng-datepicker>
-              </div>
+     <div *ngIf="isLoading" class="cont">
+       <h1> Ladet</h1>
+     </div>
 
-              <h4 class="col-2 my-1">Datum bis:</h4>
-              <div class="datepicker col-4 ">
-                <ng-datepicker [(ngModel)]="dateTo" [options]="optionsDatepicker"></ng-datepicker>
-              </div>
-            </div>
 
-            <div class="row col-12 mx-3 my-4">
-              <div class="col-6">
-                <ss-multiselect-dropdown class="dropdowncasual" [options]="ageOption" [texts]="ageText" [settings]="ageSetting" [(ngModel)]="optionsModelAge" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
-              </div>
-              <div class="col-6">
-                <ss-multiselect-dropdown class="dropdowncasual" [options]="weightOption" [texts]="weightText" [settings]="weightSetting" [(ngModel)]="optionsModelWeight" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
-              </div>
-            </div>
+   </div>
 
-            <div class="row col-12 mx-3 my-4">
-              <div class="col-3"></div>
-              <div class="col-6">
-                <button ng-click="" class="btn btn-lg btn-success">Search</button>
-              </div>
-              <div class="col-3"></div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
 </div>
+ <div *ngIf="!searchLoaded">
+   <app-showcomponenttournament></app-showcomponenttournament>
+ </div>
