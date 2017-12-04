@@ -48,10 +48,7 @@ public class Event {
     private Location location;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
-    @JsonIgnore
     private Club club;
-
-    private long clubId;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Representative representative;
@@ -72,7 +69,6 @@ public class Event {
         this.club = club;
         this.representative = representative;
         this.pictureUrl = pictureUrl;
-        this.clubId = club.id;
         this.countryCode = countryCode;
     }
 
@@ -180,14 +176,6 @@ public class Event {
 
     public void setRepresentative(Representative representative) {
         this.representative = representative;
-    }
-
-    public long getClubId() {
-        return clubId;
-    }
-
-    public void setClubId(long clubId) {
-        this.clubId = clubId;
     }
 
     public String getCountryCode() {

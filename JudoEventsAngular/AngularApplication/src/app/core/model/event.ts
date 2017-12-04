@@ -12,9 +12,10 @@ export class Event{
   public rewards:string;
   public ageAndWeight:string;
   public pictureUrl:string;
-  public clubId:number;
-  public locationId:number;
-  public representativeId:number;
+
+  public location: Location;
+  public club: Club;
+  public representative: Representative;
   public countryCode: string;
 
 
@@ -29,9 +30,9 @@ export class Event{
               rewards?: string,
               ageAndWeight?: string,
               pictureUrl?: string,
-              clubId?: number,
-              locationId?: number,
-              representativeId?: number) {
+              location?: Location,
+              club?: Club,
+              representative?: Representative) {
 
     this.id = id;
     this.startDate = startDate;
@@ -42,9 +43,10 @@ export class Event{
     this.rewards = rewards;
     this.ageAndWeight = ageAndWeight;
     this.pictureUrl = pictureUrl;
-    this.clubId = clubId;
-    this.locationId = locationId;
-    this.representativeId = representativeId;
     this.countryCode = countryCode;
+
+    this.location = location;
+    this.club = club;
+    this.representative = representative;
   }
 }

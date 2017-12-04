@@ -6,25 +6,15 @@ import 'rxjs/add/operator/toPromise';
 import { HttpModule } from '@angular/http';
 
 import {Event} from "../../../core/model/event";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class TournamentService {
   url = "http://localhost:8080/JudoEventsServer/rs/event/tournaments";
 
-  constructor(private http:Http) { }
+  constructor(private http:HttpClient) { }
 
   getTournamentsWithObservable(): Observable<Event[]> {
-    return this.http.get(this.url)
-      .map(this.extractData)
-      .catch(this.handleErrorObservable);
+    return this.http.get<Event[]>(this.url);
   }
-  private extractData(res: Response) {
-    let body = res.json();
-    return body;
-  }
-  private handleErrorObservable (error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.message || error);
-  }
-
 }

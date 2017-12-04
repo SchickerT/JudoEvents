@@ -15,7 +15,7 @@ import {Event} from "../../../core/model/event";
 })
 export class ShowcomponenttournamentComponent implements OnInit {
 
-  public tournaments: Observable<Event[]>;
+  public tournaments: Event[];
   events: Event[];
   errorMessage: string;
 
@@ -24,10 +24,10 @@ export class ShowcomponenttournamentComponent implements OnInit {
   }
 
   private getTournaments(){
-    this.tournaments = this.tournamentService.getTournamentsWithObservable();
-    this.tournaments.subscribe(
-      events => this.events = events,
-      error => this.errorMessage = <any>error
+    this.tournamentService.getTournamentsWithObservable().subscribe(
+      (tourn)=>{
+        this.tournaments = tourn
+      }
     );
 
   }

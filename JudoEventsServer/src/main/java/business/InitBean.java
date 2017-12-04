@@ -40,7 +40,7 @@ public class InitBean {
 
         clubFacade.create(new Club("Samurai Wien","Vienna Traditional Club","http://lorempixel.com/400/400/sports/","samurai@gmail.com","hallo123",new Representative("Hilde","Drexler","hilde.drexler@samurai.at","06641513245","http://lorempixel.com/200/250/people/"),new Location("1010","Wien","Ringstraße.12","Vienna","Austria")));
 
-        clubFacade.create(new Club("LZK Brno","Czech Traditional Club","http://lorempixel.com/400/400/sports/","czech@judo.com","hallo123",new Representative("Josip","Novak","josip.novak@lzk.at","0023452213245","http://lorempixel.com/200/250/people/"),new Location("12000","Bron","Liskastra.122","Soutczech","Czech")));
+        clubFacade.create(new Club("LZK Brno","Czech Traditional Club","http://lorempixel.com/400/400/sports/","czech@judo.com","hallo123",new Representative("Josip","Novak","josip.novak@lzk.at","0023452213245","http://lorempixel.com/200/250/people/"),new Location("12000","Bron","Liskastra.122","Soutczech","Czech Republic")));
 
         clubFacade.create(new Club("Legia Warsauw","Polska Traditional Club","http://lorempixel.com/400/400/sports/","polska@gmail.com","hallo123",new Representative("Jaromir","Januz","jarumir.januz@legia.at","124452213245","http://lorempixel.com/200/250/people/"),new Location("52111","Warsauw","Poskaskada.155","Centralpoland","Poland")));
 

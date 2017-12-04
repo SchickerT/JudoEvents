@@ -51,7 +51,7 @@ public class EventResource {
     public Response create(Event event){
         Representative representative = event.getRepresentative();
         Location location = event.getLocation();
-        Club club = clubFacade.findById(event.getClubId());
+        Club club = clubFacade.findById(event.getClub().getId());
 
         if(representative.getFirstName().isEmpty())
             representative = club.getRepresentative();
