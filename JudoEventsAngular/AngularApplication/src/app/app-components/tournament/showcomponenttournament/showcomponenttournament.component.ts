@@ -16,26 +16,30 @@ import {Event} from "../../../core/model/event";
 export class ShowcomponenttournamentComponent implements OnInit {
 
   public tournaments: Event[];
+  tmpTourn: Event[];
   events: Event[];
   errorMessage: string;
-
+  nameSearch: string ="";
+  countrySearch: string="";
 
   constructor(private tournamentService: TournamentService) {
   }
 
-  private getTournaments(){
-    this.tournamentService.getTournamentsWithObservable().subscribe(
-      (tourn)=>{
-        this.tournaments = tourn
-      }
-    );
+  private async getTournaments(){
+    await this.tournamentService.updateTournaments();
+    console.log("get");
 
   }
 
-  ngOnInit() : void {
-    this.getTournaments();
+  async ngOnInit() : Promise<void> {
+    await this.getTournaments();
+    this.tmpTourn = this.tournamentService.tournaments;
+    this.tournaments = this.tournamentService.tournaments;
+    console.log("initview");
   }
 
-
+  public searchCountryChange(){
+    this.tournaments=this.tmpTourn.filter(c => c.name.toLowerCase().includes(this.nameSearch.toLowerCase())).filter(e=>e.location.country.toLowerCase().includes(this.countrySearch.toLowerCase()));
+  }
 
 }

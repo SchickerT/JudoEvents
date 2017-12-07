@@ -12,9 +12,20 @@ import {HttpClient} from "@angular/common/http";
 export class TournamentService {
   url = "http://localhost:8080/JudoEventsServer/rs/event/tournaments";
 
-  constructor(private http:HttpClient) { }
+  public tournaments: Event[];
 
-  getTournamentsWithObservable(): Observable<Event[]> {
-    return this.http.get<Event[]>(this.url);
+  constructor(private http:HttpClient) {
+    console.log("init");
+
+  }
+
+  getTournamentsWithObservable(): Promise<Event[]> {
+    console.log("server");
+    return this.http.get<Event[]>(this.url)
+      .toPromise();
+  }
+
+  async updateTournaments(): Promise<void>{
+    this.tournaments = await this.getTournamentsWithObservable();
   }
 }

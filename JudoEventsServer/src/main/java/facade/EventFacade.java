@@ -5,6 +5,8 @@ import entity.Event;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -19,7 +21,11 @@ public class EventFacade {
 
     public Event findById(long id) {return em.find(Event.class,id);}
 
-    public List<Event> findAll(){ return em.createNamedQuery("Event.findAll",Event.class).getResultList();}
+    public List<Event> findAll(){
+        List<Event> events = em.createNamedQuery("Event.findAll",Event.class).getResultList();
+
+        return events;
+    }
 
     public List<Event> findAllTournaments(){
         return em.createNamedQuery("Event.findAllTournaments",Event.class).getResultList();

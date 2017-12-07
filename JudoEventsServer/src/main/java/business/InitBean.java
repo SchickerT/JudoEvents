@@ -44,6 +44,8 @@ public class InitBean {
 
         clubFacade.create(new Club("Legia Warsauw","Polska Traditional Club","http://lorempixel.com/400/400/sports/","polska@gmail.com","hallo123",new Representative("Jaromir","Januz","jarumir.januz@legia.at","124452213245","http://lorempixel.com/200/250/people/"),new Location("52111","Warsauw","Poskaskada.155","Centralpoland","Poland")));
 
+        clubFacade.create(new Club("All Nippon","Japanese Club","http://lorempixel.com/400/400/sports/","nippon@gmail.com","hallo123",new Representative("Nigiru","Abe","nigiru.abe@nippon.jp","124452213245","http://lorempixel.com/200/250/people/"),new Location("43122","Tokyo","Shibuya.155","Tokyo","Japan")));
+
 
 
         eventFacade.create(new Event(LocalDate.of(2016, 1, 1),LocalDate.of(2016, 1, 11), TypeOfEvent.Trainingscamp,"OTC Nymbuk 2016","Olympic Trainings Camp",35.50,"","U18 and Above","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative(),"flag-icon-cz"));
@@ -62,6 +64,7 @@ public class InitBean {
 
 
 
+
         eventFacade.create(new Event(LocalDate.of(2017, 5, 1),LocalDate.of(2017, 5, 3), TypeOfEvent.Turnament,"Grand Prix Prag","Grand Prix Prag",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative(),"flag-icon-cz"));
 
         eventFacade.create(new Event(LocalDate.of(2018, 5, 1),LocalDate.of(2018, 5, 3), TypeOfEvent.Turnament,"Grand Prix Prag","Grand Prix Prag",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative(),"flag-icon-cz"));
@@ -73,6 +76,28 @@ public class InitBean {
         eventFacade.create(new Event(LocalDate.of(2017, 2, 12),LocalDate.of(2017, 2, 13), TypeOfEvent.Turnament,"International Turnament Rohrbach","IT Rohrbach",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative(),"flag-icon-at"));
 
         eventFacade.create(new Event(LocalDate.of(2018, 2, 12),LocalDate.of(2018, 2, 13), TypeOfEvent.Turnament,"International Turnament Rohrbach","IT Rohrbach",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative(),"flag-icon-at"));
+
+        eventFacade.create(new Event(LocalDate.of(2017, 10, 19),LocalDate.of(2017, 10, 20), TypeOfEvent.Turnament,"All Japanes Open","Japanese Open",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(6).getLocation(),clubFacade.findById(6),clubFacade.findById(6).getRepresentative(),"flag-icon-jp"));
+
+        eventFacade.create(new Event(LocalDate.of(2018, 10, 20),LocalDate.of(2018, 10, 21), TypeOfEvent.Turnament,"All Japanes Open","Japanese Open",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(6).getLocation(),clubFacade.findById(6),clubFacade.findById(6).getRepresentative(),"flag-icon-jp"));
+
+        eventFacade.create(new Event(LocalDate.of(2015, 5, 1),LocalDate.of(2015, 5, 3), TypeOfEvent.Turnament,"Grand Prix Prag","Grand Prix Prag",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative(),"flag-icon-cz"));
+
+        eventFacade.create(new Event(LocalDate.of(2016, 5, 1),LocalDate.of(2016, 5, 3), TypeOfEvent.Turnament,"Grand Prix Prag","Grand Prix Prag",35.50,"Medals and Trophys","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative(),"flag-icon-cz"));
+
+        eventFacade.create(new Event(LocalDate.of(2015, 5, 1),LocalDate.of(2015, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","W-48;W-52;W-57;W-63;W-70;W-78;W+78;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative(),"flag-icon-pl"));
+
+        eventFacade.create(new Event(LocalDate.of(2016, 5, 1),LocalDate.of(2016, 5, 3), TypeOfEvent.Turnament,"Grand Prix Warsaw","Grand Prix Warsaw",35.50,"Medals and Trophys","W-48;W-52;W-57;W-63;W-70;W-78;W+78;;","http://lorempixel.com/400/300/sports/",clubFacade.findById(5).getLocation(),clubFacade.findById(5),clubFacade.findById(5).getRepresentative(),"flag-icon-pl"));
+
+        eventFacade.create(new Event(LocalDate.of(2015, 2, 12),LocalDate.of(2015, 2, 13), TypeOfEvent.Turnament,"International Turnament Rohrbach","IT Rohrbach",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative(),"flag-icon-at"));
+
+        eventFacade.create(new Event(LocalDate.of(2016, 2, 12),LocalDate.of(2016, 2, 13), TypeOfEvent.Turnament,"International Turnament Rohrbach","IT Rohrbach",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative(),"flag-icon-at"));
+
+        eventFacade.create(new Event(LocalDate.of(2015, 10, 19),LocalDate.of(2015, 10, 20), TypeOfEvent.Turnament,"All Japanes Open","Japanese Open",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(6).getLocation(),clubFacade.findById(6),clubFacade.findById(6).getRepresentative(),"flag-icon-jp"));
+
+        eventFacade.create(new Event(LocalDate.of(2016, 10, 20),LocalDate.of(2016, 10, 21), TypeOfEvent.Turnament,"All Japanes Open","Japanese Open",10.50,"Medals","M-60;M-66;M-73;M-81;M-90;M-100;M+100;","http://lorempixel.com/400/300/sports/",clubFacade.findById(6).getLocation(),clubFacade.findById(6),clubFacade.findById(6).getRepresentative(),"flag-icon-jp"));
+
+
 
 
 

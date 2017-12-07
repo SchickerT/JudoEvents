@@ -15,11 +15,11 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(
                 name="Event.findAll",
-                query = "SELECT e FROM Event e"
+                query = "SELECT e FROM Event e order by e.startDate,e.endDate"
         ),
         @NamedQuery(
            name="Event.findAllTournaments",
-           query = "select e from Event e where e.typeOfEvent='Turnament'"
+           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= current_date order by e.startDate,e.endDate"
         )
 })
 @XmlRootElement
