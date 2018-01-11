@@ -10,6 +10,13 @@ import { TournamentComponent } from './app-components/tournament/tournament.comp
 import { TrainingscampComponent } from './app-components/trainingscamp/trainingscamp.component';
 import { LandmapComponent } from './app-components/landmap/landmap.component';
 import { CreateComponent } from './app-components/create/create.component';
+import { NgDatepickerModule } from 'ng2-datepicker';
+import {MultiselectDropdownModule} from "angular-2-dropdown-multiselect";
+import { SearchcomponenttournamentComponent } from './app-components/tournament/searchcomponenttournament/searchcomponenttournament.component';
+import { ShowcomponenttournamentComponent } from './app-components/tournament/showcomponenttournament/showcomponenttournament.component';
+import {HttpClientModule} from "@angular/common/http";
+import {HttpModule} from "@angular/http";
+import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
 
 
 @NgModule({
@@ -21,12 +28,19 @@ import { CreateComponent } from './app-components/create/create.component';
     TournamentComponent,
     TrainingscampComponent,
     LandmapComponent,
-    CreateComponent
+    CreateComponent,
+    SearchcomponenttournamentComponent,
+    ShowcomponenttournamentComponent,
+    DetailtournamentcomponentComponent
+
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpModule,
     AppRoutingModule,
-
+    NgDatepickerModule,
+    MultiselectDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

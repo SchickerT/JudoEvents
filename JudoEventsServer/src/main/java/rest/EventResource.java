@@ -21,6 +21,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -51,7 +53,7 @@ public class EventResource {
     public Response create(Event event){
         Representative representative = event.getRepresentative();
         Location location = event.getLocation();
-        Club club = clubFacade.findById(event.getClubId());
+        Club club = clubFacade.findById(event.getClub().getId());
 
         if(representative.getFirstName().isEmpty())
             representative = club.getRepresentative();
@@ -87,13 +89,6 @@ public class EventResource {
     public Response findById(@PathParam("id") Long id) {
 
         Event club = em.find(Event.class, id);
-
-        if (club == null) {
-            return Response
-                    .status(Response.Status.BAD_REQUEST)
-                    .header("reason", "[Event] with id = " + id + " not found")
-                    .build();
-        }
         return Response.ok(club).build();
     }
 
@@ -101,7 +96,22 @@ public class EventResource {
     @Produces("application/json")
     @ApiOperation("liefert alle Events zurück")
     public List<Event> findAll(){
-        return eventFacade.findAll();
+        List<Event> events = eventFacade.findAll();
+        Collections.sort(events, new Comparator<Event>() {
+            @Override
+            public int compare(Event o1, Event o2) {
+                return o1.getStartDate().compareTo(o2.getStartDate());
+            }
+        });
+        return events;
+    }
+
+    @GET
+    @Path("/tournaments")
+    @Produces("application/json")
+    @ApiOperation("liefert alle Turniere zurück")
+    public List<Event> findAllTournaments(){
+        return eventFacade.findAllTournaments();
     }
 
     @PUT

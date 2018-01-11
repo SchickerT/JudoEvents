@@ -5,4 +5,19 @@ export class Representative{
   public email:string;
   public phoneNumber:string;
   public pictureUrl:string;
+
+  constructor(id:number,
+              firstName:string,
+              lastName:string,
+              email:string,
+              phoneNumber:string,
+              pictureUrl:string){
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.phoneNumber = phoneNumber;
+    this.pictureUrl = pictureUrl;
+
+  }
 }

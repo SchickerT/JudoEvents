@@ -1,0 +1,49 @@
+<div class="px-2">
+  <div class="row mx-5 my-4">
+    <div class="input-group input-group-lg col-8">
+      <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1" [(ngModel)]="nameSearch" (input)="searchCountryChange()">
+    </div>
+    <div class="input-group input-group-lg col-4">
+      <input type="text" class="form-control" placeholder="Search Turnament by Country..." aria-label="Search" aria-describedby="sizing-addon1" [(ngModel)]="countrySearch" (input)="searchCountryChange()">
+    </div>
+  </div>
+  <div class="px-5">
+    <div class="px-3">
+    <table class="table table-hover" >
+      <thead class="thead-inverse">
+        <tr>
+          <th>Name</th>
+          <th>Veranstalter</th>
+          <th>Von Datum</th>
+          <th>Bis Datum</th>
+          <th>Land</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let tourn of tournaments" >
+
+          <td>
+            {{tourn.name}}
+          </td>
+          <td>
+            {{tourn.club.name}}
+          </td>
+          <td>
+            {{tourn.startDate | date: 'dd MMM yyyy'}}
+         </td>
+          <td>
+            {{tourn.endDate | date: 'dd MMM yyyy'}}
+          </td>
+          <td>
+            <span class="flag-icon" ngClass={{tourn.countryCode}} style="border: 0.1px solid black;"></span> &nbsp; {{tourn.location.country}}
+          </td>
+          <td>
+            <button class="btn btn-primary"  type="button"  (click)="showDetails(tourn.id)">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

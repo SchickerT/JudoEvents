@@ -15,7 +15,11 @@ import java.util.List;
 @NamedQueries({
         @NamedQuery(
                 name="Event.findAll",
-                query = "SELECT e FROM Event e"
+                query = "SELECT e FROM Event e order by e.startDate,e.endDate"
+        ),
+        @NamedQuery(
+           name="Event.findAllTournaments",
+           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= current_date order by e.startDate,e.endDate"
         )
 })
 @XmlRootElement
@@ -36,6 +40,7 @@ public class Event {
     private double entryFee;
     private String rewards;
     private String ageAndWeight;
+    private String countryCode;
 
     private String pictureUrl;
 
@@ -43,10 +48,7 @@ public class Event {
     private Location location;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
-    @JsonIgnore
     private Club club;
-
-    private long clubId;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Representative representative;
@@ -54,7 +56,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative) {
+    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative,String countryCode) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.typeOfEvent = typeOfEvent;
@@ -67,7 +69,7 @@ public class Event {
         this.club = club;
         this.representative = representative;
         this.pictureUrl = pictureUrl;
-        this.clubId = club.id;
+        this.countryCode = countryCode;
     }
 
     //region GETTER AND SETTER
@@ -176,14 +178,13 @@ public class Event {
         this.representative = representative;
     }
 
-    public long getClubId() {
-        return clubId;
+    public String getCountryCode() {
+        return countryCode;
     }
 
-    public void setClubId(long clubId) {
-        this.clubId = clubId;
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
     }
 
-
-    //endregion
+//endregion
 }
