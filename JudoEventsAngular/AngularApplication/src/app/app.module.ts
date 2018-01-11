@@ -16,6 +16,7 @@ import { SearchcomponenttournamentComponent } from './app-components/tournament/
 import { ShowcomponenttournamentComponent } from './app-components/tournament/showcomponenttournament/showcomponenttournament.component';
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
+import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import {HttpModule} from "@angular/http";
     LandmapComponent,
     CreateComponent,
     SearchcomponenttournamentComponent,
-    ShowcomponenttournamentComponent
+    ShowcomponenttournamentComponent,
+    DetailtournamentcomponentComponent
+
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,9 @@ import {IMultiSelectOption,IMultiSelectSettings,IMultiSelectTexts} from "angular
 export class TournamentComponent implements OnInit {
 
   isLoading: boolean = false;
-  searchLoaded: boolean =false;
-
+  searchLoaded: boolean =true;
+  public showDetail: boolean = false;
+  public eventId:number;
   dateFrom: Date;
   dateTo: Date;
 
@@ -155,6 +156,7 @@ export class TournamentComponent implements OnInit {
 
   }
 
+
   onChange(){
     console.log(this.optionsModelAge);
     console.log(this.optionsModelWeight);
@@ -166,6 +168,14 @@ export class TournamentComponent implements OnInit {
       this.searchLoaded=true;
       this.isLoading=false;
     },5000)
+  }
+
+  public setIdEvent(event){
+    this.eventId = event;
+    this.showDetail=event;
+    console.log(this.eventId);
+    console.log(this.eventId);
+    console.log(this.eventId);
   }
 
 }
