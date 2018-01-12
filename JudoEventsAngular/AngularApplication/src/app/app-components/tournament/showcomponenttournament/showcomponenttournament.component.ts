@@ -15,12 +15,6 @@ import {Event} from "../../../core/model/event";
 })
 export class ShowcomponenttournamentComponent implements OnInit {
 
-  @Output()
-  showDetailComp= new EventEmitter();
-
-  @Output()
-  sendIdEvent = new EventEmitter();
-
   public tournaments: Event[];
   tmpTourn: Event[];
   events: Event[];
@@ -42,12 +36,6 @@ export class ShowcomponenttournamentComponent implements OnInit {
     this.tmpTourn = this.tournamentService.tournaments;
     this.tournaments = this.tournamentService.tournaments;
     console.log("initview");
-  }
-  public showDetails(id:number){
-    console.log(id);
-    this.showDetailComp.emit(true);
-    this.sendIdEvent.emit(id);
-
   }
 
   public searchCountryChange(){

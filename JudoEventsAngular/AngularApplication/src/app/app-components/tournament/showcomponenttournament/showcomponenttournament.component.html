@@ -39,7 +39,7 @@
             <span class="flag-icon" ngClass={{tourn.countryCode}} style="border: 0.1px solid black;"></span> &nbsp; {{tourn.location.country}}
           </td>
           <td>
-            <button class="btn btn-primary"  type="button"  (click)="showDetails(tourn.id)">Details</button>
+            <button class="btn btn-primary"  type="button" [routerLink]="['/tournaments/tournament',tourn.id]">Details</button>
           </td>
         </tr>
       </tbody>

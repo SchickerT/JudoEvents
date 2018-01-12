@@ -5,6 +5,7 @@ import {TournamentComponent} from "./app-components/tournament/tournament.compon
 import {TrainingscampComponent} from "./app-components/trainingscamp/trainingscamp.component";
 import {LandmapComponent} from "./app-components/landmap/landmap.component";
 import {CreateComponent} from "./app-components/create/create.component";
+import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
 
 const routes: Routes=[
   {
@@ -12,7 +13,7 @@ const routes: Routes=[
     component:MainpageComponent
   },
   {
-    path:'tournament',
+    path:'tournaments',
     component:TournamentComponent
   },
   {
@@ -26,6 +27,10 @@ const routes: Routes=[
   {
     path:'create',
     component:CreateComponent
+  },
+  {
+    path:'tournaments/tournament/:id',
+    component:DetailtournamentcomponentComponent
   }
 ];
 

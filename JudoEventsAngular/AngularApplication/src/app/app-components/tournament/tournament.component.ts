@@ -11,7 +11,7 @@ import {IMultiSelectOption,IMultiSelectSettings,IMultiSelectTexts} from "angular
 export class TournamentComponent implements OnInit {
 
   isLoading: boolean = false;
-  searchLoaded: boolean =true;
+  searchLoaded: boolean =false;
   public showDetail: boolean = false;
   public eventId:number;
   dateFrom: Date;
@@ -168,14 +168,6 @@ export class TournamentComponent implements OnInit {
       this.searchLoaded=true;
       this.isLoading=false;
     },5000)
-  }
-
-  public setIdEvent(event){
-    this.eventId = event;
-    this.showDetail=event;
-    console.log(this.eventId);
-    console.log(this.eventId);
-    console.log(this.eventId);
   }
 
 }

@@ -12,12 +12,8 @@
 }
 
 .cont{
-  margin-top: 15vh;
+margin:auto;
   max-width: 1100px;
-  position: absolute;
-  float: left;
-  left: 50%;
-  transform: translate(-50%, 0%);
   width: 90%;
 }
 .backimg{

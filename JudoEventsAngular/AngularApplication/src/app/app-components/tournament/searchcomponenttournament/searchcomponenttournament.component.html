@@ -4,7 +4,17 @@
       <div class="innercontent ">
         <h1>Finde dein Turnier</h1>
 
-        <div class="row col-12  my-4">
+        <div class="row col-12 mt-4">
+          <div class="col-8">
+            Turniername:
+          </div>
+
+          <div class="col-4 ">
+            Land:
+          </div>
+        </div>
+
+        <div class="row col-12">
           <div class="input-group input-group-lg col-8">
             <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1">
           </div>
@@ -13,26 +23,35 @@
           </div>
         </div>
 
+
+        <div class="row col-12 mt-3">
+          <div class="col-6">
+            Datum von:
+          </div>
+
+          <div class="col-6 ">
+            Datum bis:
+          </div>
+        </div>
         <div class="row col-12">
-          <h4 class="col-2 my-1">Date from:</h4>
-          <div class="datepicker col-4">
+          <div class="datepicker col-6">
             <ng-datepicker [(ngModel)]="dateFrom"></ng-datepicker>
           </div>
 
-          <h4 class="col-2 my-1">Date to:</h4>
-          <div class="datepicker col-4 ">
+          <div class="datepicker col-6 ">
             <ng-datepicker [(ngModel)]="dateTo" [options]="optionsDatepicker"></ng-datepicker>
           </div>
         </div>
 
-        <div class="row col-12 my-4">
+
+        <!-- div class="row col-12 my-4">
           <div class="col-6">
             <ss-multiselect-dropdown class="dropdowncasual" [options]="ageOption" [texts]="ageText" [settings]="ageSetting" [(ngModel)]="optionsModelAge" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
           </div>
           <div class="col-6">
             <ss-multiselect-dropdown class="dropdowncasual" [options]="weightOption" [texts]="weightText" [settings]="weightSetting" [(ngModel)]="optionsModelWeight" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
           </div>
-        </div>
+        </div-->
 
         <div class="row col-12 my-4">
           <div class="col-3"></div>
