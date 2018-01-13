@@ -21,6 +21,7 @@ export class ShowcomponenttournamentComponent implements OnInit {
   errorMessage: string;
   nameSearch: string ="";
   countrySearch: string="";
+  public isLoading:boolean = true;
 
   constructor(private tournamentService: TournamentService) {
   }
@@ -36,11 +37,19 @@ export class ShowcomponenttournamentComponent implements OnInit {
     this.tmpTourn = this.tournamentService.tournaments;
     this.tournaments = this.tournamentService.tournaments;
     console.log("initview");
+    this.blafunc();
   }
 
   public searchCountryChange(){
     this.tournaments=this.tmpTourn.filter(c => c.name.toLowerCase().includes(this.nameSearch.toLowerCase())).filter(e=>e.location.country.toLowerCase().includes(this.countrySearch.toLowerCase()));
   }
 
+  public blafunc(){
+    this.isLoading=true;
+    setTimeout(()=>{
+      this.isLoading=false;
+    },5000)
+
+  }
 
 }

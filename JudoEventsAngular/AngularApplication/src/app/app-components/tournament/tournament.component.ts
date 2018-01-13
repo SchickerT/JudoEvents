@@ -162,12 +162,6 @@ export class TournamentComponent implements OnInit {
     console.log(this.optionsModelWeight);
   }
 
-  public blafunc(){
-    this.isLoading=true;
-    setTimeout(()=>{
-      this.searchLoaded=true;
-      this.isLoading=false;
-    },5000)
-  }
+
 
 }

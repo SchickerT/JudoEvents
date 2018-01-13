@@ -1,3 +1,6 @@
+
+<div *ngIf="!isLoading">
+
 <div class="px-2">
   <div class="row mx-5 my-4">
     <div class="input-group input-group-lg col-8">
@@ -39,11 +42,17 @@
             <span class="flag-icon" ngClass={{tourn.countryCode}} style="border: 0.1px solid black;"></span> &nbsp; {{tourn.location.country}}
           </td>
           <td>
-            <button class="btn btn-primary"  type="button" [routerLink]="['/tournaments/tournament',tourn.id]">Details</button>
+            <button class="btn btn-primary"  type="button" [routerLink]="['/searchtourn/tournaments/tournament',tourn.id]">Ansehen</button>
           </td>
         </tr>
       </tbody>
     </table>
     </div>
   </div>
+</div>
+</div>
+<div *ngIf="isLoading" class="cont loadlabel">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  <h3>Turniere werden geladen</h3>
 </div>

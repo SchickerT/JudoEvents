@@ -39,8 +39,8 @@ import {DetailtournamentcomponentComponent} from "./app-components/tournament/de
     HttpClientModule,
     HttpModule,
     AppRoutingModule,
-    NgDatepickerModule,
-    MultiselectDropdownModule
+    MultiselectDropdownModule,
+    NgDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

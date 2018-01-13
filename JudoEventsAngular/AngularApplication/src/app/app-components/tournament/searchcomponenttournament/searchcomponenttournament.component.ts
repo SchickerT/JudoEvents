@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from "angular-2-dropdown-multiselect";
-import { DatepickerOptions } from 'ng2-datepicker';
+import { DatepickerOptions,NgDatepickerModule,NgDatepickerComponent } from 'ng2-datepicker';
+declare let $;
 
 @Component({
   selector: 'app-searchcomponenttournament',
@@ -8,12 +9,10 @@ import { DatepickerOptions } from 'ng2-datepicker';
   styleUrls: ['./searchcomponenttournament.component.css']
 })
 export class SearchcomponenttournamentComponent implements OnInit {
+  dateFrom : NgDatepickerModule;
+  dateTo: NgDatepickerModule;
+  public country:string;
 
-  @Output()
-    public searchRequested: EventEmitter<void>;
-
-  dateFrom: Date;
-  dateTo: Date;
 
 // Default selection
   optionsModelWeight: number[] = [];
@@ -148,11 +147,15 @@ export class SearchcomponenttournamentComponent implements OnInit {
   constructor() {
     this.dateFrom = new Date();
     this.dateTo = new Date();
-    this.searchRequested = new EventEmitter<void>();
   }
 
   ngOnInit() {
-
+    $('.ddm a').on('click', function(){
+      $('.ddt').html($(this).html() + '<span class="caret"></span>');
+      console.log($(this).html().toString().substring(99));
+      this.country = $(this).html().toString().substring(99);
+      console.log(this.dateTo.toDateString());
+    })
   }
 
   onChange(){
@@ -160,7 +163,5 @@ export class SearchcomponenttournamentComponent implements OnInit {
     console.log(this.optionsModelWeight);
   }
 
-  public searchPressed(){
-    this.searchRequested.emit();
-  }
+
 }

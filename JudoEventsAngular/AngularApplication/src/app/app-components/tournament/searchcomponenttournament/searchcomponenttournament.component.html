@@ -16,12 +16,24 @@
 
         <div class="row col-12">
           <div class="input-group input-group-lg col-8">
-            <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1">
+            <input type="text" class="form-control" placeholder="Suche Turnier..." aria-label="Search" aria-describedby="sizing-addon1">
           </div>
-          <div class="col-4">
-            <ss-multiselect-dropdown class="dropdowncasual" [options]="countryOption" [texts]="countryText" [settings]="countrySetting" [(ngModel)]="optionsModelCountry" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+          <div class="dropdown show col-4">
+            <a class="btn btn-lg btn-country dropdown-toggle ddt" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Land auswählen....
+            </a>
+
+            <div class="dropdown-menu ddm" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item">Beliebig</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
+              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
+              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
+              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
+
+            </div>
           </div>
-        </div>
+          </div>
 
 
         <div class="row col-12 mt-3">
@@ -56,8 +68,9 @@
         <div class="row col-12 my-4">
           <div class="col-3"></div>
           <div class="col-6">
-            <button (click)="searchPressed()" class="btn btn-lg btn-success">Search</button>
+            <button class="btn btn-lg btn-success" [routerLink]="['/searchtourn/tournaments']">Search</button>
           </div>
+
           <div class="col-3"></div>
         </div>
       </div>
