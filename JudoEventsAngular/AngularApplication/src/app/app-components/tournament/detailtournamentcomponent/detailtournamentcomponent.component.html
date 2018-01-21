@@ -1,11 +1,169 @@
-<div class="px-5 mt-5">
-  <div class="px-5 py-2">
-    <div class="px-5">
+<div class="main-container">
+  <div class="row">
+    <div class="col-md-9">
+      <h1>{{tournament.name}}</h1>
+    </div>
+    <div class="col-md-7">
+      <h4 style="color:grey;">{{tournament.startDate| date: 'dd MMM yyyy'}} - {{tournament.endDate| date: 'dd MMM yyyy'}}</h4>
+    </div>
+    <div class="col-md-7">
+      <h5>
+        {{tournament.location.country}}, {{tournament.location.city}} <span class="flag-icon" ngClass={{tournament.countryCode}} style="border: 0.1px solid black;"></span>
+      </h5>
+    </div>
+  </div>
 
-      <h1 class="">
-        {{tournament.name}}
-      </h1>
+  <div class="row" style="margin-top: 5vh">
+    <div class="col-md-12">
+      <h4>General Information</h4>
+    </div>
+    <div class="col-md-2">
+      Entry Fee:
+    </div>
+    <div class="col-md-10">
+      {{tournament.entryFee| number : '1.2-2' }} €
+    </div>
+    <div class="col-md-2">
+      Victory Awards:
+    </div>
+    <div class="col-md-10">
+      {{tournament.rewards}}
+    </div>
+    <div class="col-md-2">
+      Ages:
+    </div>
+    <div class="col-md-10">
+      MU15, FU15, MU17, FU17, MU21, FU21
+    </div>
+    <div class="col-md-2">
+      Address:
+    </div>
+    <div class="col-md-10">
+      {{tournament.location.street}}
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+      {{tournament.location.zipCode}} {{tournament.location.city}}, {{tournament.location.federalState}}
+    </div>
+  </div>
 
+  <div style="margin-top: 5vh;">
+    <h4>Discription</h4>
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet,
+  </div>
+
+  <div style="margin-top: 5vh;">
+    <h4>Ages and Weight Classes</h4>
+    <br>
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>MU15</th>
+        <td>-50</td>
+        <td>-55</td>
+        <td>-60</td>
+        <td>-66</td>
+        <td>-73</td>
+        <td>-81</td>
+        <td>-90</td>
+        <td>+90</td>
+      </tr>
+      <tr>
+        <th>FU15</th>
+        <td>-40</td>
+        <td>-44</td>
+        <td>-48</td>
+        <td>-52</td>
+        <td>-57</td>
+        <td>-63</td>
+        <td>-70</td>
+        <td>+70</td>
+      </tr>
+      <tr>
+        <th>MU17</th>
+        <td>-55</td>
+        <td>-60</td>
+        <td>-66</td>
+        <td>-73</td>
+        <td>-81</td>
+        <td>-90</td>
+        <td>-100</td>
+        <td>+100</td>
+      </tr>
+      <tr>
+        <th>FU17</th>
+        <td>-44</td>
+        <td>-48</td>
+        <td>-52</td>
+        <td>-57</td>
+        <td>-63</td>
+        <td>-70</td>
+        <td>-78</td>
+        <td>+78</td>
+      </tr>
+      <tr>
+        <th>MU21</th>
+        <td>-60</td>
+        <td>-66</td>
+        <td>-73</td>
+        <td>-81</td>
+        <td>-90</td>
+        <td>-100</td>
+        <td>+100</td>
+      </tr>
+      <tr>
+        <th>FU21</th>
+        <td>-48</td>
+        <td>-52</td>
+        <td>-57</td>
+        <td>-63</td>
+        <td>-70</td>
+        <td>-78</td>
+        <td>+78</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="margin-top: 5vh;">
+    <h4>Additional Information</h4>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Contact</h5>
+        <br>
+        <table style="width:100%;">
+          <tr>
+            <td rowspan="3">Photo</td>
+            <td>{{tournament.representative.firstName}} {{tournament.representative.lastName}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.representative.email}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.representative.phoneNumber}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h5>Club</h5>
+        <br>
+        <table style="width:100%;">
+          <tr>
+            <td rowspan="3">Photo</td>
+            <td>{{tournament.club.name}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.club.location.country}}, {{tournament.club.location.city}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.club.email}}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
 </div>
