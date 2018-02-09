@@ -28,10 +28,22 @@ export class CreateComponent implements OnInit {
         entryFee: [''],
         rewards: [''],
         ageAndWeight: [''],
-
-
+        eventPicture: [''],
+        zipCode: [''],
+        city: [''],
+        street: [''],
+        federalState:[''],
+        country: [''],
+        longitude: [''],
+        latitude: [''],
+        countryCode: [''],
+        firstName: [''],
+        lastName:[''],
+        email: [''],
+        phoneNumber: [''],
+        rerpresentativePicture: ['']
       })
-    })
+    });
   }
 
   ngOnInit() {
