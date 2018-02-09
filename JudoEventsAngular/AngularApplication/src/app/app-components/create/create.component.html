@@ -1,3 +1,7 @@
-<p>
-  create works!
-</p>
+<app-tournament-data [stepFormGroup]="eventFormGroup.controls['tournamentData']"></app-tournament-data>
+
+<button class="btn btn-success"
+        (click)="submitForm()">
+  Erstellen
+  <i class="fa fa-arrow-right"></i>
+</button>

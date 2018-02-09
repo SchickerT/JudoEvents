@@ -17,6 +17,10 @@ import { ShowcomponenttournamentComponent } from './app-components/tournament/sh
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
 import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
+import { TournamentDataComponent } from './app-components/create/tournament-data/tournament-data.component';
+import {CoreModule} from "./core/core.module";
+import {TournamentDao} from "./core/dao/tournament.dao";
+import {AppConfig} from "./core/app-config/app-config.service";
 
 
 @NgModule({
@@ -31,18 +35,19 @@ import {DetailtournamentcomponentComponent} from "./app-components/tournament/de
     CreateComponent,
     SearchcomponenttournamentComponent,
     ShowcomponenttournamentComponent,
-    DetailtournamentcomponentComponent
+    DetailtournamentcomponentComponent,
+    TournamentDataComponent
 
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     HttpModule,
     AppRoutingModule,
     MultiselectDropdownModule,
-    NgDatepickerModule
+    NgDatepickerModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TournamentDao,AppConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

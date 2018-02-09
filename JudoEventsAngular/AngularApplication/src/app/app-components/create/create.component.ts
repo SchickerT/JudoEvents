@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {TournamentDao} from "../../core/dao/tournament.dao";
 import {AppConfig} from "../../core/app-config/app-config.service";
+import {Event} from "../../core/model/event";
+
 
 @Component({
   selector: 'app-create',
@@ -11,15 +13,14 @@ import {AppConfig} from "../../core/app-config/app-config.service";
 })
 export class CreateComponent implements OnInit {
 
-  public tournamentFromGroup: FormGroup;
+  public eventFormGroup: FormGroup;
 
   constructor(private router: Router,
               private tournamentDao: TournamentDao,
-              private appConfig: AppConfig,
               private fb:FormBuilder) {
 
-    this.tournamentFromGroup = fb.group({
-      generalData: fb.group({
+    this.eventFormGroup = fb.group({
+      tournamentData: fb.group({
         startDate: [''],
         endDate: [''],
         typeOfEvent: [''],
@@ -48,5 +49,6 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {
   }
+
 
 }
