@@ -27,14 +27,19 @@ public class Location implements Serializable {
     private String street;
     private String federalState;
     private String country;
+    private double longitude;
+    private double latitude;
+    private String countryCode;
 
-
-    public Location(String zipCode, String city, String street, String federalState, String country) {
+    public Location(String zipCode, String city, String street, String federalState, String country, double longitude, double latitude, String countryCode) {
         this.zipCode = zipCode;
         this.city = city;
         this.street = street;
         this.federalState = federalState;
         this.country = country;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.countryCode = countryCode;
     }
 
     public Location() {
@@ -90,7 +95,29 @@ public class Location implements Serializable {
         this.country = country;
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
 
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
 
     //endregion
 }

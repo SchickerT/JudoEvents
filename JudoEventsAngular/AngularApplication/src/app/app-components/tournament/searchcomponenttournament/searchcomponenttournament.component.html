@@ -2,76 +2,45 @@
   <div class="cont">
     <div class="searchblock d-block p-5">
       <div class="innercontent ">
-        <h1>Finde dein Turnier</h1>
+        <h1>Find your Tournament</h1>
 
         <div class="row col-12 mt-4">
           <div class="col-8">
-            Turniername:
+            Tournament Name:
           </div>
 
           <div class="col-4 ">
-            Land:
+            Country:
           </div>
         </div>
 
         <div class="row col-12">
           <div class="input-group input-group-lg col-8">
-            <input type="text" class="form-control" placeholder="Suche Turnier..." aria-label="Search" aria-describedby="sizing-addon1">
+            <input [(ngModel)]="textSearch" type="text" class="form-control" placeholder="Search by Name..." aria-label="Search" aria-describedby="sizing-addon1">
           </div>
           <div class="dropdown show col-4">
-            <a class="btn btn-lg btn-country dropdown-toggle ddt" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Land auswählen....
-            </a>
-
-            <div class="dropdown-menu ddm" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item">Beliebig</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-at"  style="border: 0.05px solid black;"></span> Austria</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-cz"  style="border: 0.05px solid black;"></span> Czech Republic</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-jp"  style="border: 0.05px solid black;"></span> Japan</a>
-              <a class="dropdown-item"> <span class="flag-icon flag-icon-pl"  style="border: 0.05px solid black;"></span> Poland</a>
-
-            </div>
+            <select [(ngModel)]="countrySearch" class="btn-lg btn btn-country">
+              <option value="" disabled selected>Select a Country</option>
+              <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+            </select>
           </div>
           </div>
+
+
 
 
         <div class="row col-12 mt-3">
           <div class="col-6">
-            Datum von:
+            Date from:
           </div>
 
           <div class="col-6 ">
-            Datum bis:
+            Date to:
           </div>
         </div>
         <div class="row col-12">
           <div class="datepicker col-6">
-            <ng-datepicker [(ngModel)]="dateFrom"></ng-datepicker>
+            <ng-datepicker [(ngModel)]="dateFrom" [options]="optionsDatepicker"></ng-datepicker>
           </div>
 
           <div class="datepicker col-6 ">
@@ -97,6 +66,11 @@
 
           <div class="col-3"></div>
         </div>
+
+        Date from value: {{dateFrom | date}}
+        Date to value: {{dateTo | date}}
+        Country: {{countrySearch.name}}
+        Text: {{textSearch}}
       </div>
     </div>
   </div>

@@ -5,7 +5,6 @@ export class Participation{
   public id:number;
   public numberOfStarters:number;
   public starters:string;
-
   public club:Club;
   public event:Event;
 

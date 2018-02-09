@@ -27,7 +27,8 @@ public class Club implements Serializable{
     private String email;
     private String password;
 
-    private String pictureUrl;
+    @Lob
+    private byte[] clubPicture;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Representative representative;
@@ -35,10 +36,10 @@ public class Club implements Serializable{
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Location location;
 
-    public Club(String name, String discription,String pictureUrl, String email,String password,Representative representative, Location location) {
+    public Club(String name, String discription, String email,String password,Representative representative, Location location) {
         this.name = name;
         this.discription = discription;
-        this.pictureUrl = pictureUrl;
+       // this.clubPicture = picture;
         this.representative = representative;
         this.location = location;
         this.email = email;
@@ -75,12 +76,12 @@ public class Club implements Serializable{
         this.discription = discription;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public byte[] getClubPicture() {
+        return clubPicture;
     }
 
-    public void setPictureUrl(String picture) {
-        this.pictureUrl = picture;
+    public void setClubPicture(byte[] clubPicture) {
+        this.clubPicture = clubPicture;
     }
 
     public Representative getRepresentative() {

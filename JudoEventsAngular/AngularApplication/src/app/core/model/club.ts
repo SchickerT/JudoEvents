@@ -7,7 +7,7 @@ export class Club {
   public discription:string;
   public email:string;
   public password:string;
-  public pictureUrl:string;
+  public clubPicture:string;
 
   public representative:Representative;
   public location:Location;
@@ -17,7 +17,7 @@ export class Club {
               discription?:string,
               email?: string,
               password?: string,
-              pictureUrl?: string,
+              picture?: string,
               representative?: Representative,
               location?: Location){
     this.id=id;
@@ -25,7 +25,7 @@ export class Club {
     this.discription = discription;
     this.email = email;
     this.password = password;
-    this.pictureUrl = pictureUrl;
+    this.clubPicture = picture;
     this.representative = representative;
     this.location = location;
   }
