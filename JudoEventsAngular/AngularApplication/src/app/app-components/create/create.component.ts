@@ -2,9 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
 import {TournamentDao} from "../../core/dao/tournament.dao";
-import {AppConfig} from "../../core/app-config/app-config.service";
-import {Event} from "../../core/model/event";
-
 
 @Component({
   selector: 'app-create',
@@ -24,7 +21,7 @@ export class CreateComponent implements OnInit {
         startDate: [''],
         endDate: [''],
         typeOfEvent: [''],
-        name: [''],
+        tournamentName: [''],
         discription: [''],
         entryFee: [''],
         rewards: [''],

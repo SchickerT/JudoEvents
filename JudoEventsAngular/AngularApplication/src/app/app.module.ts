@@ -21,7 +21,9 @@ import { TournamentDataComponent } from './app-components/create/tournament-data
 import {CoreModule} from "./core/core.module";
 import {TournamentDao} from "./core/dao/tournament.dao";
 import {AppConfig} from "./core/app-config/app-config.service";
-
+import {CommonModule} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FilePickerModule} from "./libs/file-picker/file-picker.module";
 
 @NgModule({
   declarations: [
@@ -37,7 +39,6 @@ import {AppConfig} from "./core/app-config/app-config.service";
     ShowcomponenttournamentComponent,
     DetailtournamentcomponentComponent,
     TournamentDataComponent
-
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,10 @@ import {AppConfig} from "./core/app-config/app-config.service";
     AppRoutingModule,
     MultiselectDropdownModule,
     NgDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,FilePickerModule
   ],
   providers: [TournamentDao,AppConfig],
   bootstrap: [AppComponent]

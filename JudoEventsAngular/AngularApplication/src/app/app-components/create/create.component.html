@@ -1,7 +1,9 @@
-<app-tournament-data [stepFormGroup]="eventFormGroup.controls['tournamentData']"></app-tournament-data>
+<div class="d-table small-container">
+  <app-tournament-data [stepFormGroup]="eventFormGroup.controls['tournamentData']"></app-tournament-data>
 
-<button class="btn btn-success"
-        (click)="submitForm()">
-  Erstellen
-  <i class="fa fa-arrow-right"></i>
-</button>
+  <button class="btn btn-success" style="width: 100%"
+          (click)="submitForm()">
+    Create
+  </button>
+</div>
+

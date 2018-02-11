@@ -1,0 +1,62 @@
+.cont{
+  width:100%;
+}
+.ngx-datepicker-input{
+  background-color: white !important;
+  color: black;
+  width:100% !important;
+  height: calc(2.3125rem + 10px);
+  border-radius: 4px;
+  z-index: 3;
+}
+
+.dropdown{
+  width:100% !important;
+}
+.dropdown-menu{
+  width: 100% !important;
+}
+.datepicker{
+  z-index: 3 !important;
+  width: 100% !important;
+}
+
+
+#logo {
+  cursor: pointer;
+}
+
+.logo-display {
+  object-fit: contain;
+}
+
+.drop-zone {
+  position: relative;
+  background-color: #f9f9f9;
+  border: dashed 2px grey;
+  border-radius: .50rem;
+  color: grey;
+  font-size: 1.25rem;
+  user-select: none;
+  cursor: default;
+  transition: all 0.25s;}
+
+.drop-zone-text {
+  pointer-events: none;
+}
+
+.is-drag {
+  background-color: #efefef;
+  border: dashed 2px #0069d9;
+  color: #0069d9;
+}
+
+.input-group-append.btn {
+  border-bottom-right-radius: .25rem !important;
+  border-top-right-radius: .25rem !important;
+
+}
+.btn{
+  cursor: pointer;
+}
+
