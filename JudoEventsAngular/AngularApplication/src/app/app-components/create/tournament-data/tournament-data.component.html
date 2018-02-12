@@ -1,82 +1,90 @@
 <div class="py-3">
   <div class="cont">
-    <form [formGroup] = "stepFormGroup">
+    <form [formGroup]="stepFormGroup">
       <h2>Create your own tournament</h2>
       <br>
       <h3>General Tournament Information</h3>
 
       <div class="form-group">
-        <label>Tournament Name:</label>
-        <input class="form-control col-md-8" formControlName="tournamentName" id="tournamentName" placeholder="Tournament Name">
-      </div>
-      <div class="col-md-4">
-        <img *ngIf="logo != undefined && logo.dataURL != undefined"
-             [src]="logo?.dataURL"
-             class="logo-display w-100 h-100">
-      </div>
+        <div class="row mt-3">
+          <div class="col-md-8">
+            <label>Tournament Name:</label>
+            <input class="form-control col-md-12" formControlName="tournamentName" id="tournamentName"
+                   placeholder="Tournament Name">
+            <div class="form-group row mt-2">
+              <div class="col-md-6">
+                <label>Start Date:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="dateFrom"
+                       placeholder="Start Date">
+              </div>
+              <div class="col-md-6">
+                <label>End Date:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="rewards" id="dateTo"
+                       placeholder="End Date">
+              </div>
+            </div>
 
-    </form>
-
-    <div class="row">
-      <div class="datepicker col-md-4">
-        <label>Date From:</label>
-        <ng-datepicker [(ngModel)]="dateFrom" [options]="optionsDatepicker"></ng-datepicker>
-      </div>
-
-      <div class="datepicker col-md-4 ">
-        <label>Date To:</label>
-        <ng-datepicker [(ngModel)]="dateTo" [options]="optionsDatepicker"></ng-datepicker>
-      </div>
-    </div>
-
-    <form [formGroup]="stepFormGroup">
-      <div class="form-group row mt-2">
-        <div class="col-md-4">
-          <label>Entry Fee:</label>
-          <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="entryFee" placeholder="Entry Fee in Euro">
-        </div>
-        <div class="col-md-4">
-          <label>Rewards:</label>
-          <input style="width: 103% !important;"class="form-control" formControlName="rewards" id="rewards" placeholder="Reward for winning the tournament">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>Age and Weight:</label>
-        <input class="form-control col-md-12" formControlName="ageAndWeight" id="ageAndWeight" placeholder="Age and Weight Categories">
-      </div>
-
-      <div class="form-group row">
-        <label for="logo" class="col-md-3 col-form-label">Logo (max. 2MB):</label>
-        <div class="input-group col-md-11"
-             fitFilePicker
-             [accept]="'image/*'"
-             [maxSize]="2000000"
-             (filePick)="filePicked($event)">
-          <input class="form-control"
-                 id="logo"
-                 type="text"
-                 [value]="logo?.name"
-                 placeholder="choose a picture..."
-                 disabled>
-          <div class="input-group-append">
-            <button style="width: 205% !important;" class="btn btn-primary" type="button">choose</button>
+            <div class="form-group row mt-2">
+              <div class="col-md-6">
+                <label>Entry Fee:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="entryFee"
+                       placeholder="Entry Fee in Euro">
+              </div>
+              <div class="col-md-6">
+                <label>Rewards:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="rewards" id="rewards"
+                       placeholder="Reward for winning the tournament">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-12 d-flex">
+              <img *ngIf="logo != undefined && logo.dataURL != undefined"
+                   [src]="logo?.dataURL"
+                   class="pic-logo mx-auto ">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="row" style="height: 100px; max-height: 100px">
-        <div class="col-md-12">
-          <div fitFileDropzone
-               [accept]="'image\/.'"
+        <div class="form-group">
+          <label>Age and Weight:</label>
+          <input class="form-control col-md-12" formControlName="ageAndWeight" id="ageAndWeight"
+                 placeholder="Age and Weight Categories">
+        </div>
+
+
+        <div class="form-group row">
+          <label for="logo" class="col-md-3 col-form-label">Logo (max. 2MB):</label>
+          <div class="input-group col-md-11"
+               fitFilePicker
+               [accept]="'image/*'"
                [maxSize]="2000000"
-               (fileDrop)="filePicked($event)"
-               (dragenter)="isDrag = true"
-               (dragleave)="isDrag = false"
-               (drop)="isDrag = false"
-               class="drop-zone h-100 w-100"
-               [ngClass]="{'is-drag': isDrag}">
-            <div class="drop-zone-text centered-element" style="text-align: center;">Drag & Drop</div>
+               (filePick)="filePicked($event)">
+            <input class="form-control"
+                   id="logo"
+                   type="text"
+                   [value]="logo?.name"
+                   placeholder="choose a picture..."
+                   disabled>
+            <div class="input-group-append">
+              <button style="width: 205% !important;" class="btn btn-primary" type="button">choose</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="height: 100px; max-height: 100px">
+          <div class="col-md-12">
+            <div fitFileDropzone
+                 [accept]="'image\/.'"
+                 [maxSize]="2000000"
+                 (fileDrop)="filePicked($event)"
+                 (dragenter)="isDrag = true"
+                 (dragleave)="isDrag = false"
+                 (drop)="isDrag = false"
+                 class="drop-zone h-100 w-100"
+                 [ngClass]="{'is-drag': isDrag}">
+              <div class="drop-zone-text centered-element" style="text-align: center; vertical-align: middle;"><br>Drag & Drop</div>
+            </div>
           </div>
         </div>
       </div>

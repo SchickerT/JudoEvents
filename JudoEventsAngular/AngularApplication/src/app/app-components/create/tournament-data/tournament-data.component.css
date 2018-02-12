@@ -26,10 +26,6 @@
   cursor: pointer;
 }
 
-.logo-display {
-  object-fit: contain;
-}
-
 .drop-zone {
   position: relative;
   background-color: #f9f9f9;
@@ -58,5 +54,12 @@
 }
 .btn{
   cursor: pointer;
+}
+
+.pic-logo{
+  max-height: 25vh !important;
+  height:25vh !important;
+  max-width: 25vh !important;
+  margin-top: 2vh;
 }
 
