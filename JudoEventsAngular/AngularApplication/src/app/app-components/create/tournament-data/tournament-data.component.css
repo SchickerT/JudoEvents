@@ -62,4 +62,15 @@
   max-width: 25vh !important;
   margin-top: 2vh;
 }
+agm-map {
+  height: 35vh;
+}
+
+.pic-person{
+  max-height: 15vh !important;
+  height:15vh !important;
+  max-width: 12vh !important;
+  margin-top: 4vh;
+
+}
 

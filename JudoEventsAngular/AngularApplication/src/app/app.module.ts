@@ -24,6 +24,8 @@ import {AppConfig} from "./core/app-config/app-config.service";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FilePickerModule} from "./libs/file-picker/file-picker.module";
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,12 @@ import {FilePickerModule} from "./libs/file-picker/file-picker.module";
     HttpClientModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,FilePickerModule
+    ReactiveFormsModule,
+    FilePickerModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCtUgkBX-lnNZIFdMHoPod8CZMAtgsT0ZA'
+    }),
+    AgmSnazzyInfoWindowModule
   ],
   providers: [TournamentDao,AppConfig],
   bootstrap: [AppComponent]
