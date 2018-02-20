@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+
 <div class="py-3">
   <div class="cont">
     <form [formGroup]="stepFormGroup">
@@ -11,16 +13,11 @@
             <label>Tournament Name:</label>
             <input class="form-control col-md-12" formControlName="tournamentName" id="tournamentName"
                    placeholder="Tournament Name">
+
             <div class="form-group row mt-2">
-              <div class="col-md-6">
-                <label>Start Date:</label>
-                <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="dateFrom"
-                       placeholder="Start Date">
-              </div>
-              <div class="col-md-6">
-                <label>End Date:</label>
-                <input style="width: 100% !important;" class="form-control" formControlName="rewards" id="dateTo"
-                       placeholder="End Date">
+              <div class="col-md-12">
+                <label>Date of Tournament:</label>
+                <input type="text" class="form-control" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="startDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"/>
               </div>
             </div>
 
@@ -233,5 +230,10 @@
       </div>
     </form>
 
+    <div class="row">
+      <div class="col-xs-12 col-md-12" style="max-width: 1000px">
+        <pre class="code-preview">{{stepFormGroup.value | json}}</pre>
+      </div>
+    </div>
   </div>
 </div>

@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FilePickerModule} from "./libs/file-picker/file-picker.module";
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import {BsDatepickerModule} from "ngx-bootstrap";
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
     FormsModule,
     ReactiveFormsModule,
     FilePickerModule,
+    BsDatepickerModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCtUgkBX-lnNZIFdMHoPod8CZMAtgsT0ZA'
     }),

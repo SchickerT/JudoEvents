@@ -5,6 +5,7 @@ import * as frLocale from 'date-fns/locale/fr';
 import { PickedFile } from '../../../libs/file-picker/picked-file';
 import { FilePickerError } from '../../../libs/file-picker/file-picker-error';
 import { MouseEvent } from '@agm/core';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-tournament-data',
@@ -16,6 +17,8 @@ export class TournamentDataComponent implements OnInit {
   @Input()
   public stepFormGroup: FormGroup;
 
+  mindate:Date=new Date(Date.now());
+  maxdate:Date=new Date(2025,12,31);
   dateFrom : Date;
   dateTo: Date;
 
@@ -35,6 +38,7 @@ export class TournamentDataComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   markers: marker[] = [
