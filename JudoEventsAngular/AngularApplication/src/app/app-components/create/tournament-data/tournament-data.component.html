@@ -20,20 +20,31 @@
             <div class="form-group row mt-2">
               <div class="col-md-12">
                 <label>Date of Tournament:</label>
-                <input type="text" class="form-control" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="date" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"/>
+                <input type="text" class="form-control" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="date"
+                       [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }" [ngClass]="{'error': hasErrors('date') && isHoovered('date')}">
+                <div *ngIf="hasErrors('date') && isHoovered('date')" class="error-msg">
+                  <div *ngIf="isRequired('date')">Date is required.</div>
+                </div>
               </div>
+
             </div>
 
             <div class="form-group row mt-2">
               <div class="col-md-6">
                 <label>Entry Fee:</label>
                 <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="entryFee"
-                       placeholder="Entry Fee in Euro">
+                       placeholder="Entry Fee in Euro" [ngClass]="{'error': hasErrors('entryFee') && isHoovered('entryFee')}">
+                <div *ngIf="hasErrors('entryFee') && isHoovered('entryFee')" class="error-msg">
+                  <div *ngIf="isRequired('entryFee')">Entry fee is required.</div>
+                </div>
               </div>
               <div class="col-md-6">
                 <label>Rewards:</label>
                 <input style="width: 100% !important;" class="form-control" formControlName="rewards" id="rewards"
-                       placeholder="Reward for winning the tournament">
+                       placeholder="Reward for winning the tournament"  [ngClass]="{'error': hasErrors('rewards') && isHoovered('rewards')}">
+                <div *ngIf="hasErrors('rewards') && isHoovered('rewards')" class="error-msg">
+                  <div *ngIf="isRequired('rewards')">Rewards are required.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -94,12 +105,18 @@
           <div class="col-md-3">
             <label>Zip Code:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="zipCode" id="zipCode"
-                   placeholder="Zip Code e.g. 4266">
+                   placeholder="Zip Code e.g. 4266"  [ngClass]="{'error': hasErrors('zipCode') && isHoovered('zipCode')}">
+            <div *ngIf="hasErrors('zipCode') && isHoovered('zipCode')" class="error-msg">
+              <div *ngIf="isRequired('zipCode')">Zip-Code is required.</div>
+            </div>
           </div>
           <div class="col-md-9">
             <label>City:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="city" id="city"
-                   placeholder="City">
+                   placeholder="City" [ngClass]="{'error': hasErrors('city') && isHoovered('city')}">
+            <div *ngIf="hasErrors('city') && isHoovered('city')" class="error-msg">
+              <div *ngIf="isRequired('city')">City is required.</div>
+            </div>
           </div>
         </div>
 
@@ -107,12 +124,18 @@
           <div class="col-md-9">
             <label>Street Name:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="street" id="street"
-                   placeholder="Street name">
+                   placeholder="Street name" [ngClass]="{'error': hasErrors('street') && isHoovered('street')}">
+            <div *ngIf="hasErrors('street') && isHoovered('street')" class="error-msg">
+              <div *ngIf="isRequired('street')">Street is required.</div>
+            </div>
           </div>
           <div class="col-md-3">
             <label>Street Number:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="streetNumber" id="streetNumber"
-                   placeholder="Street Number">
+                   placeholder="Street Number" [ngClass]="{'error': hasErrors('streetNumber') && isHoovered('streetNumber')}">
+            <div *ngIf="hasErrors('streetNumber') && isHoovered('streetNumber')" class="error-msg">
+              <div *ngIf="isRequired('streetNumber')">Street number is required.</div>
+            </div>
           </div>
         </div>
 
@@ -120,12 +143,18 @@
           <div class="col-md-6">
             <label>Federal State:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="federalState" id="federalState"
-                   placeholder="Federal State">
+                   placeholder="Federal State" [ngClass]="{'error': hasErrors('federalState') && isHoovered('federalState')}">
+            <div *ngIf="hasErrors('federalState') && isHoovered('federalState')" class="error-msg">
+              <div *ngIf="isRequired('federalState')">Federal State is required.</div>
+            </div>
           </div>
           <div class="col-md-6">
             <label>Country:</label>
             <input style="width: 100% !important;" class="form-control" formControlName="country" id="country"
-                   placeholder="Country">
+                   placeholder="Country" [ngClass]="{'error': hasErrors('country') && isHoovered('country')}">
+            <div *ngIf="hasErrors('country') && isHoovered('country')" class="error-msg">
+              <div *ngIf="isRequired('country')">Country is required.</div>
+            </div>
           </div>
         </div>
         <div class="mt-3">
@@ -163,12 +192,18 @@
             <div class="col-md-6">
               <label>First Name:</label>
               <input style="width: 100% !important;" class="form-control" formControlName="firstName" id="firstName"
-                     placeholder="First name">
+                     placeholder="First name" [ngClass]="{'error': hasErrors('firstName') && isHoovered('firstName')}">
+              <div *ngIf="hasErrors('firstName') && isHoovered('firstName')" class="error-msg">
+                <div *ngIf="isRequired('firstName')">First-Name is required.</div>
+              </div>
             </div>
             <div class="col-md-6">
               <label>Last Name:</label>
               <input style="width: 100% !important;" class="form-control" formControlName="lastName" id="lastName"
-                     placeholder="Last name">
+                     placeholder="Last name" [ngClass]="{'error': hasErrors('lastName') && isHoovered('lastName')}">
+              <div *ngIf="hasErrors('lastName') && isHoovered('lastName')" class="error-msg">
+                <div *ngIf="isRequired('lastName')">Last-Name is required.</div>
+              </div>
             </div>
           </div>
 
@@ -176,12 +211,18 @@
             <div class="col-md-6">
               <label>Email:</label>
               <input style="width: 100% !important;" class="form-control" formControlName="email" id="email"
-                     placeholder="Email">
+                     placeholder="Email" [ngClass]="{'error': hasErrors('email') && isHoovered('email')}">
+              <div *ngIf="hasErrors('email') && isHoovered('email')" class="error-msg">
+                <div *ngIf="isRequired('email')">Email is required.</div>
+              </div>
             </div>
             <div class="col-md-6">
               <label>Phone Number:</label>
               <input style="width: 100% !important;" class="form-control" formControlName="phoneNumber" id="phoneNumber"
-                     placeholder="Phone Number e.g. +43 676 12345678">
+                     placeholder="Phone Number e.g. +43 676 12345678" [ngClass]="{'error': hasErrors('phoneNumber') && isHoovered('phoneNumber')}">
+              <div *ngIf="hasErrors('phoneNumber') && isHoovered('phoneNumber')" class="error-msg">
+                <div *ngIf="isRequired('phoneNumber')">Phonenumber is required.</div>
+              </div>
             </div>
           </div>
           </div>
