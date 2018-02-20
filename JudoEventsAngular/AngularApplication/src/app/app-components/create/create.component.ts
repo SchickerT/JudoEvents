@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {TournamentDao} from "../../core/dao/tournament.dao";
 
@@ -18,10 +18,9 @@ export class CreateComponent implements OnInit {
 
     this.eventFormGroup = fb.group({
       tournamentData: fb.group({
-        startDate: [''],
-        endDate: [''],
+        date: [''],
         typeOfEvent: [''],
-        tournamentName: [''],
+        tournamentName: ['', Validators.required],
         discription: [''],
         entryFee: [''],
         rewards: [''],

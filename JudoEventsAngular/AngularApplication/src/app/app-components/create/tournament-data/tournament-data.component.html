@@ -12,12 +12,15 @@
           <div class="col-md-8">
             <label>Tournament Name:</label>
             <input class="form-control col-md-12" formControlName="tournamentName" id="tournamentName"
-                   placeholder="Tournament Name">
+                   placeholder="Tournament Name"  [ngClass]="{'error': hasErrors('tournamentName') && isHoovered('tournamentName')}">
+            <div *ngIf="hasErrors('tournamentName') && isHoovered('tournamentName')" class="error-msg">
+              <div *ngIf="isRequired('tournamentName')">Tournament name is required.</div>
+            </div>
 
             <div class="form-group row mt-2">
               <div class="col-md-12">
                 <label>Date of Tournament:</label>
-                <input type="text" class="form-control" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="startDate" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"/>
+                <input type="text" class="form-control" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="date" [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }"/>
               </div>
             </div>
 

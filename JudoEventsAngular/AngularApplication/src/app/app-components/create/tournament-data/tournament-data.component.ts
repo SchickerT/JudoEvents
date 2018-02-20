@@ -6,6 +6,7 @@ import { PickedFile } from '../../../libs/file-picker/picked-file';
 import { FilePickerError } from '../../../libs/file-picker/file-picker-error';
 import { MouseEvent } from '@agm/core';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import {FormValidationHelper} from "../../../libs/helper/form-validation-helper";
 
 @Component({
   selector: 'app-tournament-data',
@@ -100,6 +101,19 @@ export class TournamentDataComponent implements OnInit {
     this.markers[0].lng=$event.coords.lng;
     this.markers[0].draggable=true;
   }
+
+  public isRequired(formName: string):boolean{
+    return FormValidationHelper.isRequired(formName,this.stepFormGroup);
+  }
+
+
+  public hasErrors(formName:string):ValidationErrors{
+    return FormValidationHelper.hasError(formName,this.stepFormGroup);
+  }
+
+  public isHoovered(formName:string):boolean{
+    return FormValidationHelper.isHoovered(formName,this.stepFormGroup);
+  }
 }
 interface marker {
   lat: number;
@@ -107,3 +121,5 @@ interface marker {
   label?: string;
   draggable: boolean;
 }
+
+
