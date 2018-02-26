@@ -52,6 +52,13 @@
                  placeholder="Age and Weight Categories">
         </div>
 
+        <div>
+          <label class="my-auto">Discription of tournament:</label>
+          <app-hint-icon
+            [message]="'Please write a short discription here for you tournament.'"></app-hint-icon>
+        </div>
+
+        <div class="my-2" (keypress)="storeFroala()" id="editor" [froalaEditor]="options"></div>
 
         <div class="form-group row">
           <label for="logo" class="col-md-3 col-form-label">Logo (max. 2MB):</label>

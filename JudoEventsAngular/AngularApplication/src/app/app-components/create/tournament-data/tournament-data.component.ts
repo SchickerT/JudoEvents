@@ -7,7 +7,7 @@ import { FilePickerError } from '../../../libs/file-picker/file-picker-error';
 import { MouseEvent } from '@agm/core';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import {FormValidationHelper} from "../../../libs/helper/form-validation-helper";
-
+declare let $;
 @Component({
   selector: 'app-tournament-data',
   templateUrl: './tournament-data.component.html',
@@ -114,6 +114,32 @@ export class TournamentDataComponent implements OnInit {
   public isHoovered(formName:string):boolean{
     return FormValidationHelper.isHoovered(formName,this.stepFormGroup);
   }
+
+  public storeFroala():void{
+    var html =   $('#editor').froalaEditor('html.get');
+    //console.log(html.toString());
+    this.stepFormGroup.controls['description'].setValue(html.toString());
+  }
+
+
+
+  public options: Object = {
+    charCounterCount: true,
+    charCounterMax: 1000,
+    quickInsert:false,
+    heightMin: 250,
+    heightMax: 490,
+    enter: $.FroalaEditor.ENTER_BR,
+    tooltips:true,
+    fontSize:'30',
+    placeholderText: 'Bitte Firmenbeschreibung eingeben.......',
+    quickInsertTags:'',
+    inlineMode:true,
+    toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline' , '|', 'formatUL', 'formatOL','clearFormatting',  '|','superscript', 'outdent', 'indent']
+    //toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    //toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+    //toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
+  };
 }
 interface marker {
   lat: number;

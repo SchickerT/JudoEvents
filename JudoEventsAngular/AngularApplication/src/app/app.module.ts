@@ -27,6 +27,8 @@ import {FilePickerModule} from "./libs/file-picker/file-picker.module";
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {BsDatepickerModule} from "ngx-bootstrap";
+import {FroalaEditorModule, FroalaViewModule} from "angular-froala-wysiwyg";
+import { HintIconComponent } from './libs/hint-icon/hint-icon.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {BsDatepickerModule} from "ngx-bootstrap";
     SearchcomponenttournamentComponent,
     ShowcomponenttournamentComponent,
     DetailtournamentcomponentComponent,
-    TournamentDataComponent
+    TournamentDataComponent,
+    HintIconComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,9 @@ import {BsDatepickerModule} from "ngx-bootstrap";
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCtUgkBX-lnNZIFdMHoPod8CZMAtgsT0ZA'
     }),
-    AgmSnazzyInfoWindowModule
+    AgmSnazzyInfoWindowModule,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot()
   ],
   providers: [TournamentDao,AppConfig],
   bootstrap: [AppComponent]

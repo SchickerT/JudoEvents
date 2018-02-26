@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "angular-2-dropdown-multiselect": "^1.6.0",
+    "angular-froala-wysiwyg": "^2.7.2",
     "angular-fullpage.js": "^0.2.6",
     "bootstrap": "^4.0.0-beta",
     "core-js": "^2.4.1",
