@@ -20,8 +20,6 @@ export class TournamentDataComponent implements OnInit {
 
   mindate:Date=new Date(Date.now());
   maxdate:Date=new Date(2025,12,31);
-  dateFrom : Date;
-  dateTo: Date;
 
   public logo: PickedFile;
   public isDrag: boolean = false;
@@ -34,8 +32,6 @@ export class TournamentDataComponent implements OnInit {
   zoom: number = 8;
 
   constructor() {
-    this.dateFrom = new Date();
-    this.dateTo = new Date(Date.UTC(2029,11,31));
   }
 
   ngOnInit() {
@@ -55,7 +51,7 @@ export class TournamentDataComponent implements OnInit {
 
     if (file instanceof PickedFile) {
       this.logo = file;
-      this.stepFormGroup.value.logo = this.logo.dataURL;
+      this.stepFormGroup.value.eventPicture = this.logo.dataURL;
     } else if (file === FilePickerError.FileTooBig) {
       console.log('too big');
     } else if (file === FilePickerError.InvalidFileType) {
@@ -69,7 +65,7 @@ export class TournamentDataComponent implements OnInit {
 
     if (file instanceof PickedFile) {
       this.iconRep = file;
-      this.stepFormGroup.value.icon = this.iconRep.dataURL;
+      this.stepFormGroup.value.representativePicture = this.iconRep.dataURL;
     } else if (file === FilePickerError.FileTooBig) {
       console.log('too big');
     } else if (file === FilePickerError.InvalidFileType) {
@@ -79,14 +75,6 @@ export class TournamentDataComponent implements OnInit {
     }
   }
 
-  optionsDatepicker: DatepickerOptions={
-    minYear: 2018,
-    maxYear: 2030,
-    displayFormat: 'MMM D[,] YYYY',
-    barTitleFormat: 'MMMM YYYY',
-    firstCalendarDay: 1,
-    minDate: new Date(Date.now())
-  };
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -132,7 +120,7 @@ export class TournamentDataComponent implements OnInit {
     enter: $.FroalaEditor.ENTER_BR,
     tooltips:true,
     fontSize:'30',
-    placeholderText: 'Bitte Firmenbeschreibung eingeben.......',
+    placeholderText: 'Please enter a short description down here.......',
     quickInsertTags:'',
     inlineMode:true,
     toolbarButtons: ['undo', 'redo' , '|', 'bold', 'italic', 'underline' , '|', 'formatUL', 'formatOL','clearFormatting',  '|','superscript', 'outdent', 'indent']

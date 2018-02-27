@@ -6,12 +6,12 @@ export class Representative{
   public phoneNumber:string;
   public representativePicture:string;
 
-  constructor(id:number,
-              firstName:string,
-              lastName:string,
-              email:string,
-              phoneNumber:string,
-              picture:string){
+  constructor(firstName?:string,
+              lastName?:string,
+              email?:string,
+              phoneNumber?:string,
+              picture?:string,
+              id?:number){
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;

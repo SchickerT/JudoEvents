@@ -9,15 +9,15 @@ export class Location{
   public latitude: number;
   public countryCode: string;
 
-  constructor(id:number,
-              zipCode:string,
-              city:string,
-              street:string,
-              federalState:string,
-              country:string,
-              long:number,
-              lat:number,
-              cc:string){
+  constructor(zipCode?:string,
+              city?:string,
+              street?:string,
+              federalState?:string,
+              country?:string,
+              long?:number,
+              lat?:number,
+              cc?:string,
+              id?:number){
       this.id = id;
       this.zipCode = zipCode;
       this.city = city;

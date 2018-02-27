@@ -18,18 +18,19 @@ export class Event{
 
 
 
-  constructor(id: number,
-              name: string,
-              startDate: Date,
-              endDate: Date,
+  constructor(
+              name?: string,
+              startDate?: Date,
+              endDate?: Date,
               discription?: string,
               entryFee?: number,
               rewards?: string,
               ageAndWeight?: string,
               picture?: string,
               location?: Location,
+              representative?: Representative,
               club?: Club,
-              representative?: Representative) {
+              id?: number) {
 
     this.id = id;
     this.startDate = startDate;
