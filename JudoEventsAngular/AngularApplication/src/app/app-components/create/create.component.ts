@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
         typeOfEvent: [''],
         tournamentName: ['', Validators.required],
         description: [''],
-        entryFee: [0],
+        entryFee: [''],
         rewards: [''],
         ageAndWeight: [''],
         eventPicture: [''],
@@ -53,8 +53,8 @@ export class CreateComponent implements OnInit {
   private getTournamentFromForm():Event{
     return new Event(
       this.eventFormGroup.value.tournamentData.tournamentName,
-      this.eventFormGroup.value.tournamentData.date[0],
-      this.eventFormGroup.value.tournamentData.date[1],
+      new Date(this.eventFormGroup.value.tournamentData.date[0]),
+      new Date(this.eventFormGroup.value.tournamentData.date[1]),
       this.eventFormGroup.value.tournamentData.description,
       this.eventFormGroup.value.tournamentData.entryFee,
       this.eventFormGroup.value.tournamentData.rewards,

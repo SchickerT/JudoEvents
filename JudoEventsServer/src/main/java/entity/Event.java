@@ -1,11 +1,15 @@
 package entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import entity.enums.TypeOfEvent;
+import helper.serialization.LocalDateDeserializer;
 
+import javax.ejb.Local;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,7 +33,9 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate startDate;
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate endDate;
 
     @Enumerated(EnumType.STRING)
@@ -56,7 +62,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, Location location, Club club, Representative representative) {
+    public Event(String name,LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent,  String discription, double entryFee, String rewards, String ageAndWeight, Location location, Club club, Representative representative) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.typeOfEvent = typeOfEvent;
@@ -84,7 +90,7 @@ public class Event {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(LocalDate StartDate) {
         this.startDate = startDate;
     }
 

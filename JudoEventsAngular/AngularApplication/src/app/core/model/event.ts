@@ -18,8 +18,7 @@ export class Event{
 
 
 
-  constructor(
-              name?: string,
+  constructor(name?: string,
               startDate?: Date,
               endDate?: Date,
               discription?: string,

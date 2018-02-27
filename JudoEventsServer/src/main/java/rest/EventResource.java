@@ -1,8 +1,10 @@
 package rest;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
 import entity.Club;
 import entity.Location;
 import entity.Representative;
+import entity.enums.TypeOfEvent;
 import facade.ClubFacade;
 import facade.EventFacade;
 import entity.Event;
@@ -21,6 +23,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -52,19 +56,19 @@ public class EventResource {
     @ApiOperation("erstellt eine Event; mit RepresentativeId, LocationId und ClubId")
     public Response create(Event event){
         Representative representative = event.getRepresentative();
-        Location location = event.getLocation();
-        Club club = clubFacade.findById(event.getClub().getId());
+        Club club = clubFacade.findById(1);
+        LocalDateTime startDate;
+        LocalDateTime endDate;
 
+
+        event.setTypeOfEvent(TypeOfEvent.Turnament);
         if(representative.getFirstName().isEmpty())
             representative = club.getRepresentative();
-        if(location.getCity().isEmpty())
-            location=club.getLocation();
-
         event.setClub(club);
         event.setRepresentative(representative);
-        event.setLocation(location);
         em.persist(event);
-
+        System.out.println(event.getStartDate());
+        System.out.print(event.getEndDate());
         return Response.created(
                 UriBuilder.fromResource(EventResource.class)
                         .path(String.valueOf(event.getId())).build()).build();

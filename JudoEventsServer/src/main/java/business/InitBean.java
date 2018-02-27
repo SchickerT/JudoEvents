@@ -13,6 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Created by marcelpautz on 20.07.17.
@@ -75,7 +76,7 @@ public class InitBean {
         */
 
 
-       eventFacade.create(new Event(LocalDate.of(2019, 1, 1),LocalDate.of(2019, 1, 11), TypeOfEvent.Turnament,"OTC Nymbuk 2016","Olympic Trainings Camp",35.50,"","U18 and above",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative()));
+      // eventFacade.create(new Event(new Date(2019,1,18),new Date(2019, 1, 11), TypeOfEvent.Turnament,"OTC Nymbuk 2016","Olympic Trainings Camp",35.50,"","U18 and above",clubFacade.findById(1).getLocation(),clubFacade.findById(1),clubFacade.findById(1).getRepresentative()));
 //
 //        eventFacade.create(new Event(LocalDate.of(2017, 1, 1),LocalDate.of(2017, 1, 11), TypeOfEvent.Trainingscamp,"OTC Nymbuk 2017","Olympic Trainings Camp",40.55,"","U18 and Above","http://lorempixel.com/400/300/sports/",clubFacade.findById(4).getLocation(),clubFacade.findById(4),clubFacade.findById(4).getRepresentative()));
 //
