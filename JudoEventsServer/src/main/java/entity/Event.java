@@ -1,6 +1,9 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import entity.enums.TypeOfEvent;
 import helper.serialization.LocalDateDeserializer;
@@ -8,8 +11,9 @@ import helper.serialization.LocalDateDeserializer;
 import javax.ejb.Local;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.Instant;
 import java.time.LocalDate;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -33,10 +37,13 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @JsonDeserialize(using = LocalDateDeserializer.class)
-    private LocalDate startDate;
-    @JsonDeserialize(using = LocalDateDeserializer.class)
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate startDate;
 
     @Enumerated(EnumType.STRING)
     private TypeOfEvent typeOfEvent;
@@ -90,7 +97,7 @@ public class Event {
         return startDate;
     }
 
-    public void setStartDate(LocalDate StartDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 

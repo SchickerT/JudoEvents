@@ -16,6 +16,9 @@ import io.swagger.annotations.ApiOperation;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.ExcludeClassInterceptors;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
 import javax.persistence.EntityManager;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.PersistenceContext;
@@ -23,12 +26,14 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
-import java.time.LocalDateTime;
+import java.io.StringReader;
+import java.sql.Date;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
+import org.json.JSONObject;
 /**
  * Created by marcelpautz on 20.07.17.
  */
@@ -54,21 +59,50 @@ public class EventResource {
     @POST
     @Consumes("application/json")
     @ApiOperation("erstellt eine Event; mit RepresentativeId, LocationId und ClubId")
-    public Response create(Event event){
-        Representative representative = event.getRepresentative();
+    public Response create(String eventString){
+        JsonReader reader = Json.createReader(new StringReader(eventString));
+        JsonObject jsonObject = reader.readObject();
+
+        Event event = new Event();
+
+        Instant startDateInst = Instant.parse(jsonObject.getString("startDate"));
+        LocalDate startDate = LocalDateTime.ofInstant(startDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
+
+        Instant endDateInst = Instant.parse(jsonObject.getString("endDate"));
+        LocalDate endDate = LocalDateTime.ofInstant(endDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
+
+        event.setStartDate(startDate);
+        event.setEndDate(endDate);
+        event.setName(jsonObject.getString("name"));
+        event.setDiscription(jsonObject.getString("discription"));
+        event.setEntryFee(Double.parseDouble(jsonObject.getString("entryFee")));
+        event.setRewards(jsonObject.getString("rewards"));
+        event.setAgeAndWeight(jsonObject.getString("ageAndWeight"));
+        event.setEventPicture(jsonObject.getString("eventPicture").getBytes());
+
+        Location location = new Location();
+        JsonObject locOb = jsonObject.getJsonObject("location");
+        location.setCity(locOb.getString("city"));
+        location.setZipCode(locOb.getString("zipCode"));
+        location.setStreet(locOb.getString("street"));
+        location.setFederalState(locOb.getString("federalState"));
+        location.setCountry(locOb.getString("country"));
+        location.setLongitude((locOb.getJsonNumber("longitude").doubleValue()));
+        location.setLatitude((locOb.getJsonNumber("latitude").doubleValue()));
+        location.setCountryCode(locOb.getString("countryCode"));
+
+        event.setLocation(location);
+
+        Representative representative = new Representative();
         Club club = clubFacade.findById(1);
-        LocalDateTime startDate;
-        LocalDateTime endDate;
 
-
-        event.setTypeOfEvent(TypeOfEvent.Turnament);
-        if(representative.getFirstName().isEmpty())
-            representative = club.getRepresentative();
-        event.setClub(club);
-        event.setRepresentative(representative);
-        em.persist(event);
         System.out.println(event.getStartDate());
-        System.out.print(event.getEndDate());
+        System.out.println(event.getEndDate());
+        event.setTypeOfEvent(TypeOfEvent.Turnament);
+        event.setClub(club);
+
+        em.persist(event);
+
         return Response.created(
                 UriBuilder.fromResource(EventResource.class)
                         .path(String.valueOf(event.getId())).build()).build();
