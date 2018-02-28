@@ -82,6 +82,7 @@ public class EventResource {
 
         Location location = new Location();
         JsonObject locOb = jsonObject.getJsonObject("location");
+
         location.setCity(locOb.getString("city"));
         location.setZipCode(locOb.getString("zipCode"));
         location.setStreet(locOb.getString("street"));
@@ -94,6 +95,16 @@ public class EventResource {
         event.setLocation(location);
 
         Representative representative = new Representative();
+        JsonObject repOb = jsonObject.getJsonObject("representative");
+
+        representative.setFirstName(repOb.getString("firstName"));
+        representative.setLastName(repOb.getString("lastName"));
+        representative.setEmail(repOb.getString("email"));
+        representative.setPhoneNumber(repOb.getString("phoneNumber"));
+        representative.setRepresentativePicture(repOb.getString("representativePicture").getBytes());
+
+        event.setRepresentative(representative);
+
         Club club = clubFacade.findById(1);
 
         System.out.println(event.getStartDate());
