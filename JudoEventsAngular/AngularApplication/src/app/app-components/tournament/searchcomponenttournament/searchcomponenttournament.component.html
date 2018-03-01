@@ -6,7 +6,7 @@
 
         <div class="row col-12 mt-4">
           <div class="col-8">
-            Tournament Name:
+            Date from/to:
           </div>
 
           <div class="col-4 ">
@@ -16,7 +16,7 @@
 
         <div class="row col-12">
           <div class="input-group input-group-lg col-8">
-            <input [(ngModel)]="textSearch" type="text" class="form-control" placeholder="Search by Name..." aria-label="Search" aria-describedby="sizing-addon1">
+            <input class="form-control" #drp="bsDaterangepicker" placeholder="Select date for search...." [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker [(ngModel)]="bsRangeValue">
           </div>
           <div class="dropdown show col-4">
             <select [(ngModel)]="countrySearch" class="btn-lg btn btn-country">
@@ -29,24 +29,8 @@
 
 
 
-        <div class="row col-12 mt-3">
-          <div class="col-6">
-            Date from:
-          </div>
 
-          <div class="col-6 ">
-            Date to:
-          </div>
-        </div>
-        <div class="row col-12">
-          <div class="datepicker col-6">
-            <ng-datepicker [(ngModel)]="dateFrom" [options]="optionsDatepicker"></ng-datepicker>
-          </div>
 
-          <div class="datepicker col-6 ">
-            <ng-datepicker [(ngModel)]="dateTo" [options]="optionsDatepicker"></ng-datepicker>
-          </div>
-        </div>
 
 
         <!-- div class="row col-12 my-4">
@@ -67,10 +51,10 @@
           <div class="col-3"></div>
         </div>
 
-        Date from value: {{dateFrom | date}}
-        Date to value: {{dateTo | date}}
+
+
+        Date: {{bsRangeValue}}
         Country: {{countrySearch.name}}
-        Text: {{textSearch}}
       </div>
     </div>
   </div>

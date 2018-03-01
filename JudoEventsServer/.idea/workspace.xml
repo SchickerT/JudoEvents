@@ -890,7 +890,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76571000" />
+    <option name="totallyTimeSpent" value="77277000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="971" extended-state="0" />
@@ -1212,9 +1212,9 @@
         <state relative-caret-position="270">
           <caret line="18" column="96" lean-forward="false" selection-start-line="18" selection-start-column="96" selection-end-line="18" selection-end-column="96" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#416#417#0" expanded="true" />
-            <element signature="e#454#455#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#416#417#0" expanded="false" />
+            <element signature="e#454#455#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1253,9 +1253,9 @@
         <state relative-caret-position="204">
           <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2889#2890#0" expanded="true" />
-            <element signature="e#2931#2932#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#2889#2890#0" expanded="false" />
+            <element signature="e#2931#2932#0" expanded="false" />
           </folding>
         </state>
       </provider>
