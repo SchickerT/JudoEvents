@@ -9,7 +9,7 @@ declare let $;
   styleUrls: ['./searchcomponenttournament.component.css']
 })
 export class SearchcomponenttournamentComponent implements OnInit {
-  bsRangeValue: any = [null, null];
+  bsRangeValue: any = [];
   countrySearch:Object;
 
   mindate:Date=new Date(Date.now());

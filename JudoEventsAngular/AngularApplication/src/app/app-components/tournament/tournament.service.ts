@@ -23,7 +23,7 @@ export class TournamentService {
 
   getTournamentsWithObservable(): Promise<Event[]> {
     console.log("server");
-    return this.http.get<Event[]>(this.url + '/tournaments')
+    return this.http.get<Event[]>(this.url + '/tournaments/-1/-1/-1')
       .toPromise();
   }
 

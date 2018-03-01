@@ -27,7 +27,19 @@ import java.util.List;
         ),
         @NamedQuery(
            name="Event.findAllTournaments",
-           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= current_date order by e.startDate,e.endDate"
+           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= :custSD order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournDate",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= :custSD and e.endDate <= :custED order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournCount",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournCountDate",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount and e.startDate >= :custSD and e.endDate <= :custED order by e.startDate"
         )
 })
 @XmlRootElement

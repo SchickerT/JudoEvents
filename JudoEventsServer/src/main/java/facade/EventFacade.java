@@ -5,6 +5,7 @@ import entity.Event;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -28,9 +29,22 @@ public class EventFacade {
     }
 
     public List<Event> findAllTournaments(){
-        return em.createNamedQuery("Event.findAllTournaments",Event.class).getResultList();
+        return em.createNamedQuery("Event.findAllTournaments",Event.class).setParameter("custSD", LocalDate.now()).getResultList();
     }
 
+    public List<Event> findAllTournamentsDate(LocalDate startDate,LocalDate endDate){
+        return em.createNamedQuery("Event.findAllTournDate",Event.class).setParameter("custSD",startDate)
+                .setParameter("custED",endDate).getResultList();
+    }
+
+    public List<Event> findAllTournamentCountry(String country){
+        return em.createNamedQuery("Event.findAllTournCount",Event.class).setParameter("custCount",country).getResultList();
+    }
+
+    public List<Event> findAllTounamentsCountryDate(LocalDate startDate, LocalDate endDate, String country){
+        return em.createNamedQuery("Event.findAllTournCountDate",Event.class).setParameter("custCount",country)
+                .setParameter("custSD",startDate).setParameter("custED",endDate).getResultList();
+    }
     public Event update(Event event){ return this.em.merge(event);}
 
     public void delete(long id){
