@@ -91,9 +91,10 @@ export class SearchcomponenttournamentComponent implements OnInit {
   }
 
   public sendSearchParams(){
-    if(!this.countrySearch.isEmpty){
-    this.tournamentService.country = this.countrySearch.name;
-    console.log("setCountry");}
+    if( !this.countrySearch.name==null || typeof this.countrySearch.name !='undefined'){
+     this.tournamentService.country = this.countrySearch.name;
+     console.log("setCountry");
+    }
     else
       this.tournamentService.country="-1";
 
@@ -106,8 +107,8 @@ export class SearchcomponenttournamentComponent implements OnInit {
       this.tournamentService.endDate = this.eDate.toISOString();
       console.log("setDate");
     }else {
-      this.tournamentService.startDate = null;
-      this.tournamentService.endDate = null;
+      this.tournamentService.startDate = "-1";
+      this.tournamentService.endDate = "-1";
     }
   }
 }
