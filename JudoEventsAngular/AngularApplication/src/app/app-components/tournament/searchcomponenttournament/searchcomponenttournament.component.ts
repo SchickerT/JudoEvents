@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from "angular-2-dropdown-multiselect";
 import { DatepickerOptions,NgDatepickerModule,NgDatepickerComponent } from 'ng2-datepicker';
+import {TournamentService} from "../tournament.service";
 declare let $;
 
 @Component({
@@ -9,12 +10,13 @@ declare let $;
   styleUrls: ['./searchcomponenttournament.component.css']
 })
 export class SearchcomponenttournamentComponent implements OnInit {
-  bsRangeValue: any = [];
-  countrySearch:Object;
-
+  bsRangeValue: any = [null,null];
+  countrySearch:any;
   mindate:Date=new Date(Date.now());
   maxdate:Date=new Date(2025,12,31);
 
+  sDate:Date;
+  eDate:Date;
   countries = [
     {id: 1, name: "Albania"},
     {id: 2, name: "Andorra"},
@@ -77,7 +79,7 @@ export class SearchcomponenttournamentComponent implements OnInit {
     minDate: new Date(Date.now())
   };
 
-  constructor() {
+  constructor(private tournamentService: TournamentService) {
     this.countrySearch = "";
   }
 
@@ -86,5 +88,26 @@ export class SearchcomponenttournamentComponent implements OnInit {
       $('.ddt').html($(this).html() + '<span class="caret"></span>');
       console.log($(this).html().toString().substring(99));
     })
+  }
+
+  public sendSearchParams(){
+    if(!this.countrySearch.isEmpty){
+    this.tournamentService.country = this.countrySearch.name;
+    console.log("setCountry");}
+    else
+      this.tournamentService.country="-1";
+
+    if(this.bsRangeValue[0]!=null) {
+
+      this.sDate = new Date(this.bsRangeValue[0]);
+      this.tournamentService.startDate= this.sDate.toISOString();
+
+      this.eDate = new Date(this.bsRangeValue[1]);
+      this.tournamentService.endDate = this.eDate.toISOString();
+      console.log("setDate");
+    }else {
+      this.tournamentService.startDate = null;
+      this.tournamentService.endDate = null;
+    }
   }
 }

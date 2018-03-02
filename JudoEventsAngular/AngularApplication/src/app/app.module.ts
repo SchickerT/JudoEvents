@@ -29,6 +29,7 @@ import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
 import {BsDatepickerModule} from "ngx-bootstrap";
 import {FroalaEditorModule, FroalaViewModule} from "angular-froala-wysiwyg";
 import { HintIconComponent } from './libs/hint-icon/hint-icon.component';
+import {TournamentService} from "./app-components/tournament/tournament.service";
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { HintIconComponent } from './libs/hint-icon/hint-icon.component';
     FroalaViewModule.forRoot(),
     FroalaEditorModule.forRoot()
   ],
-  providers: [TournamentDao,AppConfig],
+  providers: [TournamentDao,AppConfig,TournamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,8 +10,7 @@ import {Event} from "../../../core/model/event";
 @Component({
   selector: 'app-showcomponenttournament',
   templateUrl: './showcomponenttournament.component.html',
-  styleUrls: ['./showcomponenttournament.component.css'],
-  providers:[TournamentService]
+  styleUrls: ['./showcomponenttournament.component.css']
 })
 export class ShowcomponenttournamentComponent implements OnInit {
 
@@ -48,7 +47,7 @@ export class ShowcomponenttournamentComponent implements OnInit {
     this.isLoading=true;
     setTimeout(()=>{
       this.isLoading=false;
-    },5000)
+    },0)
 
   }
 

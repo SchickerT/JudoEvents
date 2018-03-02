@@ -45,16 +45,12 @@
         <div class="row col-12 my-4">
           <div class="col-3"></div>
           <div class="col-6">
-            <button class="btn btn-lg btn-success" [routerLink]="['/searchtourn/tournaments']">Search</button>
+            <button class="btn btn-lg btn-success" (click)="sendSearchParams()" [routerLink]="['/searchtourn/tournaments']">Search</button>
           </div>
 
           <div class="col-3"></div>
         </div>
 
-
-
-        Date: {{bsRangeValue}}
-        Country: {{countrySearch.name}}
       </div>
     </div>
   </div>

@@ -14,6 +14,10 @@ export class TournamentService {
   public tournaments: Event[];
   public tournament : Event;
 
+  public startDate: string = null;
+  public endDate: string = null;
+  public country: string = '-1';
+
   constructor(private http:HttpClient) {
     console.log("init");
 
@@ -23,7 +27,20 @@ export class TournamentService {
 
   getTournamentsWithObservable(): Promise<Event[]> {
     console.log("server");
-    return this.http.get<Event[]>(this.url + '/tournaments/-1/-1/-1')
+
+    if(this.startDate==null&&this.country=='-1')
+     return this.http.get<Event[]>(this.url + '/tournaments/-1/-1/-1')
+       .toPromise();
+
+    if(this.startDate!= null && this.country=='-1')
+      return this.http.get<Event[]>(this.url + '/tournaments/'+this.startDate+'/'+this.endDate+'/-1')
+      .toPromise();
+
+    if(this.startDate==null&&this.country!='-1')
+      return this.http.get<Event[]>(this.url + '/tournaments/-1/-1/'+this.country)
+        .toPromise();
+
+    return this.http.get<Event[]>(this.url + '/tournaments/'+this.startDate+'/'+this.endDate+'/'+this.country)
       .toPromise();
   }
 

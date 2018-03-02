@@ -13,6 +13,7 @@ import facade.RepresentativeFacade;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.interceptor.ExcludeClassInterceptors;
@@ -27,12 +28,17 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.io.StringReader;
-import java.sql.Date;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
+
 import org.json.JSONObject;
 /**
  * Created by marcelpautz on 20.07.17.
@@ -159,12 +165,12 @@ public class EventResource {
     @Path("/tournaments/{SDate}/{EDate}/{Count}")
     @Produces("application/json")
     @ApiOperation("liefert alle Turniere zurück")
-    public List<Event> findAllTournaments(@PathParam("SDate") String sDate,@PathParam("EDate") String eDate,@PathParam("Count") String count){
+    public List<Event> findAllTournaments(@PathParam("SDate") String sDate,@PathParam("EDate") String eDate,@PathParam("Count") String count) throws ParseException {
         if(count.equals("-1")&&!sDate.equals("-1")) {
-            Instant startDateInst = Instant.parse(sDate);
-            LocalDate startDate = LocalDateTime.ofInstant(startDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
-            Instant endDateInst = Instant.parse(eDate);
-            LocalDate endDate = LocalDateTime.ofInstant(endDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
+            ZonedDateTime sZone = ZonedDateTime.parse(sDate);
+            LocalDate startDate =sZone.toLocalDate();
+            ZonedDateTime eZone = ZonedDateTime.parse(eDate);
+            LocalDate endDate = eZone.toLocalDate();
 
             return eventFacade.findAllTournamentsDate(startDate,endDate);
         } else{
@@ -172,11 +178,10 @@ public class EventResource {
                 return eventFacade.findAllTournamentCountry(count);
             }else {
                 if(!count.equals("-1")&&!sDate.equals("-1")){
-                    Instant startDateInst = Instant.parse(sDate);
-                    LocalDate startDate = LocalDateTime.ofInstant(startDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
-                    Instant endDateInst = Instant.parse(eDate);
-                    LocalDate endDate = LocalDateTime.ofInstant(endDateInst, ZoneId.of(ZoneOffset.UTC.getId())).toLocalDate();
-
+                    ZonedDateTime sZone = ZonedDateTime.parse(sDate);
+                    LocalDate startDate =sZone.toLocalDate();
+                    ZonedDateTime eZone = ZonedDateTime.parse(eDate);
+                    LocalDate endDate = eZone.toLocalDate();
                     return eventFacade.findAllTounamentsCountryDate(startDate,endDate,count);
                 }
                 else{
