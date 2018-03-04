@@ -84,7 +84,7 @@ export class CreateComponent implements OnInit {
       this.eventFormGroup.value.tournamentData.country,
       14.285830,
       48.306940,
-      'flag-icon-at'
+      this.eventFormGroup.value.tournamentData.countryCode
     );
   }
 

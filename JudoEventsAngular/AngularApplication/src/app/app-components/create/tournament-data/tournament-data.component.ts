@@ -14,7 +14,6 @@ declare let $;
   styleUrls: ['./tournament-data.component.css']
 })
 export class TournamentDataComponent implements OnInit {
-
   @Input()
   public stepFormGroup: FormGroup;
 
@@ -46,6 +45,59 @@ export class TournamentDataComponent implements OnInit {
       draggable: true
     }
   ]
+
+  private countries = [
+    {id: 1, name: "Albania", cc:"flag-icon-al"},
+    {id: 2, name: "Andorra", cc:"flag-icon-ad"},
+    {id: 3, name: "Armenia", cc:"flag-icon-am"},
+    {id: 4, name: "Austria", cc:"flag-icon-at"},
+    {id: 5, name: "Azerbaijan", cc:"flag-icon-az"},
+    {id: 6, name: "Belarus", cc:"flag-icon-by"},
+    {id: 7, name: "Belgium", cc:"flag-icon-be"},
+    {id: 8, name: "Bosnia and Herzegovina", cc:"flag-icon-ba"},
+    {id: 9, name: "Bulgaria", cc:"flag-icon-bg"},
+    {id: 10, name: "Croatia", cc:"flag-icon-hr"},
+    {id: 11, name: "Cyprus", cc:"flag-icon-cy"},
+    {id: 12, name: "Czech Republic", cc:"flag-icon-cz"},
+    {id: 13, name: "Denmark", cc:"flag-icon-dk"},
+    {id: 14, name: "Estonia", cc:"flag-icon-ee"},
+    {id: 15, name: "Finland", cc:"flag-icon-fi"},
+    {id: 16, name: "France", cc:"flag-icon-fr"},
+    {id: 17, name: "Georgia", cc:"flag-icon-ge"},
+    {id: 18, name: "Germany", cc:"flag-icon-de"},
+    {id: 19, name: "Greece", cc:"flag-icon-gr"},
+    {id: 20, name: "Hungary", cc:"flag-icon-hu"},
+    {id: 21, name: "Iceland", cc:"flag-icon-is"},
+    {id: 22, name: "Ireland", cc:"flag-icon-ie"},
+    {id: 23, name: "Italy", cc:"flag-icon-it"},
+    {id: 24, name: "Kazakhstan", cc:"flag-icon-kz"},
+    {id: 25, name: "Kosovo", cc:""},
+    {id: 26, name: "Latvia", cc:"flag-icon-lv"},
+    {id: 27, name: "Liechtenstein", cc:"flag-icon-li"},
+    {id: 28, name: "Lithunia", cc:"flag-icon-lt"},
+    {id: 29, name: "Luxembourg", cc:"flag-icon-lu"},
+    {id: 30, name: "Macedonia", cc:"flag-icon-mk"},
+    {id: 31, name: "Malta", cc:"flag-icon-mt"},
+    {id: 32, name: "Moldova", cc:"flag-icon-md"},
+    {id: 33, name: "Monaco", cc:"flag-icon-mc"},
+    {id: 34, name: "Montenegro", cc:"flag-icon-me"},
+    {id: 35, name: "Netherlands", cc:"flag-icon-nl"},
+    {id: 36, name: "Norway", cc:"flag-icon-no"},
+    {id: 37, name: "Poland", cc:"flag-icon-pl"},
+    {id: 38, name: "Portugal", cc:"flag-icon-pt"},
+    {id: 39, name: "Romania", cc:"flag-icon-ro"},
+    {id: 40, name: "Russia", cc:"flag-icon-ru"},
+    {id: 41, name: "San Marino", cc:"flag-icon-sm"},
+    {id: 42, name: "Serbia", cc:"flag-icon-rs"},
+    {id: 43, name: "Slovakia", cc:"flag-icon-sk"},
+    {id: 44, name: "Slovenia", cc:"flag-icon-sl"},
+    {id: 45, name: "Spain", cc:"flag-icon-es"},
+    {id: 46, name: "Sweden", cc:"flag-icon-se"},
+    {id: 47, name: "Switzerland", cc:"flag-icon-ch"},
+    {id: 48, name: "Turkey", cc:"flag-icon-tr"},
+    {id: 49, name: "Ukraine", cc:"flag-icon-ua"},
+    {id: 50, name: "United Kingdom", cc:"flag-icon-gb"}
+  ];
 
   public filePicked(file: PickedFile | FilePickerError): void {
 
@@ -128,6 +180,19 @@ export class TournamentDataComponent implements OnInit {
     //toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
     //toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
   };
+
+  public setNewCountry(count:any):void{
+    console.log(count);
+    this.stepFormGroup.controls['country'].setValue(count);
+
+    for (let country of this.countries) {
+      if(country.name == count){
+        this.stepFormGroup.controls["countryCode"].setValue(country.cc)
+        console.log(country.cc);
+        break;
+      }
+    }
+  }
 }
 interface marker {
   lat: number;

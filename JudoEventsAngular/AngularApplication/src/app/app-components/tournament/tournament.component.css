@@ -64,3 +64,10 @@
   z-index:1000;
 }
 
+.btn-country{
+  color:dimgray !important;
+  background-color: white !important;
+  border-radius: 0.1px !important;
+  border-color: lightgrey !important;
+  line-height: 1.5 !important;
+}
