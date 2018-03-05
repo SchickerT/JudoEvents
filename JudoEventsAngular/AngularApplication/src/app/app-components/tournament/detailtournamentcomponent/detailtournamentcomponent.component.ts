@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {TournamentService} from "../tournament.service";
 import {Event} from "../../../core/model/event";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {PickedFile} from "../../../libs/file-picker/picked-file";
 
 @Component({
   selector: 'app-detailtournamentcomponent',
@@ -12,6 +13,8 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 export class DetailtournamentcomponentComponent implements OnInit {
   public tournament: Event;
 
+  public logo: PickedFile;
+
   public id:number;
 
   private async getTournament(id:number){
@@ -20,6 +23,7 @@ export class DetailtournamentcomponentComponent implements OnInit {
   }
 
   constructor(private tournamentService: TournamentService,private router:Router, private route:ActivatedRoute ) {
+
   }
 
   async ngOnInit(): Promise<void> {
@@ -28,8 +32,14 @@ export class DetailtournamentcomponentComponent implements OnInit {
     await this.getTournament(this.id);
     console.log("getSent");
     this.tournament = this.tournamentService.tournament;
+  }
 
-
+  public checkLoading():boolean{
+    if( !this.tournament==null || typeof this.tournament !='undefined'){
+      return true;
+    }
+    else
+      return false;
   }
 
 }

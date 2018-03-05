@@ -10,7 +10,7 @@ import {HttpClient} from "@angular/common/http";
 
 @Injectable()
 export class TournamentService {
-  url = "http://localhost:8080/JudoEventsServer/rs/event";
+  url = "http://127.0.0.1:8080/JudoEventsServer/rs/event";
   public tournaments: Event[];
   public tournament : Event;
 

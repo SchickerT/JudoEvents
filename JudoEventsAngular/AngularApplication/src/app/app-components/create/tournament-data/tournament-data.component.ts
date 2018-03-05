@@ -22,6 +22,7 @@ export class TournamentDataComponent implements OnInit {
 
   public logo: PickedFile;
   public isDrag: boolean = false;
+  public picString: string;
 
   public iconRep: PickedFile;
   public isDragTwo:boolean = false;
@@ -103,7 +104,7 @@ export class TournamentDataComponent implements OnInit {
 
     if (file instanceof PickedFile) {
       this.logo = file;
-      this.stepFormGroup.value.eventPicture = this.logo.dataURL;
+      this.stepFormGroup.controls["eventPicture"].setValue(this.logo.dataURL);
     } else if (file === FilePickerError.FileTooBig) {
       console.log('too big');
     } else if (file === FilePickerError.InvalidFileType) {
@@ -117,7 +118,7 @@ export class TournamentDataComponent implements OnInit {
 
     if (file instanceof PickedFile) {
       this.iconRep = file;
-      this.stepFormGroup.value.representativePicture = this.iconRep.dataURL;
+      this.stepFormGroup.controls["eventPicture"].setValue(this.iconRep.dataURL);
     } else if (file === FilePickerError.FileTooBig) {
       console.log('too big');
     } else if (file === FilePickerError.InvalidFileType) {

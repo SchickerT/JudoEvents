@@ -4,6 +4,11 @@
   padding-top: 2%;
   padding-bottom: 2%;
 }
+.loadlabel{
+  color:black;
+  text-align: center;
+  margin-top:35vh;
+}
 
 th{
   font-weight: bold;
