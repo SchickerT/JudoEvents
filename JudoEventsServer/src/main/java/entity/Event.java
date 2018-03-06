@@ -35,7 +35,7 @@ import java.util.List;
         ),
         @NamedQuery(
                 name="Event.findAllTournCount",
-                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount order by e.startDate"
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount and e.startDate>=:custSD order by e.startDate"
         ),
         @NamedQuery(
                 name="Event.findAllTournCountDate",

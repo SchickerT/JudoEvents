@@ -38,7 +38,7 @@ public class EventFacade {
     }
 
     public List<Event> findAllTournamentCountry(String country){
-        return em.createNamedQuery("Event.findAllTournCount",Event.class).setParameter("custCount",country).getResultList();
+        return em.createNamedQuery("Event.findAllTournCount",Event.class).setParameter("custCount",country).setParameter("custSD",LocalDate.now()).getResultList();
     }
 
     public List<Event> findAllTounamentsCountryDate(LocalDate startDate, LocalDate endDate, String country){

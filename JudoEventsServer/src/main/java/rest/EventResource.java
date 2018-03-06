@@ -139,7 +139,7 @@ public class EventResource {
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
-    @Produces("application/json")
+    @Produces("application/json;charset=UTF-8")
     @ApiOperation("suche ein Event anhand der id")
     public Response findById(@PathParam("id") Long id) {
 
@@ -148,7 +148,7 @@ public class EventResource {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces("application/json;charset=UTF-8")
     @ApiOperation("liefert alle Events zurück")
     public List<Event> findAll(){
         List<Event> events = eventFacade.findAll();
@@ -163,9 +163,11 @@ public class EventResource {
 
     @GET
     @Path("/tournaments/{SDate}/{EDate}/{Count}")
-    @Produces("application/json")
+    @Produces("application/json;charset=UTF-8")
     @ApiOperation("liefert alle Turniere zurück")
-    public List<Event> findAllTournaments(@PathParam("SDate") String sDate,@PathParam("EDate") String eDate,@PathParam("Count") String count) throws ParseException {
+    public List<Event> findAllTournaments(@PathParam("SDate") String sDate,
+                                          @PathParam("EDate") String eDate,
+                                          @PathParam("Count") String count) throws ParseException {
         if(count.equals("-1")&&!sDate.equals("-1")) {
             ZonedDateTime sZone = ZonedDateTime.parse(sDate);
             LocalDate startDate =sZone.toLocalDate();
