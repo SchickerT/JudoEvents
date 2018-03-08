@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Representative {
     private String phoneNumber;
 
     @Lob
+    @JsonIgnore
     private byte[] representativePicture;
 
     public Representative() {

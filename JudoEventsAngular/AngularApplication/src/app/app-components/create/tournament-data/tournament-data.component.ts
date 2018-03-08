@@ -118,7 +118,7 @@ export class TournamentDataComponent implements OnInit {
 
     if (file instanceof PickedFile) {
       this.iconRep = file;
-      this.stepFormGroup.controls["eventPicture"].setValue(this.iconRep.dataURL);
+      this.stepFormGroup.controls["representativePicture"].setValue(this.iconRep.dataURL);
     } else if (file === FilePickerError.FileTooBig) {
       console.log('too big');
     } else if (file === FilePickerError.InvalidFileType) {
