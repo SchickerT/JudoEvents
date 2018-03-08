@@ -67,6 +67,7 @@ public class Event {
     private String ageAndWeight;
 
     @Lob
+    @JsonIgnore
     private byte[] eventPicture;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
