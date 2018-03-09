@@ -6,28 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c9e0.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c9f1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca00.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca11.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca20.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca31.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca40.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca51.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca60.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca71.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca81.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca91.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/caa1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cab1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cac1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cad1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cae1.dat" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/seg0/c150.dat" afterPath="$PROJECT_DIR$/db/db/db/seg0/c150.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca1.dat" afterPath="$PROJECT_DIR$/db/db/db/seg0/ca1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rest/EventResource.java" afterPath="$PROJECT_DIR$/src/main/java/rest/EventResource.java" />
-    </list>
+    <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="" />
     <ignored path="JudoEventsServer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
