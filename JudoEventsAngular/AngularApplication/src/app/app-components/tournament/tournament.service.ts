@@ -18,6 +18,8 @@ export class TournamentService {
   public endDate: string = null;
   public country: string = '-1';
 
+  public tournamentPic:string;
+
   constructor(private http:HttpClient) {
     console.log("init");
 
@@ -48,11 +50,24 @@ export class TournamentService {
     this.tournaments = await this.getTournamentsWithObservable();
   }
 
+  async updateTournamentPic(id:number):Promise<void>{
+    this.tournamentPic = await this.getTournamentPicWithId(id);
+  }
+
+
+  getTournamentPicWithId(id:number):Promise<string>{
+    return this.http.get<any>(this.url+'/tournaments/tournament/'+id.toString())
+      .map((data:any)=>{
+        return data.pictureUrl;
+      }).toPromise();
+
+  }
   getTournamentWithIdObs(id: number): Promise<Event>{
     return this.http.get<Event>(this.url+'/'+id.toString()).toPromise();
   }
   async getTournamentById(id:number): Promise<void>{
     this.tournament = await this.getTournamentWithIdObs(id);
   }
+
 
 }

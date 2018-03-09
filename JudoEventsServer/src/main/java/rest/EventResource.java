@@ -1,13 +1,10 @@
 package rest;
 
 import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-import entity.Club;
-import entity.Location;
-import entity.Representative;
+import entity.*;
 import entity.enums.TypeOfEvent;
 import facade.ClubFacade;
 import facade.EventFacade;
-import entity.Event;
 import facade.LocationFacade;
 import facade.RepresentativeFacade;
 import io.swagger.annotations.Api;
@@ -28,16 +25,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.io.StringReader;
-import java.util.Date;
+import java.util.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Locale;
 
 import org.json.JSONObject;
 /**
@@ -145,6 +138,19 @@ public class EventResource {
 
         Event club = em.find(Event.class, id);
         return Response.ok(club).build();
+    }
+
+    @GET
+    @Path("tournaments/tournament/{id}")
+    @Produces("application/json;charset=UTF-8")
+    @ApiOperation("suche ein EventBild anhand der id")
+    public Response findPicById(@PathParam("id") Long id) {
+        Event club = em.find(Event.class, id);
+        String decodedString = new String(club.getEventPicture());
+        PictureDTO dto = new PictureDTO();
+        System.out.println(decodedString);
+        dto.setPictureUrl(decodedString);
+        return Response.ok(dto).build();
     }
 
     @GET
