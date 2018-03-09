@@ -19,6 +19,8 @@ export class TournamentService {
   public country: string = '-1';
 
   public tournamentPic:string;
+  public representativePic:string;
+  public clubPic:string;
 
   constructor(private http:HttpClient) {
     console.log("init");
@@ -54,6 +56,14 @@ export class TournamentService {
     this.tournamentPic = await this.getTournamentPicWithId(id);
   }
 
+  async updateRepresentativePic(id:number):Promise<void>{
+    this.representativePic = await this.getRepresentativePicWithId(id);
+  }
+
+  async updateClubPic(id:number):Promise<void>{
+    this.clubPic = await this.getClubPicWithId(id);
+  }
+
 
   getTournamentPicWithId(id:number):Promise<string>{
     return this.http.get<any>(this.url+'/tournaments/tournament/'+id.toString())
@@ -62,6 +72,21 @@ export class TournamentService {
       }).toPromise();
 
   }
+
+  getRepresentativePicWithId(id:number):Promise<string>{
+    return this.http.get<any>(this.url+'/tournaments/representative/'+id.toString())
+      .map((data:any)=>{
+        return data.pictureUrl;
+      }).toPromise();
+  }
+
+  getClubPicWithId(id:number):Promise<string>{
+    return this.http.get<any>(this.url+'/tournaments/club/'+id.toString())
+      .map((data:any)=>{
+        return data.pictureUrl;
+      }).toPromise();
+  }
+
   getTournamentWithIdObs(id: number): Promise<Event>{
     return this.http.get<Event>(this.url+'/'+id.toString()).toPromise();
   }

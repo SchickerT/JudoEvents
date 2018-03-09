@@ -13,7 +13,8 @@ import {PickedFile} from "../../../libs/file-picker/picked-file";
 export class DetailtournamentcomponentComponent implements OnInit {
   public tournament: Event;
   public tournamentPic:string;
-  public logo: PickedFile;
+  public clubPic:string;
+  public repPic:string;
 
   public id:number;
 
@@ -26,6 +27,14 @@ export class DetailtournamentcomponentComponent implements OnInit {
     await this.tournamentService.updateTournamentPic(id);
   }
 
+  private async getClubPic(id:number){
+    await this.tournamentService.updateClubPic(id);
+  }
+
+  private async getRepresentativePic(id:number){
+    await this.tournamentService.updateRepresentativePic(id);
+  }
+
   constructor(private tournamentService: TournamentService,private router:Router, private route:ActivatedRoute ) {
 
   }
@@ -35,10 +44,14 @@ export class DetailtournamentcomponentComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'));
     await this.getTournament(this.id);
     await this.getTournamentPic(this.id);
+    await this.getClubPic(this.id);
+    await this.getRepresentativePic(this.id);
     console.log("getSent");
+
     this.tournament = this.tournamentService.tournament;
     this.tournamentPic = this.tournamentService.tournamentPic;
-    console.log(this.tournamentPic);
+    this.clubPic = this.tournamentService.clubPic;
+    this.repPic = this.tournamentService.representativePic;
   }
 
   public checkLoading():boolean{

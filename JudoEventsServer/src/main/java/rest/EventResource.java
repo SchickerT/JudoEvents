@@ -143,12 +143,35 @@ public class EventResource {
     @GET
     @Path("tournaments/tournament/{id}")
     @Produces("application/json;charset=UTF-8")
-    @ApiOperation("suche ein EventBild anhand der id")
-    public Response findPicById(@PathParam("id") Long id) {
-        Event club = em.find(Event.class, id);
-        String decodedString = new String(club.getEventPicture());
+    @ApiOperation("sendet das Bild des Events mittels Rest als String")
+    public Response findTournPicById(@PathParam("id") Long id) {
+        Event event = em.find(Event.class, id);
+        String decodedString = new String(event.getEventPicture());
         PictureDTO dto = new PictureDTO();
-        System.out.println(decodedString);
+        dto.setPictureUrl(decodedString);
+        return Response.ok(dto).build();
+    }
+
+    @GET
+    @Path("tournaments/club/{id}")
+    @Produces("application/json;charset=UTF-8")
+    @ApiOperation("sendet das Bild des Clubs mittels Rest als String")
+    public Response findClubPicById(@PathParam("id") Long id) {
+        Event event = em.find(Event.class, id);
+        String decodedString = new String(event.getClub().getClubPicture());
+        PictureDTO dto = new PictureDTO();
+        dto.setPictureUrl(decodedString);
+        return Response.ok(dto).build();
+    }
+
+    @GET
+    @Path("tournaments/representative/{id}")
+    @Produces("application/json;charset=UTF-8")
+    @ApiOperation("sendet das Bild des Representanten mittels Rest als String")
+    public Response findRepPicById(@PathParam("id") Long id) {
+        Event event = em.find(Event.class, id);
+        String decodedString = new String(event.getRepresentative().getRepresentativePicture());
+        PictureDTO dto = new PictureDTO();
         dto.setPictureUrl(decodedString);
         return Response.ok(dto).build();
     }

@@ -3,24 +3,24 @@
     <div class="col-md-9">
       <h1>{{tournament.name}}</h1>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-9 mt-2">
       <h4 style="color:grey;">{{tournament.startDate| date: 'dd MMM yyyy'}} - {{tournament.endDate| date: 'dd MMM yyyy'}}</h4>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-9">
       <h5>
         {{tournament.location.country}}, {{tournament.location.city}} <span class="flag-icon" ngClass={{tournament.location.countryCode}} style="border: 0.1px solid black;"></span>
       </h5>
     </div>
   </div>
 
-  <div class="row" style="margin-top: 5vh">
+  <div class="row mt-4" >
     <div class="col-md-12">
       <h4>General Information</h4>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 mt-4">
       Entry Fee:
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 mt-4">
       {{tournament.entryFee| number : '1.2-2' }} €
     </div>
     <div class="col-md-2">
@@ -50,7 +50,7 @@
 
   <div style="margin-top: 5vh;">
     <h4>Discription</h4>
-    <div style="width: 100%" [froalaView]="tournament.discription"></div>
+    <div style="width: 100%" class="mt-4" [froalaView]="tournament.discription"></div>
 
   </div>
 
@@ -58,6 +58,23 @@
     <div class="col-12 d-flex">
       <img *ngIf="true"
            [src]="tournamentPic"
+           class="pic-logo mx-auto ">
+    </div>
+  </div>
+
+
+  <div class="col">
+    <div class="col-12 d-flex">
+      <img *ngIf="true"
+           [src]="clubPic"
+           class="pic-logo mx-auto ">
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="col-12 d-flex">
+      <img *ngIf="true"
+           [src]="repPic"
            class="pic-logo mx-auto ">
     </div>
   </div>
