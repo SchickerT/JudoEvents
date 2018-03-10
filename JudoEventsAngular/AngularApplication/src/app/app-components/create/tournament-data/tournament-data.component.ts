@@ -7,6 +7,7 @@ import { FilePickerError } from '../../../libs/file-picker/file-picker-error';
 import { MouseEvent } from '@agm/core';
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import {FormValidationHelper} from "../../../libs/helper/form-validation-helper";
+import {TournamentDao} from "../../../core/dao/tournament.dao";
 declare let $;
 @Component({
   selector: 'app-tournament-data',
@@ -27,11 +28,11 @@ export class TournamentDataComponent implements OnInit {
   public iconRep: PickedFile;
   public isDragTwo:boolean = false;
 
-  lat: number = 51.673858;
-  lng: number = 7.815982;
+  lat: number = 0;
+  lng: number = 0;
   zoom: number = 16;
 
-  constructor() {
+  constructor(private tournamentDao: TournamentDao) {
   }
 
   ngOnInit() {
@@ -40,9 +41,9 @@ export class TournamentDataComponent implements OnInit {
 
   markers: marker[] = [
     {
-      lat: 51.673858,
-      lng: 7.815982,
-      label: 'A',
+      lat: null,
+      lng: null,
+      label: '',
       draggable: true
     }
   ]
@@ -143,7 +144,6 @@ export class TournamentDataComponent implements OnInit {
     this.markers[0].draggable=true;
     this.stepFormGroup.controls['latitude'].setValue(this.markers[0].lat);
     this.stepFormGroup.controls['longitude'].setValue(this.markers[0].lng);
-
   }
 
   public isRequired(formName: string):boolean{
@@ -186,10 +186,18 @@ export class TournamentDataComponent implements OnInit {
     //toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat','alert'],
   };
 
-  public setNewCountry(count:any):void{
+  async setNewCountry(count:any):Promise<void>{
     console.log(count);
     this.stepFormGroup.controls['country'].setValue(count);
-
+    await this.tournamentDao.getLongAndLatByAdress(this.stepFormGroup.controls['city'].value,this.stepFormGroup.controls['zipCode'].value,this.stepFormGroup.controls['street'].value,this.stepFormGroup.controls['streetNumber'].value,this.stepFormGroup.controls['country'].value);
+    console.log(this.tournamentDao.lat);
+    this.markers[0].lat=this.tournamentDao.lat;
+    this.markers[0].lng=this.tournamentDao.long;
+    this.markers[0].draggable=true;
+    this.stepFormGroup.controls['latitude'].setValue(this.markers[0].lat);
+    this.stepFormGroup.controls['longitude'].setValue(this.markers[0].lng);
+    this.lat = this.tournamentDao.lat;
+    this.lng = this.tournamentDao.long;
     for (let country of this.countries) {
       if(country.name == count){
         this.stepFormGroup.controls["countryCode"].setValue(country.cc)

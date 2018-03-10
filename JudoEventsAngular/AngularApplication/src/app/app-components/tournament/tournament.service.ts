@@ -22,6 +22,8 @@ export class TournamentService {
   public representativePic:string;
   public clubPic:string;
 
+
+
   constructor(private http:HttpClient) {
     console.log("init");
 
@@ -93,6 +95,8 @@ export class TournamentService {
   async getTournamentById(id:number): Promise<void>{
     this.tournament = await this.getTournamentWithIdObs(id);
   }
+
+
 
 
 }
