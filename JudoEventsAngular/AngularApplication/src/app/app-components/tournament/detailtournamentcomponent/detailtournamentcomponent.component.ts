@@ -22,7 +22,7 @@ export class DetailtournamentcomponentComponent implements OnInit {
 
   lat: number;
   lng: number;
-  zoom: number = 16;
+  zoom: number = 18;
 
   private async getTournament(id:number){
     await this.tournamentService.getTournamentById(id);
@@ -58,8 +58,10 @@ export class DetailtournamentcomponentComponent implements OnInit {
     this.tournamentPic = this.tournamentService.tournamentPic;
     this.clubPic = this.tournamentService.clubPic;
     this.repPic = this.tournamentService.representativePic;
-    this.lat = 51.673858;
-    this.lng =  7.81598;
+    this.lat = this.tournament.location.latitude;
+    this.lng =  this.tournament.location.longitude;
+    this.markers[0].lat=this.lat;
+    this.markers[0].lng = this.lng;
 
   }
 
@@ -91,7 +93,7 @@ export class DetailtournamentcomponentComponent implements OnInit {
     {
       lat: 51.673858,
       lng: 7.815982,
-      label: 'A',
+      label: '',
       draggable: true
     }
   ]

@@ -29,7 +29,7 @@ export class TournamentDataComponent implements OnInit {
 
   lat: number = 51.673858;
   lng: number = 7.815982;
-  zoom: number = 8;
+  zoom: number = 16;
 
   constructor() {
   }
@@ -141,6 +141,9 @@ export class TournamentDataComponent implements OnInit {
     this.markers[0].lat=$event.coords.lat;
     this.markers[0].lng=$event.coords.lng;
     this.markers[0].draggable=true;
+    this.stepFormGroup.controls['latitude'].setValue(this.markers[0].lat);
+    this.stepFormGroup.controls['longitude'].setValue(this.markers[0].lng);
+
   }
 
   public isRequired(formName: string):boolean{

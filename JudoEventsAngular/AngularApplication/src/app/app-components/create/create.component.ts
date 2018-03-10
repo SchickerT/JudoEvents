@@ -82,8 +82,8 @@ export class CreateComponent implements OnInit {
       this.eventFormGroup.value.tournamentData.street+' '+this.eventFormGroup.value.tournamentData.streetNumber,
       this.eventFormGroup.value.tournamentData.federalState,
       this.eventFormGroup.value.tournamentData.country,
-      14.285830,
-      48.306940,
+      this.eventFormGroup.value.tournamentData.longitude,
+      this.eventFormGroup.value.tournamentData.latitude,
       this.eventFormGroup.value.tournamentData.countryCode
     );
   }
