@@ -164,6 +164,7 @@ export class TournamentDataComponent implements OnInit {
 
 
 
+
   public options: Object = {
     charCounterCount: true,
     charCounterMax: 1000,

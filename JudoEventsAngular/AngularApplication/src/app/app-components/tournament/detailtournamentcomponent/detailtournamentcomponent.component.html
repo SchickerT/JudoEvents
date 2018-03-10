@@ -54,12 +54,37 @@
     <div>
       <img *ngIf="true"
            [src]="tournamentPic"
-           class="pic-logo mx-auto ">
+           class="pic-logo mx-auto tournpic">
     </div>
     </div>
 
     </div>
 </div>
+
+  <div class="mt-3">
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+
+      [disableDefaultUI]="true"
+      [zoomControl]="true">
+
+      <agm-marker
+        *ngFor="let m of markers; let i = index"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label">
+
+        <agm-info-window>
+          <strong><h6>{{tournament.name}}</h6><br>{{tournament.location.street}}, {{tournament.location.zipCode}} {{tournament.location.city}}</strong>
+        </agm-info-window>
+
+      </agm-marker>
+    </agm-map>
+  </div>
+
+
   <div style="margin-top: 5vh;">
     <h4>Discription</h4>
     <div style="width: 100%" class="mt-4" [froalaView]="tournament.discription"></div>
@@ -148,21 +173,7 @@
     </table>
   </div>
 
-  <div class="col">
-    <div class="col-12 d-flex">
-      <img *ngIf="true"
-           [src]="clubPic"
-           class="pic-logo mx-auto ">
-    </div>
-  </div>
 
-  <div class="col">
-    <div class="col-12 d-flex">
-      <img *ngIf="true"
-           [src]="repPic"
-           class="pic-logo mx-auto ">
-    </div>
-  </div>
   <div style="margin-top: 5vh;">
     <h4>Additional Information</h4>
     <br>
@@ -172,7 +183,14 @@
         <br>
         <table style="width:100%;">
           <tr>
-            <td rowspan="3">Photo</td>
+            <td *ngIf="repPicIsEmpty()" style="width: 6vw" rowspan="3">
+                <img *ngIf="true"
+                     [src]="repPic"
+                     class="pic-logo mx-auto contactpic ">
+            </td>
+            <td *ngIf="!repPicIsEmpty()" style="width: 6vw" rowspan="3">
+              <img class="pic-logo mx-auto contactpic" src="../../assets/blank_rep.png">
+            </td>
             <td>{{tournament.representative.firstName}} {{tournament.representative.lastName}}</td>
           </tr>
           <tr>
@@ -188,7 +206,14 @@
         <br>
         <table style="width:100%;">
           <tr>
-            <td rowspan="3">Photo</td>
+            <td *ngIf="!clubPicIsEmpty()" style="width: 6vw" rowspan="3">
+                <img *ngIf="true"
+                     [src]="clubPic"
+                     class="pic-logo mx-auto contactpic">
+            </td>
+            <td *ngIf="clubPicIsEmpty()" style="width: 6vw" rowspan="3">
+              <img class="pic-logo mx-auto contactpic" src="../../assets/club_pic.jpg">
+            </td>
             <td>{{tournament.club.name}}</td>
           </tr>
           <tr>

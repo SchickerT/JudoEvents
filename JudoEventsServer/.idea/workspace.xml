@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="" />
+    <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.css" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.html" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.html" />
+    </list>
     <ignored path="JudoEventsServer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />

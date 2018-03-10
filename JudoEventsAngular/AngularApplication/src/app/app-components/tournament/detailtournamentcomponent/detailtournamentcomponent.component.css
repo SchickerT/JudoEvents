@@ -18,3 +18,15 @@ th{
   background-color: black;
   border-bottom-color: white !important;
 }
+.tournpic{
+  height:30vh;
+  max-width: 30vh;
+}
+.contactpic{
+  max-width: 5vw;
+  height: 10vh;
+
+}
+agm-map {
+  height: 35vh;
+}
