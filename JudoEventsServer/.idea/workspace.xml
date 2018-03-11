@@ -7,29 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc00.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc11.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc20.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc31.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc40.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc51.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc60.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc71.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc80.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cc91.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cca1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ccb1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ccc1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ccd1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cce1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/ccf1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/cd01.dat" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/log/log2.dat" afterPath="$PROJECT_DIR$/db/db/db/log/log2.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/seg0/ca1.dat" afterPath="$PROJECT_DIR$/db/db/db/seg0/ca1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/log/log3.dat" afterPath="$PROJECT_DIR$/db/db/db/log/log3.dat" />
     </list>
     <ignored path="JudoEventsServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1044,7 +1022,7 @@
       <workItem from="1518452682735" duration="107000" />
       <workItem from="1518809913949" duration="172000" />
       <workItem from="1520465784530" duration="627000" />
-      <workItem from="1520466439260" duration="5722000" />
+      <workItem from="1520466439260" duration="5970000" />
     </task>
     <servers />
   </component>
@@ -1057,7 +1035,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102637000" />
+    <option name="totallyTimeSpent" value="102885000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />

@@ -85,3 +85,17 @@ agm-map {
   color: red;
 }
 
+th {
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border-bottom-color: white !important;
+}
+
+.table td{
+  padding:0.2rem;
+}
+
+.btn{
+  width:100%;
+}

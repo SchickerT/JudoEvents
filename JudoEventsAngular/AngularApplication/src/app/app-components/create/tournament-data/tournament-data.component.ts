@@ -206,6 +206,38 @@ export class TournamentDataComponent implements OnInit {
       }
     }
   }
+
+  private fieldArray: Array<any> = [];
+  private newAttribute: any = {};
+  private result:Array<any>=[];
+  private tmpArr:Array<any>=[];
+  private line:Array<any>=[];
+
+  addFieldValue() {
+    this.fieldArray.push(this.newAttribute)
+    this.newAttribute = {};
+    this.createResultArray();
+  }
+
+  deleteFieldValue(index) {
+    this.fieldArray.splice(index, 1);
+  }
+
+  public createResultArray():void{
+    console.log(this.fieldArray);
+    for(var i in this.fieldArray) {
+      console.log(this.fieldArray[i]);
+      this.line = this.fieldArray[i];
+      for (var attr in this.line) {
+        this.tmpArr.push(encodeURIComponent(this.line[attr]));
+      }
+      this.result.push(this.tmpArr.join(";"));
+      this.line = [];
+      this.tmpArr = [];
+    }
+
+    console.log(this.result);
+  }
 }
 interface marker {
   lat: number;
