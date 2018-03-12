@@ -44,12 +44,6 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label>Age and Weight:</label>
-          <input class="form-control col-md-12" formControlName="ageAndWeight" id="ageAndWeight"
-                 placeholder="Age and Weight Categories">
-        </div>
-
         <div>
           <label class="my-auto">Discription of tournament:</label>
           <app-hint-icon
@@ -92,6 +86,104 @@
             </div>
           </div>
         </div>
+
+        <label class="mt-4">Age and weight category:</label>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Sex/Age</th>
+            <th colspan="" >Weight</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let field of fieldArray; let i = index">
+            <td>
+              <input [(ngModel)]="field.sexAge" class="form-control" type="text" name="{{field.sexAge}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age1" class="form-control" type="text" name="{{field.age1}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age2" class="form-control" type="text" name="{{field.age2}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age3" class="form-control" type="text" name="{{field.age3}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age4" class="form-control" type="text" name="{{field.age4}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age5" class="form-control" type="text" name="{{field.age5}}"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age6" class="form-control" type="text" name="{{field.age6}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age7" class="form-control" type="text" name="{{field.age7}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age8" class="form-control" type="text" name="{{field.age8}}"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age9" class="form-control" type="text" name="{{field.age9}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age10" class="form-control" type="text" name="{{field.age10}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <button class="btn btn-danger"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control" type="text" id="newSexAge" [(ngModel)]="newAttribute.sexAge" name="newSexAge" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge1" [(ngModel)]="newAttribute.age1" name="newAge1" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge2" [(ngModel)]="newAttribute.age2" name="newAge2" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge3" [(ngModel)]="newAttribute.age3" name="newAge3" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge4" [(ngModel)]="newAttribute.age4" name="newAge4" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge5" [(ngModel)]="newAttribute.age5" name="newAge5"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge6" [(ngModel)]="newAttribute.age6" name="newAge6" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge7" [(ngModel)]="newAttribute.age7" name="newAge7" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge8" [(ngModel)]="newAttribute.age8" name="newAge8" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge9" [(ngModel)]="newAttribute.age9" name="newAge9"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge10" [(ngModel)]="newAttribute.age10" name="newAge10"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <button class="btn btn-success" type="button" (click)="addFieldValue()">Add</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
 
         <h3 class="mt-5">Location of Tournament</h3>
 
@@ -248,102 +340,7 @@
       </div>
     </div>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th>Sex/Age</th>
-        <th colspan="" >Weight</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let field of fieldArray; let i = index">
-        <td>
-          <input [(ngModel)]="field.sexAge" class="form-control" type="text" name="{{field.sexAge}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age1" class="form-control" type="text" name="{{field.age1}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age2" class="form-control" type="text" name="{{field.age2}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age3" class="form-control" type="text" name="{{field.age3}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age4" class="form-control" type="text" name="{{field.age4}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age5" class="form-control" type="text" name="{{field.age5}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age6" class="form-control" type="text" name="{{field.age6}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age7" class="form-control" type="text" name="{{field.age7}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age8" class="form-control" type="text" name="{{field.age8}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age9" class="form-control" type="text" name="{{field.age9}}" />
-        </td>
-        <td>
-          <input [(ngModel)]="field.age10" class="form-control" type="text" name="{{field.age10}}" />
-        </td>
-        <td>
-          <button class="btn btn-danger"  type="button" (click)="deleteFieldValue(i)">Delete</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input class="form-control" type="text" id="newSexAge" [(ngModel)]="newAttribute.sexAge" name="newSexAge" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge1" [(ngModel)]="newAttribute.age1" name="newAge1" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge2" [(ngModel)]="newAttribute.age2" name="newAge2" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge3" [(ngModel)]="newAttribute.age3" name="newAge3" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge4" [(ngModel)]="newAttribute.age4" name="newAge4" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge5" [(ngModel)]="newAttribute.age5" name="newAge5" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge6" [(ngModel)]="newAttribute.age6" name="newAge6" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge7" [(ngModel)]="newAttribute.age7" name="newAge7" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge8" [(ngModel)]="newAttribute.age8" name="newAge8" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge9" [(ngModel)]="newAttribute.age9" name="newAge9" />
-        </td>
-        <td>
-          <input class="form-control" type="text" id="newAge10" [(ngModel)]="newAttribute.age10" name="newAge10" />
-        </td>
-        <td>
-          <button class="btn btn-success" type="button" (click)="addFieldValue()">Add</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
+
 
   </div>
 </div>

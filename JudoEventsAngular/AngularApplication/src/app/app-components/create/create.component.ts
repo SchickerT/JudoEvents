@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {TournamentDao} from "../../core/dao/tournament.dao";
 import {Event} from "../../core/model/event";
 import {Representative} from "../../core/model/representative";
 import {Location} from "../../core/model/location";
+import {TournamentDataComponent} from "./tournament-data/tournament-data.component";
 
 @Component({
   selector: 'app-create',
@@ -12,13 +13,14 @@ import {Location} from "../../core/model/location";
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+  @ViewChild(TournamentDataComponent) child;
 
+  public resultString:string;
   public eventFormGroup: FormGroup;
 
   constructor(private router: Router,
               private tournamentDao: TournamentDao,
               private fb:FormBuilder) {
-
     this.eventFormGroup = fb.group({
       tournamentData: fb.group({
         date: [''],
@@ -58,7 +60,7 @@ export class CreateComponent implements OnInit {
       this.eventFormGroup.value.tournamentData.description,
       this.eventFormGroup.value.tournamentData.entryFee,
       this.eventFormGroup.value.tournamentData.rewards,
-      this.eventFormGroup.value.tournamentData.ageAndWeight,
+      this.resultString,
       this.eventFormGroup.value.tournamentData.eventPicture,
       this.getLocationFromForm(),
       this.getRepresentativeFromForm()
@@ -89,10 +91,12 @@ export class CreateComponent implements OnInit {
   }
 
   public async submitForm(): Promise<void> {
+     this.resultString=this.child.createResultArray();
 
     let event: Event = this.getTournamentFromForm();
     console.log(event);
-
     await this.tournamentDao.createTournament(event);
+
+
   }
 }

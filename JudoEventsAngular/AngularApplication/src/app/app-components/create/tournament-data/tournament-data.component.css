@@ -84,7 +84,8 @@ agm-map {
   bottom: -2em;
   color: red;
 }
-
+table { table-layout: fixed; }
+td { width: 9.1%; }
 th {
   font-weight: bold;
   color: white;

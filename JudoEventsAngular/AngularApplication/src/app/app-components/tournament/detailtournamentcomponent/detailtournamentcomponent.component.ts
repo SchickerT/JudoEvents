@@ -17,8 +17,12 @@ export class DetailtournamentcomponentComponent implements OnInit {
   public tournamentPic:string;
   public clubPic:string;
   public repPic:string;
-
+  public ages:string = "";
   public id:number;
+
+  helperSplit:string[];
+  private ageAndWeightArray:Array<any>=[];
+  private maxEntriesArray:number = 0;
 
   lat: number;
   lng: number;
@@ -62,6 +66,7 @@ export class DetailtournamentcomponentComponent implements OnInit {
     this.lng =  this.tournament.location.longitude;
     this.markers[0].lat=this.lat;
     this.markers[0].lng = this.lng;
+    this.getArrayFromString(this.tournament.ageAndWeight);
 
   }
 
@@ -87,6 +92,28 @@ export class DetailtournamentcomponentComponent implements OnInit {
     }
     else
       return false;
+  }
+
+  tmp:any;
+  i:number = 0;
+  public getArrayFromString(ageWeight:string):void{
+    this.helperSplit = ageWeight.split("/");
+    for(let entry of this.helperSplit){
+      this.tmp = entry.split(";");
+      this.ageAndWeightArray.push(this.tmp);
+
+      if(this.i!=this.helperSplit.length-1)
+        this.ages = this.ages + this.tmp[0] + ", ";
+      else
+        this.ages = this.ages + this.tmp[0];
+
+      if(this.tmp.length>this.maxEntriesArray)
+        this.maxEntriesArray = this.tmp.length;
+
+      this.i++;
+    }
+    console.log(this.ageAndWeightArray);
+    console.log(this.maxEntriesArray);
   }
 
   markers: marker[] = [

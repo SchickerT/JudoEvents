@@ -216,14 +216,14 @@ export class TournamentDataComponent implements OnInit {
   addFieldValue() {
     this.fieldArray.push(this.newAttribute)
     this.newAttribute = {};
-    this.createResultArray();
   }
 
   deleteFieldValue(index) {
     this.fieldArray.splice(index, 1);
   }
 
-  public createResultArray():void{
+  public createResultArray():string{
+    this.fieldArray.push(this.newAttribute);
     console.log(this.fieldArray);
     for(var i in this.fieldArray) {
       console.log(this.fieldArray[i]);
@@ -236,8 +236,11 @@ export class TournamentDataComponent implements OnInit {
       this.tmpArr = [];
     }
 
-    console.log(this.result);
+    console.log(this.result.join("/"));
+    return this.result.join("/");
   }
+
+
 }
 interface marker {
   lat: number;

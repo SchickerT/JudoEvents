@@ -7,7 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/db/db/log/log3.dat" afterPath="$PROJECT_DIR$/db/db/db/log/log3.dat" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1260.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1271.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1280.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1291.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12a0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12b1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12c0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12d1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12e0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12f1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1301.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1311.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1321.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1331.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1341.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1351.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1361.dat" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.css" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.html" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JudoEventsServer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,10 +83,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="InitBean.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InitBean.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/business/InitBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="351">
               <caret line="61" column="200" lean-forward="false" selection-start-line="61" selection-start-column="200" selection-end-line="61" selection-end-column="200" />
               <folding />
             </state>
@@ -119,9 +140,18 @@
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/entity/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state relative-caret-position="373">
+              <caret line="66" column="18" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EVENT" pinned="false" current-in-tab="true">
+        <entry file="das://table:/f367cbf4/dc8ea421-1cad-4c42-ac1a-6273ac4da3f5/APP.EVENT">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -132,18 +162,6 @@
             <state relative-caret-position="45">
               <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventResourceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/rest/EventResourceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -214,7 +232,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/rest/EventResourceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/facade/EventFacade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/entity/Event.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Club.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Representative.java" />
@@ -222,6 +239,7 @@
         <option value="$PROJECT_DIR$/src/main/java/rest/EventResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/entity/Location.java" />
         <option value="$PROJECT_DIR$/src/main/java/business/InitBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/Event.java" />
       </list>
     </option>
   </component>
@@ -1022,7 +1040,7 @@
       <workItem from="1518452682735" duration="107000" />
       <workItem from="1518809913949" duration="172000" />
       <workItem from="1520465784530" duration="627000" />
-      <workItem from="1520466439260" duration="5970000" />
+      <workItem from="1520466439260" duration="6800000" />
     </task>
     <servers />
   </component>
@@ -1035,7 +1053,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102885000" />
+    <option name="totallyTimeSpent" value="103715000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1353,13 +1371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/f367cbf4/dc8ea421-1cad-4c42-ac1a-6273ac4da3f5/APP.EVENT">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/rest/EventResourceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1424,14 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1442,9 +1445,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/business/InitBean.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="351">
           <caret line="61" column="200" lean-forward="false" selection-start-line="61" selection-start-column="200" selection-end-line="61" selection-end-column="200" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/entity/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="66" column="18" lean-forward="false" selection-start-line="66" selection-start-column="18" selection-end-line="66" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/f367cbf4/dc8ea421-1cad-4c42-ac1a-6273ac4da3f5/APP.EVENT">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
