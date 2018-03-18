@@ -21,7 +21,7 @@ import { TournamentDataComponent } from './app-components/create/tournament-data
 import {CoreModule} from "./core/core.module";
 import {TournamentDao} from "./core/dao/tournament.dao";
 import {AppConfig} from "./core/app-config/app-config.service";
-import {CommonModule} from "@angular/common";
+import {CommonModule, CurrencyPipe} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FilePickerModule} from "./libs/file-picker/file-picker.module";
 import { AgmCoreModule } from '@agm/core';

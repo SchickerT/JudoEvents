@@ -4,6 +4,7 @@ import {Event} from "../../../core/model/event";
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import { MouseEvent } from '@agm/core';
 import {PickedFile} from "../../../libs/file-picker/picked-file";
+import {CurrencyPipe} from "@angular/common";
 declare let $;
 
 @Component({

@@ -36,6 +36,9 @@ const routes: Routes=[
   {
     path:'create',
     component:CreateComponent
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 

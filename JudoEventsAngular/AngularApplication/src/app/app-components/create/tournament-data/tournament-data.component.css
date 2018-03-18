@@ -100,3 +100,6 @@ th {
 .btn{
   width:100%;
 }
+hoover:hover{
+  cursor: pointer !important;
+}

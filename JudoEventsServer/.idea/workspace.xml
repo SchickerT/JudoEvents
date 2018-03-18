@@ -7,27 +7,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="717571d3-21e4-4621-8366-73b46da0556b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1260.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1271.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1280.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1291.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12a0.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12b1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12c0.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12d1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12e0.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c12f1.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1301.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1311.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1321.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1331.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1341.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1351.dat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1361.dat" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/create.component.ts" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1370.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1381.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1390.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13a1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13b0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13c1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13d0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13e1.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c13f0.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1401.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1411.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1421.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1431.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1441.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1451.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1461.dat" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/db/db/db/seg0/c1471.dat" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.css" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.html" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/create/tournament-data/tournament-data.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app.module.ts" afterPath="$PROJECT_DIR$/../JudoEventsAngular/AngularApplication/src/app/app.module.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="JudoEventsServer.iws" />
@@ -71,10 +71,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EventResource.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EventFacade.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/facade/EventFacade.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EventResource.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rest/EventResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="-1977">
               <caret line="89" column="75" lean-forward="false" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -147,21 +157,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EVENT" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EVENT" pinned="false" current-in-tab="false">
         <entry file="das://table:/f367cbf4/dc8ea421-1cad-4c42-ac1a-6273ac4da3f5/APP.EVENT">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="49" lean-forward="false" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -1040,7 +1040,7 @@
       <workItem from="1518452682735" duration="107000" />
       <workItem from="1518809913949" duration="172000" />
       <workItem from="1520465784530" duration="627000" />
-      <workItem from="1520466439260" duration="6800000" />
+      <workItem from="1520466439260" duration="7818000" />
     </task>
     <servers />
   </component>
@@ -1053,7 +1053,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103715000" />
+    <option name="totallyTimeSpent" value="104733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -1339,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/facade/EventFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/dc8ea421-1cad-4c42-ac1a-6273ac4da3f5/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1425,16 +1417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rest/EventResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="89" column="75" lean-forward="false" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1463,6 +1445,24 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/facade/EventFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rest/EventResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1977">
+          <caret line="89" column="75" lean-forward="false" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
