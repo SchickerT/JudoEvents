@@ -2,6 +2,7 @@
   background-color: black;
   bottom: 0;
   height:13vh;
+  min-height: 120px;
   color:white;
   text-align: center !important;
   vertical-align: middle !important;

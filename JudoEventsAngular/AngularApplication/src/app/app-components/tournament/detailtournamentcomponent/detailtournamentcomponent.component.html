@@ -47,6 +47,10 @@
       <div class="col-md-9">
         {{tournament.location.zipCode}} {{tournament.location.city}}, {{tournament.location.federalState}}
       </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <a  href="https://www.google.at/maps/place/{{tournament.location.street}},+{{tournament.location.zipCode}}+{{tournament.location.city}}/@{{tournament.location.latitude}},{{tournament.location.longitude}}">Show on Maps</a>
+      </div>
     </div>
   </div>
 

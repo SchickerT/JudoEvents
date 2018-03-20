@@ -14,9 +14,10 @@
       [label]="">
 
       <agm-info-window>
-        <strong><h6>{{t.name}}</h6><br>{{t.location.street}}, {{t.location.zipCode}} {{t.location.city}}
+        <strong><h6>{{t.name}}</h6>{{t.location.street}}, {{t.location.zipCode}} {{t.location.city}}
         <br>
           <a href="http://localhost:4200/searchtourn/tournaments/tournament/{{t.id}}">Details</a>
+          <a style="float:right" href="https://www.google.at/maps/place/{{t.location.street}},+{{t.location.zipCode}}+{{t.location.city}}/@{{t.location.latitude}},{{t.location.longitude}}">Show Maps</a>
         </strong>
       </agm-info-window>
 
