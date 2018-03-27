@@ -61,9 +61,13 @@ public class Event {
     private TypeOfEvent typeOfEvent;
 
     private String name;
+    
+    @Column(length = 5000)
     private String discription;
     private double entryFee;
     private String rewards;
+
+    @Column(length = 5000)
     private String ageAndWeight;
 
     @Lob

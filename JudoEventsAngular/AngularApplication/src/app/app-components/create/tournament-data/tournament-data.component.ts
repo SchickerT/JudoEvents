@@ -170,7 +170,7 @@ export class TournamentDataComponent implements OnInit {
 
   public options: Object = {
     charCounterCount: true,
-    charCounterMax: 1000,
+    charCounterMax: 3500,
     quickInsert:false,
     heightMin: 250,
     heightMax: 490,
