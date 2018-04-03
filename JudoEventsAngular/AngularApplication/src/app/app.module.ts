@@ -17,7 +17,19 @@ import { ShowcomponenttournamentComponent } from './app-components/tournament/sh
 import {HttpClientModule} from "@angular/common/http";
 import {HttpModule} from "@angular/http";
 import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
-
+import { TournamentDataComponent } from './app-components/create/tournament-data/tournament-data.component';
+import {CoreModule} from "./core/core.module";
+import {TournamentDao} from "./core/dao/tournament.dao";
+import {AppConfig} from "./core/app-config/app-config.service";
+import {CommonModule, CurrencyPipe} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FilePickerModule} from "./libs/file-picker/file-picker.module";
+import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+import {BsDatepickerModule} from "ngx-bootstrap";
+import {FroalaEditorModule, FroalaViewModule} from "angular-froala-wysiwyg";
+import { HintIconComponent } from './libs/hint-icon/hint-icon.component';
+import {TournamentService} from "./app-components/tournament/tournament.service";
 
 @NgModule({
   declarations: [
@@ -31,18 +43,30 @@ import {DetailtournamentcomponentComponent} from "./app-components/tournament/de
     CreateComponent,
     SearchcomponenttournamentComponent,
     ShowcomponenttournamentComponent,
-    DetailtournamentcomponentComponent
-
+    DetailtournamentcomponentComponent,
+    TournamentDataComponent,
+    HintIconComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     HttpModule,
     AppRoutingModule,
+    MultiselectDropdownModule,
     NgDatepickerModule,
-    MultiselectDropdownModule
+    HttpClientModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FilePickerModule,
+    BsDatepickerModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCtUgkBX-lnNZIFdMHoPod8CZMAtgsT0ZA'
+    }),
+    AgmSnazzyInfoWindowModule,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot()
   ],
-  providers: [],
+  providers: [TournamentDao,AppConfig,TournamentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

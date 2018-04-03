@@ -1,0 +1,346 @@
+<div class="py-3 mt-5">
+  <div class="cont mt-2">
+    <form [formGroup]="stepFormGroup">
+      <h1>Create your own tournament</h1>
+      <br>
+      <h3>General Tournament Information</h3>
+
+      <div class="form-group">
+        <div class="row mt-3">
+          <div class="col-md-8">
+            <label>Tournament Name:</label>
+            <input class="form-control col-md-12" formControlName="tournamentName" id="tournamentName"
+                   placeholder="Tournament Name"  [ngClass]="{'error': hasErrors('tournamentName') && isHoovered('tournamentName')}">
+            <div *ngIf="hasErrors('tournamentName') && isHoovered('tournamentName')" class="error-msg">
+              <div *ngIf="isRequired('tournamentName')">Tournament name is required.</div>
+            </div>
+
+            <div class="form-group row mt-2">
+              <div class="col-md-12">
+                <label>Date of Tournament:</label>
+                <input readonly type="text" class="hoover form-control" style="background-color: white" placeholder="Date start and end" [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker formControlName="date" [bsConfig]=""/>
+              </div>
+            </div>
+
+            <div class="form-group row mt-2">
+              <div class="col-md-6">
+                <label>Entry Fee:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="entryFee" id="entryFee"
+                       placeholder="Entry Fee in Euro">
+              </div>
+              <div class="col-md-6">
+                <label>Rewards:</label>
+                <input style="width: 100% !important;" class="form-control" formControlName="rewards" id="rewards"
+                       placeholder="Reward for winning the tournament">
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="col-12 d-flex">
+              <img *ngIf="logo != undefined && logo.dataURL != undefined"
+                   [src]="logo?.dataURL"
+                   class="pic-logo mx-auto ">
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label class="my-auto">Discription of tournament:</label>
+          <app-hint-icon
+            [message]="'Please write a short discription here for you tournament.'"></app-hint-icon>
+        </div>
+
+        <div class="my-2" (keypress)="storeFroala()" id="editor" [froalaEditor]="options"></div>
+
+        <div class="form-group row">
+          <label for="logo" class="col-md-3 col-form-label">Logo (max. 2MB):</label>
+          <div class="input-group col-md-11"
+               fitFilePicker
+               [accept]="'image/*'"
+               [maxSize]="2000000"
+               (filePick)="filePicked($event)">
+            <input class="form-control"
+                   id="logo"
+                   type="text"
+                   [value]="logo?.name"
+                   placeholder="choose a picture..."
+                   disabled>
+            <div class="input-group-append">
+              <button style="width: 205% !important;" class="btn btn-primary" type="button">choose</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="height: 100px; max-height: 100px">
+          <div class="col-md-12">
+            <div fitFileDropzone
+                 [accept]="'image\/.'"
+                 [maxSize]="2000000"
+                 (fileDrop)="filePicked($event)"
+                 (dragenter)="isDrag = true"
+                 (dragleave)="isDrag = false"
+                 (drop)="isDrag = false"
+                 class="drop-zone h-100 w-100"
+                 [ngClass]="{'is-drag': isDrag}">
+              <div class="drop-zone-text centered-element" style="text-align: center; vertical-align: middle;"><br>Drag & Drop</div>
+            </div>
+          </div>
+        </div>
+
+        <label class="mt-4">Age and weight category:</label>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Sex/Age</th>
+            <th colspan="" >Weight</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let field of fieldArray; let i = index">
+            <td>
+              <input [(ngModel)]="field.sexAge" class="form-control" type="text" name="{{field.sexAge}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age1" class="form-control" type="text" name="{{field.age1}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age2" class="form-control" type="text" name="{{field.age2}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age3" class="form-control" type="text" name="{{field.age3}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age4" class="form-control" type="text" name="{{field.age4}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age5" class="form-control" type="text" name="{{field.age5}}"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age6" class="form-control" type="text" name="{{field.age6}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age7" class="form-control" type="text" name="{{field.age7}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age8" class="form-control" type="text" name="{{field.age8}}"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age9" class="form-control" type="text" name="{{field.age9}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input [(ngModel)]="field.age10" class="form-control" type="text" name="{{field.age10}}" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <button class="btn btn-danger"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input class="form-control" type="text" id="newSexAge" [(ngModel)]="newAttribute.sexAge" name="newSexAge" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge1" [(ngModel)]="newAttribute.age1" name="newAge1" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge2" [(ngModel)]="newAttribute.age2" name="newAge2" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge3" [(ngModel)]="newAttribute.age3" name="newAge3" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge4" [(ngModel)]="newAttribute.age4" name="newAge4" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge5" [(ngModel)]="newAttribute.age5" name="newAge5"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge6" [(ngModel)]="newAttribute.age6" name="newAge6" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge7" [(ngModel)]="newAttribute.age7" name="newAge7" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge8" [(ngModel)]="newAttribute.age8" name="newAge8" [ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge9" [(ngModel)]="newAttribute.age9" name="newAge9"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <input class="form-control" type="text" id="newAge10" [(ngModel)]="newAttribute.age10" name="newAge10"[ngModelOptions]="{standalone: true}">
+            </td>
+            <td>
+              <button class="btn btn-success" type="button" (click)="addFieldValue()">Add</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+        <h3 class="mt-5">Location of Tournament</h3>
+
+        <div class="form-group row mt-2">
+          <div class="col-md-3">
+            <label>Zip Code:</label>
+            <input style="width: 100% !important;" class="form-control" formControlName="zipCode" id="zipCode"
+                   placeholder="Zip Code e.g. 4266">
+          </div>
+          <div class="col-md-9">
+            <label>City:</label>
+            <input style="width: 100% !important;" class="form-control" formControlName="city" id="city"
+                   placeholder="City">
+          </div>
+        </div>
+
+        <div class="form-group row mt-2">
+          <div class="col-md-9">
+            <label>Street Name:</label>
+            <input style="width: 100% !important;" class="form-control" formControlName="street" id="street"
+                   placeholder="Street name">
+          </div>
+          <div class="col-md-3">
+            <label>Street Number:</label>
+            <input style="width: 100% !important;" class="form-control" formControlName="streetNumber" id="streetNumber"
+                   placeholder="Street Number">
+          </div>
+        </div>
+
+        <div class="form-group row mt-2">
+          <div class="col-md-6">
+            <label>Federal State:</label>
+            <input style="width: 100% !important;" class="form-control" formControlName="federalState" id="federalState"
+                   placeholder="Federal State">
+          </div>
+          <div class="col-md-6">
+            <label>Country:</label>
+          <div class="dropdown show">
+            <select style="width: 100%;" #selectElem (change)="setNewCountry(selectElem.value)" class=" form-control">
+              <option value="" disabled selected>Select a Country</option>
+              <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+            </select>
+           </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <agm-map
+            [latitude]="lat"
+            [longitude]="lng"
+            [zoom]="zoom"
+
+            [disableDefaultUI]="true"
+            [zoomControl]="true"
+            (mapClick)="mapClicked($event)">
+
+            <agm-marker
+              *ngFor="let m of markers; let i = index"
+              (markerClick)="clickedMarker(m.label, i)"
+              [latitude]="m.lat"
+              [longitude]="m.lng"
+              [label]="m.label"
+              [markerDraggable]="m.draggable"
+              (dragEnd)="markerDragEnd(m, $event)">
+
+              <agm-info-window>
+                <strong>InfoWindow content</strong>
+              </agm-info-window>
+
+            </agm-marker>
+          </agm-map>
+        </div>
+
+        <h3 class="mt-5">Representative of Tournament</h3>
+
+        <div class="row">
+          <div class="col-md-10">
+          <div class="form-group row mt-2">
+            <div class="col-md-6">
+              <label>First Name:</label>
+              <input style="width: 100% !important;" class="form-control" formControlName="firstName" id="firstName"
+                     placeholder="First name">
+            </div>
+            <div class="col-md-6">
+              <label>Last Name:</label>
+              <input style="width: 100% !important;" class="form-control" formControlName="lastName" id="lastName"
+                     placeholder="Last name">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6">
+              <label>Email:</label>
+              <input style="width: 100% !important;" class="form-control" formControlName="email" id="email"
+                     placeholder="Email">
+            </div>
+            <div class="col-md-6">
+              <label>Phone Number:</label>
+              <input style="width: 100% !important;" class="form-control" formControlName="phoneNumber" id="phoneNumber"
+                     placeholder="Phone Number e.g. +43 676 12345678">
+            </div>
+          </div>
+          </div>
+          <div class="col-md-2">
+            <div class="col">
+              <div class="col-12 d-flex">
+                <img *ngIf="iconRep != undefined && iconRep.dataURL != undefined"
+                     [src]="iconRep?.dataURL"
+                     class="pic-person mx-auto ">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="iconRep" class="col-md-3 col-form-label">Picture (max. 2MB):</label>
+          <div class="input-group col-md-11"
+               fitFilePicker
+               [accept]="'image/*'"
+               [maxSize]="2000000"
+               (filePick)="iconPicked($event)">
+            <input class="form-control"
+                   id="iconRep"
+                   type="text"
+                   [value]="iconRep?.name"
+                   placeholder="choose a picture..."
+                   disabled>
+            <div class="input-group-append">
+              <button style="width: 205% !important;" class="btn btn-primary" type="button">choose</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="height: 100px; max-height: 100px">
+          <div class="col-md-12">
+            <div fitFileDropzone
+                 [accept]="'image\/.'"
+                 [maxSize]="2000000"
+                 (fileDrop)="iconPicked($event)"
+                 (dragenter)="isDragTwo = true"
+                 (dragleave)="isDragTwo = false"
+                 (drop)="isDragTwo = false"
+                 class="drop-zone h-100 w-100"
+                 [ngClass]="{'is-drag-two': isDragTwo}">
+              <div class="drop-zone-text centered-element" style="text-align: center; vertical-align: middle;"><br>Drag & Drop</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-12" style="max-width: 1000px">
+        <pre class="code-preview">{{stepFormGroup.value | json}}</pre>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>

@@ -4,3 +4,13 @@
 td{
   font-size:large;
 }
+
+.loadlabel{
+  color:black;
+  text-align: center;
+  margin-top:35vh;
+}
+
+.flag-size-tourn{
+  font-size: 100%;
+}

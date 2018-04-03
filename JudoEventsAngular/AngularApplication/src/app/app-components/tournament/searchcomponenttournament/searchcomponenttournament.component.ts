@@ -1,6 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {IMultiSelectOption, IMultiSelectSettings, IMultiSelectTexts} from "angular-2-dropdown-multiselect";
-import { DatepickerOptions } from 'ng2-datepicker';
+import { DatepickerOptions,NgDatepickerModule,NgDatepickerComponent } from 'ng2-datepicker';
+import {TournamentService} from "../tournament.service";
+declare let $;
 
 @Component({
   selector: 'app-searchcomponenttournament',
@@ -8,159 +10,105 @@ import { DatepickerOptions } from 'ng2-datepicker';
   styleUrls: ['./searchcomponenttournament.component.css']
 })
 export class SearchcomponenttournamentComponent implements OnInit {
+  bsRangeValue: any = [null,null];
+  countrySearch:any;
+  mindate:Date=new Date(Date.now());
+  maxdate:Date=new Date(2025,12,31);
 
-  @Output()
-    public searchRequested: EventEmitter<void>;
-
-  dateFrom: Date;
-  dateTo: Date;
-
-// Default selection
-  optionsModelWeight: number[] = [];
-  optionsModelAge: number[]=[];
-  optionsModelCountry: number[]=[];
-
-
-//Weightclasses
-// Settings configuration
-  weightSetting: IMultiSelectSettings = {
-    showCheckAll:true,
-    showUncheckAll:true,
-    enableSearch: false,
-    checkedStyle: 'fontawesome',
-    buttonClasses: 'btn  btn-lg',
-    dynamicTitleMaxItems: 4,
-    displayAllSelectedText: true
-  };
-// Text configuration
-  weightText: IMultiSelectTexts = {
-    checkAll: 'Select all',
-    uncheckAll: 'Unselect all',
-    checked: 'Weightclass Selected',
-    checkedPlural: 'Weightclasses Selected',
-    searchPlaceholder: 'Find',
-    searchEmptyResult: 'No Country Found...',
-    searchNoRenderText: 'Type in search box to see results...',
-    defaultTitle: 'Choose your Weightcategories...',
-    allSelected: 'All Weights Selected',
-  };
-// Labels / Parents
-  weightOption: IMultiSelectOption[] = [
-    { id: 1, name: 'Womens Weight Categories', isLabel: true },
-    { id: 2, name: '-48 kg', parentId: 1 },
-    { id: 3, name: '-52 kg', parentId: 1 },
-    { id: 4, name: '-57 kg', parentId: 1 },
-    { id: 5, name: '-63 kg', parentId: 1 },
-    { id: 6, name: '-70 kg', parentId: 1 },
-    { id: 7, name: '-78 kg', parentId: 1 },
-    { id: 8, name: '+78 kg', parentId: 1 },
-    { id: 9, name: 'Mens Weight Categories', isLabel: true },
-    { id: 10, name: '-60 kg', parentId: 9 },
-    { id: 11, name: '-66 kg', parentId: 9 },
-    { id: 12, name: '-73 kg', parentId: 9 },
-    { id: 13, name: '-81 kg', parentId: 9 },
-    { id: 14, name: '-90 kg', parentId: 9 },
-    { id: 15, name: '-100 kg', parentId: 9 },
-    { id: 16, name: '+100 kg', parentId: 9 }
-  ];
-
-
-  //Ages
-  ageSetting: IMultiSelectSettings = {
-    showCheckAll:true,
-    showUncheckAll:true,
-    enableSearch: false,
-    checkedStyle: 'fontawesome',
-    buttonClasses: 'btn  btn-lg',
-    dynamicTitleMaxItems: 4,
-    displayAllSelectedText: true
-  };
-  ageText: IMultiSelectTexts = {
-    checkAll: 'Select all',
-    uncheckAll: 'Unselect all',
-    checked: 'Ageclass Selected',
-    checkedPlural: 'Ageclasses Selected',
-    searchPlaceholder: 'Find',
-    searchEmptyResult: 'Nothing found...',
-    searchNoRenderText: 'Type in search box to see results...',
-    defaultTitle: 'Choose your Agecategories...',
-    allSelected: 'All Ages Selected',
-  };
-  ageOption: IMultiSelectOption[] = [
-    { id: 1, name: 'Age Categories Overall', isLabel: true },
-    { id: 2, name: 'Seniors', parentId: 1 },
-    { id: 3, name: 'Under 23', parentId: 1 },
-    { id: 4, name: 'Juniors', parentId: 1 },
-    { id: 5, name: 'Cadets', parentId: 1 },
-    { id: 6, name: 'Under 17', parentId: 1 },
-    { id: 7, name: 'Under 16', parentId: 1 },
-    { id: 8, name: 'Under 15', parentId: 1 },
-    { id: 9, name: 'Under 14', parentId: 1 },
-    { id: 10, name: 'Under 13', parentId: 1 },
-    { id: 11, name: 'Under 12', parentId: 1 },
-    { id: 12, name: 'Under 11', parentId: 1 },
-    { id: 13, name: 'Under 10', parentId: 1 },
-    { id: 14, name: 'Under 9', parentId: 1 },
-    { id: 15, name: 'Under 8', parentId: 1 }
-  ];
-
-  countrySetting: IMultiSelectSettings = {
-    showCheckAll:false,
-    showUncheckAll:false,
-    enableSearch: true,
-    checkedStyle: 'fontawesome',
-    buttonClasses: 'btn  btn-lg',
-    dynamicTitleMaxItems: 1,
-    displayAllSelectedText: true,
-    selectionLimit:1
-  };
-  countryText: IMultiSelectTexts = {
-    checkAll: 'Select all',
-    uncheckAll: 'Unselect all',
-    checked: 'Countries Selected',
-    checkedPlural: 'Country Selected',
-    searchPlaceholder: 'Find country',
-    searchEmptyResult: 'No country found...',
-    searchNoRenderText: 'Type in search box to see results...',
-    defaultTitle: 'Choose your Country...',
-    allSelected: 'All Countries Selected',
-  };
-  countryOption: IMultiSelectOption[] = [
-    { id: 1, name: 'European Countries', isLabel: true },
-    { id: 2, name: 'Austria', parentId: 1 },
-    { id: 3, name: 'Denmark', parentId: 1 },
-    { id: 4, name: 'Germany', parentId: 1 },
-    { id: 5, name: 'Hungary', parentId: 1 },
-    { id: 6, name: 'Russia', parentId: 1 },
-    { id: 7, name: 'Sweden', parentId: 1 }
-  ];
-
-
+  sDate:Date;
+  eDate:Date;
+  countries = [
+    {id: 1, name: "Albania"},
+    {id: 2, name: "Andorra"},
+    {id: 3, name: "Armenia"},
+    {id: 4, name: "Austria"},
+    {id: 5, name: "Azerbaijan"},
+    {id: 6, name: "Belarus"},
+    {id: 7, name: "Belgium"},
+    {id: 8, name: "Bosnia and Herzegovina"},
+    {id: 9, name: "Bulgaria"},
+    {id: 10, name: "Croatia"},
+    {id: 11, name: "Cyprus"},
+    {id: 12, name: "Czech Republic"},
+    {id: 13, name: "Denmark"},
+    {id: 14, name: "Estonia"},
+    {id: 15, name: "Finland"},
+    {id: 16, name: "France"},
+    {id: 17, name: "Georgia"},
+    {id: 18, name: "Germany"},
+    {id: 19, name: "Greece"},
+    {id: 20, name: "Hungary"},
+    {id: 21, name: "Iceland"},
+    {id: 22, name: "Ireland"},
+    {id: 23, name: "Italy"},
+    {id: 24, name: "Kazakhstan"},
+    {id: 25, name: "Kosovo"},
+    {id: 26, name: "Latvia"},
+    {id: 27, name: "Liechtenstein"},
+    {id: 28, name: "Lithunia"},
+    {id: 29, name: "Luxembourg"},
+    {id: 30, name: "Macedonia"},
+    {id: 31, name: "Malta"},
+    {id: 32, name: "Moldova"},
+    {id: 33, name: "Monaco"},
+    {id: 34, name: "Montenegro"},
+    {id: 35, name: "Netherlands"},
+    {id: 36, name: "Norway"},
+    {id: 37, name: "Poland"},
+    {id: 38, name: "Portugal"},
+    {id: 39, name: "Romania"},
+    {id: 40, name: "Russia"},
+    {id: 41, name: "San Marino"},
+    {id: 42, name: "Serbia"},
+    {id: 43, name: "Slovakia"},
+    {id: 44, name: "Slovenia"},
+    {id: 45, name: "Spain"},
+    {id: 46, name: "Sweden"},
+    {id: 47, name: "Switzerland"},
+    {id: 48, name: "Turkey"},
+    {id: 49, name: "Ukraine"},
+    {id: 50, name: "United Kingdom"}
+    ];
 
   optionsDatepicker: DatepickerOptions={
-    minYear: 2017,
+    minYear: 2018,
     maxYear: 2030,
     displayFormat: 'MMM D[,] YYYY',
     barTitleFormat: 'MMMM YYYY',
-    firstCalendarDay: 1
+    firstCalendarDay: 1,
+    minDate: new Date(Date.now())
   };
 
-  constructor() {
-    this.dateFrom = new Date();
-    this.dateTo = new Date();
-    this.searchRequested = new EventEmitter<void>();
+  constructor(private tournamentService: TournamentService) {
+    this.countrySearch = "";
   }
 
   ngOnInit() {
-
+    $('.ddm a').on('click', function(){
+      $('.ddt').html($(this).html() + '<span class="caret"></span>');
+      console.log($(this).html().toString().substring(99));
+    })
   }
 
-  onChange(){
-    console.log(this.optionsModelAge);
-    console.log(this.optionsModelWeight);
-  }
+  public sendSearchParams(){
+    if( !this.countrySearch.name==null || typeof this.countrySearch.name !='undefined'){
+     this.tournamentService.country = this.countrySearch.name;
+     console.log("setCountry");
+    }
+    else
+      this.tournamentService.country="-1";
 
-  public searchPressed(){
-    this.searchRequested.emit();
+    if(this.bsRangeValue[0]!=null) {
+
+      this.sDate = new Date(this.bsRangeValue[0]);
+      this.tournamentService.startDate= this.sDate.toISOString();
+
+      this.eDate = new Date(this.bsRangeValue[1]);
+      this.tournamentService.endDate = this.eDate.toISOString();
+      console.log("setDate");
+    }else {
+      this.tournamentService.startDate = "-1";
+      this.tournamentService.endDate = "-1";
+    }
   }
 }

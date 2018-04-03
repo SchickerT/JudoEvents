@@ -1,5 +1,7 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
@@ -25,19 +27,20 @@ public class Representative {
     private String email;
     private String phoneNumber;
 
-
-    private String pictureUrl;
+    @Lob
+    @JsonIgnore
+    private byte[] representativePicture;
 
     public Representative() {
 
     }
 
-    public Representative(String firstName, String lastName, String email, String phoneNumber,String pictureUrl) {
+    public Representative(String firstName, String lastName, String email, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.pictureUrl = pictureUrl;
+        //this.representativePicture = picture;
     }
 
     //region GETTER AND SETTER
@@ -82,14 +85,13 @@ public class Representative {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public byte[] getRepresentativePicture() {
+        return representativePicture;
     }
 
-    public void setPictureUrl(String picture) {
-        this.pictureUrl = picture;
+    public void setRepresentativePicture(byte[] representativePicture) {
+        this.representativePicture = representativePicture;
     }
-
 
     //endregion
 }

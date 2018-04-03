@@ -1,3 +1,26 @@
-<p>
-  landmap works!
-</p>
+<div class="">
+  <agm-map
+    [latitude]="lat"
+    [longitude]="lng"
+    [zoom]="zoom"
+
+    [disableDefaultUI]="true"
+    [zoomControl]="true">
+
+    <agm-marker
+      *ngFor="let t of tournaments; let i = index"
+      [latitude]="t.location.latitude"
+      [longitude]="t.location.longitude"
+      [label]="">
+
+      <agm-info-window>
+        <strong><h6>{{t.name}}</h6>{{t.location.street}}, {{t.location.zipCode}} {{t.location.city}}
+        <br>
+          <a href="http://localhost:4200/searchtourn/tournaments/tournament/{{t.id}}">Details</a>
+          <a style="float:right" href="https://www.google.at/maps/place/{{t.location.street}},+{{t.location.zipCode}}+{{t.location.city}}/@{{t.location.latitude}},{{t.location.longitude}}">Show Maps</a>
+        </strong>
+      </agm-info-window>
+
+    </agm-marker>
+  </agm-map>
+</div>

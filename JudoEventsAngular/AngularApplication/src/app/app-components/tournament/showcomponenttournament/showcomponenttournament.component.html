@@ -1,4 +1,7 @@
-<div class="px-2">
+
+<div *ngIf="!isLoading">
+
+<div class="px-2 mt-5">
   <div class="row mx-5 my-4">
     <div class="input-group input-group-lg col-8">
       <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1" [(ngModel)]="nameSearch" (input)="searchCountryChange()">
@@ -13,10 +16,10 @@
       <thead class="thead-inverse">
         <tr>
           <th>Name</th>
-          <th>Veranstalter</th>
-          <th>Von Datum</th>
-          <th>Bis Datum</th>
-          <th>Land</th>
+          <th>Hosting Club</th>
+          <th>Date from</th>
+          <th>Date to</th>
+          <th>Country</th>
           <th></th>
         </tr>
       </thead>
@@ -36,14 +39,20 @@
             {{tourn.endDate | date: 'dd MMM yyyy'}}
           </td>
           <td>
-            <span class="flag-icon" ngClass={{tourn.countryCode}} style="border: 0.1px solid black;"></span> &nbsp; {{tourn.location.country}}
+            <span class="flag-icon flag-size-tourn" ngClass={{tourn.location.countryCode}} style="border: 0.1px solid black;"></span> &nbsp; {{tourn.location.country}}
           </td>
           <td>
-            <button class="btn btn-primary"  type="button"  (click)="showDetails(tourn.id)">Details</button>
+            <button class="btn btn-primary"  type="button" [routerLink]="['/searchtourn/tournaments/tournament',tourn.id]">Details</button>
           </td>
         </tr>
       </tbody>
     </table>
     </div>
   </div>
+</div>
+</div>
+<div *ngIf="isLoading" class="cont loadlabel">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  <h3>Tournaments getting loaded...</h3>
 </div>

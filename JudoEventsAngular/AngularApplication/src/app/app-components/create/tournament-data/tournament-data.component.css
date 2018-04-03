@@ -1,0 +1,105 @@
+.cont{
+  width:100%;
+}
+.ngx-datepicker-input{
+  background-color: white !important;
+  color: black;
+  width:100% !important;
+  height: calc(2.3125rem + 10px);
+  border-radius: 4px;
+  z-index: 3;
+}
+
+.dropdown{
+  width:100% !important;
+}
+.dropdown-menu{
+  width: 100% !important;
+}
+.datepicker{
+  z-index: 3 !important;
+  width: 100% !important;
+}
+
+
+#logo {
+  cursor: pointer;
+}
+
+.drop-zone {
+  position: relative;
+  background-color: #f9f9f9;
+  border: dashed 2px grey;
+  border-radius: .50rem;
+  color: grey;
+  font-size: 1.25rem;
+  user-select: none;
+  cursor: default;
+  transition: all 0.25s;}
+
+.drop-zone-text {
+  pointer-events: none;
+}
+
+.is-drag {
+  background-color: #efefef;
+  border: dashed 2px #0069d9;
+  color: #0069d9;
+}
+
+.input-group-append.btn {
+  border-bottom-right-radius: .25rem !important;
+  border-top-right-radius: .25rem !important;
+
+}
+.btn{
+  cursor: pointer;
+}
+
+.pic-logo{
+  max-height: 25vh !important;
+  height:25vh !important;
+  max-width: 25vh !important;
+  margin-top: 2vh;
+}
+agm-map {
+  height: 35vh;
+}
+
+.pic-person{
+  max-height: 15vh !important;
+  height:15vh !important;
+  max-width: 12vh !important;
+  margin-top: 4vh;
+
+}
+
+.error {
+  border-color:red;
+  color: red;
+}
+.error-msg {
+  display: block;
+  font-size: 75%;
+  bottom: -2em;
+  color: red;
+}
+table { table-layout: fixed; }
+td { width: 9.1%; }
+th {
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  border-bottom-color: white !important;
+}
+
+.table td{
+  padding:0.2rem;
+}
+
+.btn{
+  width:100%;
+}
+hoover:hover{
+  cursor: pointer !important;
+}

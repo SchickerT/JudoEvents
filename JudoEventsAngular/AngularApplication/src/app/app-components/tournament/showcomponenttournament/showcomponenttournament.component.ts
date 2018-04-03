@@ -10,16 +10,9 @@ import {Event} from "../../../core/model/event";
 @Component({
   selector: 'app-showcomponenttournament',
   templateUrl: './showcomponenttournament.component.html',
-  styleUrls: ['./showcomponenttournament.component.css'],
-  providers:[TournamentService]
+  styleUrls: ['./showcomponenttournament.component.css']
 })
 export class ShowcomponenttournamentComponent implements OnInit {
-
-  @Output()
-  showDetailComp= new EventEmitter();
-
-  @Output()
-  sendIdEvent = new EventEmitter();
 
   public tournaments: Event[];
   tmpTourn: Event[];
@@ -27,6 +20,7 @@ export class ShowcomponenttournamentComponent implements OnInit {
   errorMessage: string;
   nameSearch: string ="";
   countrySearch: string="";
+  public isLoading:boolean = true;
 
   constructor(private tournamentService: TournamentService) {
   }
@@ -42,17 +36,19 @@ export class ShowcomponenttournamentComponent implements OnInit {
     this.tmpTourn = this.tournamentService.tournaments;
     this.tournaments = this.tournamentService.tournaments;
     console.log("initview");
-  }
-  public showDetails(id:number){
-    console.log(id);
-    this.showDetailComp.emit(true);
-    this.sendIdEvent.emit(id);
-
+    this.blafunc();
   }
 
   public searchCountryChange(){
     this.tournaments=this.tmpTourn.filter(c => c.name.toLowerCase().includes(this.nameSearch.toLowerCase())).filter(e=>e.location.country.toLowerCase().includes(this.countrySearch.toLowerCase()));
   }
 
+  public blafunc(){
+    this.isLoading=true;
+    setTimeout(()=>{
+      this.isLoading=false;
+    },0)
+
+  }
 
 }

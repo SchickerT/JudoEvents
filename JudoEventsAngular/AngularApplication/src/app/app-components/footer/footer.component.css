@@ -1,7 +1,8 @@
 .footer {
   background-color: black;
   bottom: 0;
-  height:120px;
+  height:13vh;
+  min-height: 120px;
   color:white;
   text-align: center !important;
   vertical-align: middle !important;
@@ -10,7 +11,7 @@
   padding: auto;
 }
 .click{
-  opacity: 0.3;
+  opacity: 0.7;
   cursor: pointer;
   margin-right: 7px;
 

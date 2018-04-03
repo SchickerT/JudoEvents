@@ -1,3 +1,207 @@
-<p>
-  detailtournamentcomponent works!
-</p>
+<div class="main-container mt-5" *ngIf="checkLoading()">
+  <div class="">
+    <div>
+      <h1>{{tournament.name}}</h1>
+    </div>
+    <div class="d-flex">
+    <div>
+      <div class="mt-2">
+        <h4 style="color:grey;">{{tournament.startDate| date: 'dd MMM yyyy'}} - {{tournament.endDate| date: 'dd MMM yyyy'}}</h4>
+      </div>
+      <div>
+        <h5>
+          {{tournament.location.country}}, {{tournament.location.city}} <span class="flag-icon" ngClass={{tournament.location.countryCode}} style="border: 0.1px solid black;"></span>
+        </h5>
+      </div>
+
+    <div class="row mt-4" >
+      <div class="col-md-12">
+        <h4>General Information</h4>
+      </div>
+      <div class="col-md-3 mt-4">
+        Entry Fee:
+      </div>
+      <div class="col-md-9 mt-4">
+        {{tournament.entryFee| number : '1.2-2' }} €
+      </div>
+      <div class="col-md-3">
+        Victory Awards:
+      </div>
+      <div class="col-md-9">
+        {{tournament.rewards}}
+      </div>
+      <div class="col-md-3">
+        Ages:
+      </div>
+      <div class="col-md-9">
+        {{ages}}
+      </div>
+      <div class="col-md-3">
+        Address:
+      </div>
+      <div class="col-md-9">
+        {{tournament.location.street}}
+      </div>
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-9">
+        {{tournament.location.zipCode}} {{tournament.location.city}}, {{tournament.location.federalState}}
+      </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <a  href="https://www.google.at/maps/place/{{tournament.location.street}},+{{tournament.location.zipCode}}+{{tournament.location.city}}/@{{tournament.location.latitude}},{{tournament.location.longitude}}">Show on Maps</a>
+      </div>
+    </div>
+  </div>
+
+    <div>
+    <div>
+      <img *ngIf="true"
+           [src]="tournamentPic"
+           class="pic-logo mx-auto tournpic">
+    </div>
+    </div>
+
+    </div>
+</div>
+
+  <div class="mt-3">
+    <agm-map
+      [latitude]="lat"
+      [longitude]="lng"
+      [zoom]="zoom"
+
+      [disableDefaultUI]="true"
+      [zoomControl]="true">
+
+      <agm-marker
+        *ngFor="let m of markers; let i = index"
+        [latitude]="m.lat"
+        [longitude]="m.lng"
+        [label]="m.label">
+
+        <agm-info-window>
+          <strong><h6>{{tournament.name}}</h6><br>{{tournament.location.street}}, {{tournament.location.zipCode}} {{tournament.location.city}}</strong>
+        </agm-info-window>
+
+      </agm-marker>
+    </agm-map>
+  </div>
+
+
+  <div style="margin-top: 5vh;">
+    <h4>Discription</h4>
+    <div style="width: 100%" class="mt-4" [froalaView]="tournament.discription"></div>
+
+  </div>
+
+
+
+
+
+
+  <div>
+    {{tournament.eventPicture}}
+  </div>
+
+  <div style="margin-top: 5vh;">
+    <h4>Ages and Weight Classes</h4>
+    <br>
+    <table class="table table-hover" >
+      <tr *ngFor="let weight of ageAndWeightArray" >
+        <th>
+          {{weight[0]}}
+        </th>
+        <td>
+          {{weight[1]}}
+        </td>
+        <td>
+          {{weight[2]}}
+        </td>
+        <td>
+          {{weight[3]}}
+        </td>
+        <td>
+          {{weight[4]}}
+        </td>
+        <td>
+          {{weight[5]}}
+        </td>
+        <td>
+          {{weight[6]}}
+        </td>
+        <td>
+          {{weight[7]}}
+        </td>
+        <td>
+          {{weight[8]}}
+        </td>
+        <td>
+          {{weight[9]}}
+        </td>
+        <td>
+          {{weight[10]}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+  <div style="margin-top: 5vh;">
+    <h4>Additional Information</h4>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+        <h5>Contact</h5>
+        <br>
+        <table style="width:100%;">
+          <tr>
+            <td *ngIf="repPicIsEmpty()" style="width: 6vw" rowspan="3">
+                <img *ngIf="true"
+                     [src]="repPic"
+                     class="pic-logo mx-auto contactpic ">
+            </td>
+            <td *ngIf="!repPicIsEmpty()" style="width: 6vw" rowspan="3">
+              <img class="pic-logo mx-auto contactpic" src="../../assets/blank_rep.png">
+            </td>
+            <td>{{tournament.representative.firstName}} {{tournament.representative.lastName}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.representative.email}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.representative.phoneNumber}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <h5>Club</h5>
+        <br>
+        <table style="width:100%;">
+          <tr>
+            <td *ngIf="!clubPicIsEmpty()" style="width: 6vw" rowspan="3">
+                <img *ngIf="true"
+                     [src]="clubPic"
+                     class="pic-logo mx-auto contactpic">
+            </td>
+            <td *ngIf="clubPicIsEmpty()" style="width: 6vw" rowspan="3">
+              <img class="pic-logo mx-auto contactpic" src="../../assets/club_pic.jpg">
+            </td>
+            <td>{{tournament.club.name}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.club.location.country}}, {{tournament.club.location.city}}</td>
+          </tr>
+          <tr>
+            <td>{{tournament.club.email}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!checkLoading()"class="cont loadlabel">
+  <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+  <span class="sr-only">Loading...</span>
+  <h3>Tournament getting loaded...</h3>
+</div>

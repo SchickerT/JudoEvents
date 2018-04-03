@@ -1,22 +1,11 @@
- <div *ngIf="!searchLoaded" class="backimg" [style.backgroundImage]="'url(../../assets/register-background.png)'">
-
-   <div style="position:relative;" *ngIf="!searchLoaded">
-    <app-searchcomponenttournament (searchRequested)="blafunc()"  [ngClass]="{'disabled-element': isLoading}"></app-searchcomponenttournament>
-
-     <div *ngIf="isLoading" class="cont">
-       <h1> Ladet</h1>
+<div *ngIf="!searchLoaded&&!isLoading" class="backimg" [style.backgroundImage]="'url(../../assets/register-background.png)'">
+<div class="cont">
+    <div style="position:relative;" *ngIf="!searchLoaded">
+      <app-searchcomponenttournament (searchRequested)="blafunc()"  [ngClass]="{'disabled-element': isLoading}"></app-searchcomponenttournament>
      </div>
-   </div>
-
+  </div>
 </div>
 
- <div *ngIf="searchLoaded">
-   <div *ngIf="!showDetail">
-    <app-showcomponenttournament  (sendIdEvent)="setIdEvent($event)"></app-showcomponenttournament>
-   </div>
 
-   <div *ngIf="showDetail">
-     <app-detailtournamentcomponent></app-detailtournamentcomponent>
-   </div>
- </div>
+
 

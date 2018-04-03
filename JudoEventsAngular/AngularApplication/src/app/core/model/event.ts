@@ -11,28 +11,25 @@ export class Event{
   public entryFee:number;
   public rewards:string;
   public ageAndWeight:string;
-  public pictureUrl:string;
-
+  public eventPicture:string;
   public location: Location;
   public club: Club;
   public representative: Representative;
-  public countryCode: string;
 
 
 
-  constructor(id: number,
-              name: string,
-              startDate: Date,
-              endDate: Date,
-              countryCode: string,
+  constructor(name?: string,
+              startDate?: Date,
+              endDate?: Date,
               discription?: string,
               entryFee?: number,
               rewards?: string,
               ageAndWeight?: string,
-              pictureUrl?: string,
+              picture?: string,
               location?: Location,
+              representative?: Representative,
               club?: Club,
-              representative?: Representative) {
+              id?: number) {
 
     this.id = id;
     this.startDate = startDate;
@@ -42,9 +39,7 @@ export class Event{
     this.entryFee = entryFee;
     this.rewards = rewards;
     this.ageAndWeight = ageAndWeight;
-    this.pictureUrl = pictureUrl;
-    this.countryCode = countryCode;
-
+    this.eventPicture = picture;
     this.location = location;
     this.club = club;
     this.representative = representative;

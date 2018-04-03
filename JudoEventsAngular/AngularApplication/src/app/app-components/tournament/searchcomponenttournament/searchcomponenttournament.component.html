@@ -2,45 +2,55 @@
   <div class="cont">
     <div class="searchblock d-block p-5">
       <div class="innercontent ">
-        <h1>Finde dein Turnier</h1>
+        <h1>Find your Tournament</h1>
 
-        <div class="row col-12  my-4">
-          <div class="input-group input-group-lg col-8">
-            <input type="text" class="form-control" placeholder="Search Turnament by Name..." aria-label="Search" aria-describedby="sizing-addon1">
+        <div class="row col-12 mt-4">
+          <div class="col-8">
+            Date from/to:
           </div>
-          <div class="col-4">
-            <ss-multiselect-dropdown class="dropdowncasual" [options]="countryOption" [texts]="countryText" [settings]="countrySetting" [(ngModel)]="optionsModelCountry" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
+
+          <div class="col-4 ">
+            Country:
           </div>
         </div>
 
         <div class="row col-12">
-          <h4 class="col-2 my-1">Date from:</h4>
-          <div class="datepicker col-4">
-            <ng-datepicker [(ngModel)]="dateFrom"></ng-datepicker>
+          <div class="input-group input-group-lg col-8">
+            <input class="form-control" #drp="bsDaterangepicker" placeholder="Select date for search...." [minDate]="mindate" [maxDate]="maxdate" bsDaterangepicker [(ngModel)]="bsRangeValue">
+          </div>
+          <div class="dropdown show col-4">
+            <select [(ngModel)]="countrySearch" class="btn-lg btn btn-country">
+              <option value="" disabled selected>Select a Country</option>
+              <option *ngFor="let c of countries" [ngValue]="c">{{c.name}}</option>
+            </select>
+          </div>
           </div>
 
-          <h4 class="col-2 my-1">Date to:</h4>
-          <div class="datepicker col-4 ">
-            <ng-datepicker [(ngModel)]="dateTo" [options]="optionsDatepicker"></ng-datepicker>
-          </div>
-        </div>
 
-        <div class="row col-12 my-4">
+
+
+
+
+
+
+        <!-- div class="row col-12 my-4">
           <div class="col-6">
             <ss-multiselect-dropdown class="dropdowncasual" [options]="ageOption" [texts]="ageText" [settings]="ageSetting" [(ngModel)]="optionsModelAge" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
           </div>
           <div class="col-6">
             <ss-multiselect-dropdown class="dropdowncasual" [options]="weightOption" [texts]="weightText" [settings]="weightSetting" [(ngModel)]="optionsModelWeight" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
           </div>
-        </div>
+        </div-->
 
         <div class="row col-12 my-4">
           <div class="col-3"></div>
           <div class="col-6">
-            <button (click)="searchPressed()" class="btn btn-lg btn-success">Search</button>
+            <button class="btn btn-lg btn-success" (click)="sendSearchParams()" [routerLink]="['/searchtourn/tournaments']">Search</button>
           </div>
+
           <div class="col-3"></div>
         </div>
+
       </div>
     </div>
   </div>

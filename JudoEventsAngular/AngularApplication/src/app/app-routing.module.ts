@@ -5,6 +5,8 @@ import {TournamentComponent} from "./app-components/tournament/tournament.compon
 import {TrainingscampComponent} from "./app-components/trainingscamp/trainingscamp.component";
 import {LandmapComponent} from "./app-components/landmap/landmap.component";
 import {CreateComponent} from "./app-components/create/create.component";
+import {DetailtournamentcomponentComponent} from "./app-components/tournament/detailtournamentcomponent/detailtournamentcomponent.component";
+import {ShowcomponenttournamentComponent} from "./app-components/tournament/showcomponenttournament/showcomponenttournament.component";
 
 const routes: Routes=[
   {
@@ -12,8 +14,16 @@ const routes: Routes=[
     component:MainpageComponent
   },
   {
-    path:'tournament',
+    path:'searchtourn',
     component:TournamentComponent
+  },
+  {
+    path:'searchtourn/tournaments',
+    component:ShowcomponenttournamentComponent
+  },
+  {
+    path:'searchtourn/tournaments/tournament/:id',
+    component:DetailtournamentcomponentComponent
   },
   {
     path:'trainingscamp',
@@ -26,6 +36,9 @@ const routes: Routes=[
   {
     path:'create',
     component:CreateComponent
+  },
+  {
+    path: '**', redirectTo: ''
   }
 ];
 

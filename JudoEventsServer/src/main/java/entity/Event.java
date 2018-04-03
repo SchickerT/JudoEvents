@@ -1,11 +1,19 @@
 package entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import entity.enums.TypeOfEvent;
+import helper.serialization.LocalDateDeserializer;
 
+import javax.ejb.Local;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -19,7 +27,19 @@ import java.util.List;
         ),
         @NamedQuery(
            name="Event.findAllTournaments",
-           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= current_date order by e.startDate,e.endDate"
+           query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= :custSD order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournDate",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.startDate >= :custSD and e.endDate <= :custED order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournCount",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount and e.startDate>=:custSD order by e.startDate"
+        ),
+        @NamedQuery(
+                name="Event.findAllTournCountDate",
+                query = "select e from Event e where e.typeOfEvent='Turnament' and e.location.country = :custCount and e.startDate >= :custSD and e.endDate <= :custED order by e.startDate"
         )
 })
 @XmlRootElement
@@ -29,20 +49,30 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private LocalDate startDate;
+
+
+    @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate endDate;
+
+    @JsonFormat(pattern="yyyy-MM-dd")
+    private LocalDate startDate;
 
     @Enumerated(EnumType.STRING)
     private TypeOfEvent typeOfEvent;
 
     private String name;
+
+    @Column(length = 5000)
     private String discription;
     private double entryFee;
     private String rewards;
-    private String ageAndWeight;
-    private String countryCode;
 
-    private String pictureUrl;
+    @Column(length = 5000)
+    private String ageAndWeight;
+
+    @Lob
+    @JsonIgnore
+    private byte[] eventPicture;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.DETACH})
     private Location location;
@@ -56,7 +86,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent, String name, String discription, double entryFee, String rewards, String ageAndWeight, String pictureUrl, Location location, Club club, Representative representative,String countryCode) {
+    public Event(String name,LocalDate startDate, LocalDate endDate, TypeOfEvent typeOfEvent,  String discription, double entryFee, String rewards, String ageAndWeight, Location location, Club club, Representative representative) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.typeOfEvent = typeOfEvent;
@@ -68,8 +98,6 @@ public class Event {
         this.location = location;
         this.club = club;
         this.representative = representative;
-        this.pictureUrl = pictureUrl;
-        this.countryCode = countryCode;
     }
 
     //region GETTER AND SETTER
@@ -146,12 +174,12 @@ public class Event {
         this.ageAndWeight = ageAndWeight;
     }
 
-    public String getPictureUrl() {
-        return pictureUrl;
+    public byte[] getEventPicture() {
+        return eventPicture;
     }
 
-    public void setPictureUrl(String picture) {
-        this.pictureUrl = picture;
+    public void setEventPicture(byte[] eventPicture) {
+        this.eventPicture = eventPicture;
     }
 
     public Location getLocation() {
@@ -178,13 +206,6 @@ public class Event {
         this.representative = representative;
     }
 
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
 
 //endregion
 }
